@@ -13,8 +13,8 @@ package main
 import (
 	"golang.org/x/mobile/app"
 
+	_ "github.com/seletskiy/java-go-rpc/rpc/go_rpc"
 	_ "golang.org/x/mobile/bind/java"
-	_ "golang.org/x/mobile/example/java-go-rpc/rpc/go_rpc"
 )
 
 func main() {

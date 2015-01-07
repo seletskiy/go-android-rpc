@@ -11,8 +11,10 @@ fi
 
 mkdir -p libs/armeabi-v7a src/go/rpc
 ANDROID_APP=$PWD
-(cd ../.. && ln -sf $PWD/app/*.java $ANDROID_APP/src/go)
-(cd ../.. && ln -sf $PWD/bind/java/Seq.java $ANDROID_APP/src/go)
+
+ln -sf $GOPATH/src/golang.org/x/mobile/app/*.java $ANDROID_APP/src/go
+ln -sf $GOPATH/src/golang.org/x/mobile/bind/java/Seq.java $ANDROID_APP/src/go
+
 CGO_ENABLED=1 GOOS=android GOARCH=arm GOARM=7 \
 	go build -ldflags="-shared" .
 mv -f java-go-rpc libs/armeabi-v7a/libgojni.so
