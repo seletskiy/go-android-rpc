@@ -8,6 +8,8 @@
 // See README for details.
 package main
 
+//go:generate ./generate.bash
+
 import (
 	"golang.org/x/mobile/app"
 
