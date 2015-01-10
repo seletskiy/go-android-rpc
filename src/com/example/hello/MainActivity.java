@@ -14,10 +14,13 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import java.util.*;
 import android.util.Log;
 import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONArray;
+import android.util.Log;
 //import android.hardware.SensorEvent;
 
 /*
@@ -49,15 +52,18 @@ public class MainActivity extends Activity {
             JSONArray jsonViews = new JSONArray();
             ViewGroup rootView = (ViewGroup) findViewById(R.id.useless_layout);
             for(int i = 0; i < rootView.getChildCount(); i++) {
-                View childView = parentView.getChildAt(i);
+                View childView = rootView.getChildAt(i);
                 int resId = childView.getId();
-                String resName = childView.getTransitionName();
                 JSONObject jsonChild = new JSONObject();
-                jsonChild.put("id", resId);
+                jsonChild.put("id", String.format("%d", resId));
+                String resName = childView.getResources().getResourceName(
+                    childView.getId());
+                Log.v("!!!", String.format("%s", resName));
                 jsonChild.put("name", resName);
                 jsonViews.put(jsonChild);
             }
             json.put("resources", jsonViews);
+            Rpc.Handle(json.toString());
         } catch (JSONException e) {
             System.out.println(e);
             // @TODO: catch exception

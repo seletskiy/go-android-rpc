@@ -2,8 +2,7 @@ package rpc
 
 import (
 	"encoding/json"
-	"fmt"
-	"time"
+	"log"
 )
 
 type rpcServer struct {
@@ -14,20 +13,7 @@ type rpcServer struct {
 func (server *rpcServer) Run() {
 	for {
 		data := <-server.input
-		switch data["event"] {
-		// initialization: gogiubind
-		case "onTheVeryBeginning":
-			// @TODO: loop through data["resources"] and fill resources map
-		// click on useless_button
-		case "onClick":
-			// from R.java
-			// @TODO: create goguibind
-			if data["id"] == fmt.Sprintf("%d", 0x7f030000) {
-				server.hideView(data["id"].(string))
-				time.Sleep(time.Second * 1)
-				server.showView(data["id"].(string))
-			}
-		}
+		log.Printf("!!! %#v", data)
 	}
 }
 
