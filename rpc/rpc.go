@@ -15,6 +15,10 @@ func (server *rpcServer) Run() {
 	for {
 		data := <-server.input
 		switch data["event"] {
+		// initialization: gogiubind
+		case "onTheVeryBeginning":
+			// @TODO: loop through data["resources"] and fill resources map
+		// click on useless_button
 		case "onClick":
 			// from R.java
 			// @TODO: create goguibind

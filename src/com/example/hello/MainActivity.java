@@ -36,10 +36,32 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Go.init(getApplicationContext());
-        setContentView(R.layout.layout);
+        setContentView(R.layout.useless_layout);
 
         mFrontend = new Frontend();
         Rpc.Link(mFrontend);
+
+        // Pass resources (views) to go (goguibind)
+        // @TODO: add multiple layouts support
+        // @TODO: become recursive to allow nested ViewGroups
+        try {
+            JSONObject json = new JSONObject();
+            JSONArray jsonViews = new JSONArray();
+            ViewGroup rootView = (ViewGroup) findViewById(R.id.useless_layout);
+            for(int i = 0; i < rootView.getChildCount(); i++) {
+                View childView = parentView.getChildAt(i);
+                int resId = childView.getId();
+                String resName = childView.getTransitionName();
+                JSONObject jsonChild = new JSONObject();
+                jsonChild.put("id", resId);
+                jsonChild.put("name", resName);
+                jsonViews.put(jsonChild);
+            }
+            json.put("resources", jsonViews);
+        } catch (JSONException e) {
+            System.out.println(e);
+            // @TODO: catch exception
+        }
     }
 
     public void someOnClickHandler(View view) {
