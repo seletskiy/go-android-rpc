@@ -9,25 +9,25 @@ var server = &rpcServer{
 	input: make(chan map[string]interface{}),
 }
 
-func init() {
-	go server.Run()
-}
-
 type Frontend interface {
-	Handle(payload string)
+	CallFrontend(payload string) (reply string)
 }
 
 func Link(frontend Frontend) {
 	server.frontend = frontend
+	go server.Run()
 }
 
-func Handle(payload string) {
+func CallBackend(payload string) string {
 	var data interface{}
 	err := json.Unmarshal([]byte(payload), &data)
 	if err != nil {
 		log.Fatalf(`Unmarshal in Send error: %s`, err)
-		return
+		return ""
 	}
 
 	server.Handle(data.(map[string]interface{}))
+
+	// no reply for you, feeble java server!
+	return ""
 }

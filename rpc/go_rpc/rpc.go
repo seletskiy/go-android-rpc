@@ -9,36 +9,51 @@ import (
 	"golang.org/x/mobile/bind/seq"
 )
 
+func proxy_CallBackend(out, in *seq.Buffer) {
+	param_payload := in.ReadUTF16()
+	res := rpc.CallBackend(param_payload)
+	out.WriteUTF16(res)
+}
+
 const (
-	proxyFrontendDescriptor = "go.rpc.Frontend"
-	proxyFrontendHandleCode = 0x10a
+	proxyFrontendDescriptor       = "go.rpc.Frontend"
+	proxyFrontendCallFrontendCode = 0x10a
 )
+
+func proxyFrontendCallFrontend(out, in *seq.Buffer) {
+	ref := in.ReadRef()
+	v := ref.Get().(rpc.Frontend)
+	param_payload := in.ReadUTF16()
+	res := v.CallFrontend(param_payload)
+	out.WriteUTF16(res)
+}
+
+func init() {
+	seq.Register(proxyFrontendDescriptor, proxyFrontendCallFrontendCode, proxyFrontendCallFrontend)
+}
 
 type proxyFrontend seq.Ref
 
-func (p *proxyFrontend) Handle(payload string) {
-	out := new(seq.Buffer)
-	out.WriteUTF16(payload)
-	seq.Transact((*seq.Ref)(p), proxyFrontendHandleCode, out)
-}
-
-func proxy_Handle(out, in *seq.Buffer) {
-	param_payload := in.ReadUTF16()
-	rpc.Handle(param_payload)
+func (p *proxyFrontend) CallFrontend(payload string) string {
+	in := new(seq.Buffer)
+	in.WriteUTF16(payload)
+	out := seq.Transact((*seq.Ref)(p), proxyFrontendCallFrontendCode, in)
+	res_0 := out.ReadUTF16()
+	return res_0
 }
 
 func proxy_Link(out, in *seq.Buffer) {
 	var param_frontend rpc.Frontend
 	param_frontend_ref := in.ReadRef()
-	if param_frontend_ref.Num < 0 {
+	if param_frontend_ref.Num < 0 { // go object
 		param_frontend = param_frontend_ref.Get().(rpc.Frontend)
-	} else {
+	} else { // foreign object
 		param_frontend = (*proxyFrontend)(param_frontend_ref)
 	}
 	rpc.Link(param_frontend)
 }
 
 func init() {
-	seq.Register("rpc", 1, proxy_Handle)
+	seq.Register("rpc", 1, proxy_CallBackend)
 	seq.Register("rpc", 2, proxy_Link)
 }

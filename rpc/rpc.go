@@ -11,9 +11,11 @@ type rpcServer struct {
 }
 
 func (server *rpcServer) Run() {
+	test := server.GetViewsList("useless_layout")
+	log.Printf("!!! %#v", test)
+
 	for {
-		data := <-server.input
-		log.Printf("!!! %#v", data)
+		_ = <-server.input
 	}
 }
 
@@ -21,20 +23,23 @@ func (server *rpcServer) Handle(data map[string]interface{}) {
 	server.input <- data
 }
 
-func (server *rpcServer) hideView(id string) {
-	payload, _ := json.Marshal(map[string]interface{}{
-		"id":     id,
-		"action": "hide",
-	})
+func (server *rpcServer) Call(payload map[string]interface{}) map[string]interface{} {
+	payloadJson, _ := json.Marshal(payload)
 
-	server.frontend.Handle(string(payload))
+	resultJson := server.frontend.CallFrontend(string(payloadJson))
+
+	var result map[string]interface{}
+	err := json.Unmarshal([]byte(resultJson), &result)
+	if err != nil {
+		panic(err)
+	}
+
+	return result
 }
 
-func (server *rpcServer) showView(id string) {
-	payload, _ := json.Marshal(map[string]interface{}{
-		"id":     id,
-		"action": "show",
+func (server *rpcServer) GetViewsList(layoutName string) map[string]interface{} {
+	return server.Call(map[string]interface{}{
+		"method": "ListViews",
+		"layout": layoutName,
 	})
-
-	server.frontend.Handle(string(payload))
 }
