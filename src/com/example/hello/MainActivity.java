@@ -15,7 +15,7 @@ import android.hardware.SensorManager;
 import android.content.Context;
 import android.view.*;
 import java.util.*;
-import org.json.*;;
+import org.json.*;
 import android.util.Log;
 //import android.hardware.SensorEvent;
 
@@ -42,10 +42,10 @@ public class MainActivity extends Activity {
     }
 
     public class RpcFrontend extends Rpc.Frontend.Stub {
-        protected Activity mActivity;
+        protected Context mContext;
 
-        RpcFrontend(Activity activity) {
-            mActivity = activity;
+        RpcFrontend(Context context) {
+            mContext = context;
         }
 
         public String CallFrontend(final String payload) {
@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
                     )
                 ).newInstance();
 
-                return handler.Handle(mActivity, json).toString();
+                return handler.Handle(mContext, json).toString();
             } catch (Exception e) {
                 // @TODO: proper exception handling
                 Log.v("!!!", e.toString());

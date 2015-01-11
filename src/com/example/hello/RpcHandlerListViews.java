@@ -1,13 +1,14 @@
 package com.example.hello;
 
 import go.rpc.Rpc;
-import org.json.*;;
+import org.json.*;
 import android.view.*;
 import android.util.Log;
 import android.app.Activity;
+import android.content.Context;
 
 public class RpcHandlerListViews implements RpcHandlerInterface {
-    public JSONObject Handle(Activity activity, JSONObject payload) {
+    public JSONObject Handle(Context context, JSONObject payload) {
         // Pass resources (views) to go (goguibind)
         // @TODO: become recursive to allow nested ViewGroups
         JSONObject json = new JSONObject();
@@ -15,6 +16,7 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
             String layoutName = payload.getString("layout");
 
             JSONArray jsonViews = new JSONArray();
+            Activity activity = (Activity) context;
             ViewGroup rootView = (ViewGroup) activity.findViewById(
                 R.id.class.getField(layoutName).getInt(null)
             );

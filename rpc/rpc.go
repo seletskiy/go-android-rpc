@@ -14,6 +14,9 @@ func (server *rpcServer) Run() {
 	test := server.GetViewsList("useless_layout")
 	log.Printf("!!! %#v", test)
 
+	test = server.GetSensorValues(1) //TYPE_ACCELEROMETER
+	log.Printf("!!! %#v", test)
+
 	for {
 		_ = <-server.input
 	}
@@ -41,5 +44,12 @@ func (server *rpcServer) GetViewsList(layoutName string) map[string]interface{} 
 	return server.Call(map[string]interface{}{
 		"method": "ListViews",
 		"layout": layoutName,
+	})
+}
+
+func (server *rpcServer) GetSensorValues(sensorId int) map[string]interface{} {
+	return server.Call(map[string]interface{}{
+		"method":    "SensorValues",
+		"sensor_id": sensorId,
 	})
 }

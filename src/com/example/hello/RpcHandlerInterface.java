@@ -1,8 +1,8 @@
 package com.example.hello;
 
-import android.app.Activity;
+import android.content.Context;
 import org.json.JSONObject;;
 
 public interface RpcHandlerInterface {
-    JSONObject Handle(Activity activity, JSONObject request);
+    JSONObject Handle(Context context, JSONObject request);
 }
