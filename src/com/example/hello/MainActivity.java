@@ -43,23 +43,33 @@ public class MainActivity extends Activity {
 
     public class RpcFrontend extends Rpc.Frontend.Stub {
         protected Context mContext;
+        protected Map<String, RpcHandlerInterface> mHandlers;
 
         RpcFrontend(Context context) {
             mContext = context;
+            mHandlers = new HashMap<String, RpcHandlerInterface>();
         }
 
         public String CallFrontend(final String payload) {
             try {
                 JSONObject json = new JSONObject(payload);
 
+                String handlerName = String.format(
+                    "%s.RpcHandler%s",
+                    this.getClass().getPackage().getName(),
+                    json.getString("method")
+                );
+
                 // @TODO: handle errors
-                RpcHandlerInterface handler = (RpcHandlerInterface) Class.forName(
-                    String.format(
-                        "%s.RpcHandler%s",
-                        this.getClass().getPackage().getName(),
-                        json.getString("method")
-                    )
-                ).newInstance();
+
+                RpcHandlerInterface handler = mHandlers.get(handlerName);
+                if (handler == null) {
+                    handler = (RpcHandlerInterface) Class.forName(
+                        handlerName
+                    ).newInstance();
+
+                    mHandlers.put(handlerName, handler);
+                }
 
                 return handler.Handle(mContext, json).toString();
             } catch (Exception e) {

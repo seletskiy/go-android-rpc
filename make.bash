@@ -15,6 +15,7 @@ ANDROID_APP=$PWD
 ln -sf $GOPATH/src/golang.org/x/mobile/app/*.java $ANDROID_APP/src/go
 ln -sf $GOPATH/src/golang.org/x/mobile/bind/java/Seq.java $ANDROID_APP/src/go
 
+go generate
 CGO_ENABLED=1 GOOS=android GOARCH=arm GOARM=7 \
 	go build -ldflags="-shared" .
 mv -f java-go-rpc libs/armeabi-v7a/libgojni.so

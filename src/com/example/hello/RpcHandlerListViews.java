@@ -15,7 +15,7 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
         try {
             String layoutName = payload.getString("layout");
 
-            JSONArray jsonViews = new JSONArray();
+            JSONObject jsonViews = new JSONObject();
             Activity activity = (Activity) context;
             ViewGroup rootView = (ViewGroup) activity.findViewById(
                 R.id.class.getField(layoutName).getInt(null)
@@ -26,11 +26,11 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
                 int resId = childView.getId();
                 JSONObject jsonChild = new JSONObject();
                 jsonChild.put("id", String.format("%d", resId));
-                String resName = childView.getResources().getResourceName(
+                String resName = childView.getResources().getResourceEntryName(
                     childView.getId()
                 );
-                jsonChild.put("name", resName);
-                jsonViews.put(jsonChild);
+                //jsonChild.put("name", resName);
+                jsonViews.put(resName, jsonChild);
             }
             json.put("resources", jsonViews);
         } catch (Exception e) {

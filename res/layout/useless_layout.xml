@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/useless_layout" >
-    <Button android:id="@+id/useless_button"
+    <TextView android:id="@+id/useless_accel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="useless thing"
-        android:onClick="someOnClickHandler" />
+        android:text="some accel values should be here" />
 </LinearLayout>
