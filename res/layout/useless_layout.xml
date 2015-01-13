@@ -8,4 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="some accel values should be here" />
+    <Button android:id="@+id/useless_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click me!" />
 </LinearLayout>

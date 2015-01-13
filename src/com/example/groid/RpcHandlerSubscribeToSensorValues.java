@@ -2,7 +2,6 @@ package com.example.groid;
 
 import go.groid.Groid;
 import org.json.*;
-import android.view.*;
 import android.util.Log;
 import android.content.Context;
 import android.hardware.*;

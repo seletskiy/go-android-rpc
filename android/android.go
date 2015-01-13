@@ -37,6 +37,13 @@ func (android *android) Run() {
 		"setTextSize", 0, float(60.0),
 	)
 
+	buttonId, err := views.GetString("resources", "useless_button", "id")
+	if err != nil {
+		log.Printf("!!! %#v", err)
+	}
+
+	server.SubscribeToViewEvent(buttonId, "Button", "onClick")
+
 	for {
 		payload := <-android.input
 
@@ -112,5 +119,18 @@ func (android *android) CallViewMethod(
 		"type":       viewType,
 		"viewMethod": methodName,
 		"args":       args,
+	})
+}
+
+func (server *android) SubscribeToViewEvent(
+	id string,
+	viewType string,
+	event string,
+) map[string]interface{} {
+	return server.Call(map[string]interface{}{
+		"method": "SubscribeToViewEvent",
+		"id":     id,
+		"type":   viewType,
+		"event":  event,
 	})
 }
