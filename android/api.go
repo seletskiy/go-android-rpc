@@ -1,11 +1,11 @@
-package rpc
+package groid
 
 import (
 	"encoding/json"
 	"log"
 )
 
-var server = &rpcServer{
+var server = &android{
 	input: make(chan map[string]interface{}),
 }
 
@@ -28,6 +28,6 @@ func CallBackend(payload string) string {
 
 	server.Handle(data.(map[string]interface{}))
 
-	// no reply for you, feeble java server!
+	// no reply for you, feeble java android!
 	return ""
 }

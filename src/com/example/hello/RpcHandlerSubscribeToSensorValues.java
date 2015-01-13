@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.rpc.Rpc;
+import go.groid.Groid;
 import org.json.*;
 import android.view.*;
 import android.util.Log;
@@ -66,7 +66,7 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
                 // @TODO
             }
 
-            Rpc.CallBackend(json.toString());
+            Groid.CallBackend(json.toString());
         }
     }
 }

@@ -10,7 +10,7 @@ if [ ! -f make.bash ]; then
 	exit 1
 fi
 
-mkdir -p libs/armeabi-v7a src/go/rpc
+mkdir -p libs/armeabi-v7a src/go/android
 ANDROID_APP=$PWD
 
 ln -sf $GOPATH/src/golang.org/x/mobile/app/*.java $ANDROID_APP/src/go

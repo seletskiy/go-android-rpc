@@ -1,9 +1,11 @@
 package main
 
+//go:generate ./generate.bash
+
 import (
 	"golang.org/x/mobile/app"
 
-	_ "github.com/seletskiy/go-android-rpc/rpc/go_rpc"
+	_ "github.com/seletskiy/go-android-rpc/android/go_android"
 	_ "golang.org/x/mobile/bind/java"
 )
 
