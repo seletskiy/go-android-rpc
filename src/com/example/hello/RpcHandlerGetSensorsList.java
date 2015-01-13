@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.groid;
 
 import go.rpc.Rpc;
 import org.json.*;
@@ -33,9 +33,9 @@ public class RpcHandlerGetSensorsList implements RpcHandlerInterface {
             }
 
             json.put("sensors", jsonFields);
-		} catch (Exception e) {
-			Log.v("", e.toString());
-		}
+        } catch (Exception e) {
+            Log.v("", e.toString());
+        }
         return json;
     }
 }

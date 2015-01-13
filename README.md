@@ -1,1 +1,3 @@
-Manipulating native Android UI via Golang-code.
+# Android UI in Google Go
+
+Allows to manipulate Android UI from inside Go code.

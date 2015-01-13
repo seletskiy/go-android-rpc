@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.groid;
 
 import go.rpc.Rpc;
 import org.json.*;
@@ -86,17 +86,10 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 continue;
             }
 
-            //Log.v("!!!", String.format("%s", method.getName()));
-
             boolean signatureMatched = true;
             int argIndex = 0;
             for (Class paramType : paramTypes) {
-                //Log.v("1: !!!", String.format("%s", paramType));
-                //Log.v("2: !!!", String.format("%s", requestedParamTypes.get(argIndex)));
-                //Log.v("!!!", String.format("%s", paramType.isAssignableFrom(requestedParamTypes.get(argIndex))));
-                //Log.v("!!!", String.format("%s", requestedParamTypes.get(argIndex).isAssignableFrom(paramType)));
                 if (!paramType.isAssignableFrom(requestedParamTypes.get(argIndex))) {
-                    //Log.v("!!!", "fail");
                     signatureMatched = false;
                     break;
                 }
@@ -109,8 +102,6 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 break;
             }
         }
-
-        //Log.v("!!!", String.format("%s", targetMethod));
 
         if (targetMethod == null) {
             // @TODO

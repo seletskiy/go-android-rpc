@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.groid;
 
 import go.rpc.Rpc;
 import org.json.*;

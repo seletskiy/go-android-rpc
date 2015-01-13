@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.groid;
 
 import go.rpc.Rpc;
 import org.json.*;
@@ -18,40 +18,40 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
 
     public JSONObject Handle(Context context, JSONObject payload) {
         JSONObject json = new JSONObject();
-		try {
-			int sensorId = Integer.parseInt(payload.getString("sensor_id"));
+        try {
+            int sensorId = Integer.parseInt(payload.getString("sensor_id"));
 
-			SensorManager sensorManager = (SensorManager) context.getSystemService(
+            SensorManager sensorManager = (SensorManager) context.getSystemService(
                 Context.SENSOR_SERVICE
             );
 
-			Listener listener = new Listener(sensorId);
+            Listener listener = new Listener(sensorId);
 
-			sensorManager.registerListener(listener,
+            sensorManager.registerListener(listener,
                 sensorManager.getDefaultSensor(sensorId),
                 SensorManager.SENSOR_DELAY_NORMAL
             );
 
             mListeners.add(listener);
-		} catch (Exception e) {
-			Log.v("!!!", e.toString());
-		}
+        } catch (Exception e) {
+            Log.v("!!!", e.toString());
+        }
         return json;
     }
 
 
-	public class Listener implements SensorEventListener {
+    public class Listener implements SensorEventListener {
         protected int mSensorId;
 
         Listener(int id) {
             mSensorId = id;
         }
 
-		@Override
-		public void onAccuracyChanged(Sensor sensor, int value) {}
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int value) {}
 
-		@Override
-		public void onSensorChanged(SensorEvent event) {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
             JSONObject json = new JSONObject();
             JSONArray jsonValues = new JSONArray();
 
@@ -67,6 +67,6 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
             }
 
             Rpc.CallBackend(json.toString());
-		}
-	}
+        }
+    }
 }

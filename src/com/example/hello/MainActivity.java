@@ -1,10 +1,4 @@
-/*
- * Copyright 2014 The Go Authors. All rights reserved.
- * Use of this source code is governed by a BSD-style
- * license that can be found in the LICENSE file.
- */
-
-package com.example.hello;
+package com.example.groid;
 
 import go.Go;
 import go.rpc.Rpc;
@@ -17,15 +11,12 @@ import android.view.*;
 import java.util.*;
 import org.json.*;
 import android.util.Log;
-//import android.hardware.SensorEvent;
 
 /*
- * MainActivity is the entry point for the libhello app.
+ * MainActivity is the entry point for the groid app.
  *
  * From here, the Go runtime is initialized and a Go function is
  * invoked via gobind language bindings.
- *
- * See example/libhello/README for details.
  */
 public class MainActivity extends Activity {
     protected RpcFrontend mFrontend;
