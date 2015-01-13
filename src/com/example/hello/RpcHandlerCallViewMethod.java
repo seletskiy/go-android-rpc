@@ -51,11 +51,24 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             return result;
         }
 
-        final List<Object> args = new ArrayList<Object>();
+        final List<Object> requestedParams = new ArrayList<Object>();
+        final List<Class> requestedParamTypes = new ArrayList<Class>();
 
         for (int i = 0; i < jsonArgs.length(); i++) {
             try {
-                args.add(jsonArgs.get(i));
+                if (jsonArgs.get(i) instanceof Integer) {
+                    // because get(i) will return Integer class, not int,
+                    // which is not acceptable for methods, that wants int.
+                    requestedParams.add(jsonArgs.getInt(i));
+                    requestedParamTypes.add(int.class);
+                } else if (jsonArgs.get(i) instanceof Double) {
+                    // downcast to float
+                    requestedParamTypes.add(float.class);
+                    requestedParams.add((float) jsonArgs.getDouble(i));
+                } else {
+                    requestedParams.add(jsonArgs.get(i));
+                    requestedParamTypes.add(jsonArgs.get(i).getClass());
+                }
             } catch(Exception e) {
                 Log.v("!!!", e.toString());
             }
@@ -69,14 +82,21 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
 
             Class[] paramTypes = method.getParameterTypes();
 
-            if (paramTypes.length != args.size()) {
+            if (paramTypes.length != requestedParams.size()) {
                 continue;
             }
+
+            //Log.v("!!!", String.format("%s", method.getName()));
 
             boolean signatureMatched = true;
             int argIndex = 0;
             for (Class paramType : paramTypes) {
-                if (!paramType.isAssignableFrom(args.get(argIndex).getClass())) {
+                //Log.v("1: !!!", String.format("%s", paramType));
+                //Log.v("2: !!!", String.format("%s", requestedParamTypes.get(argIndex)));
+                //Log.v("!!!", String.format("%s", paramType.isAssignableFrom(requestedParamTypes.get(argIndex))));
+                //Log.v("!!!", String.format("%s", requestedParamTypes.get(argIndex).isAssignableFrom(paramType)));
+                if (!paramType.isAssignableFrom(requestedParamTypes.get(argIndex))) {
+                    //Log.v("!!!", "fail");
                     signatureMatched = false;
                     break;
                 }
@@ -103,7 +123,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         activity.runOnUiThread(new Runnable(){
             public void run() {
                 try {
-                    methodToCall.invoke(viewObject, args.toArray());
+                    methodToCall.invoke(viewObject, requestedParams.toArray());
                 } catch(Exception e) {
                     // @TODO
                     Log.v("!!!", e.toString());

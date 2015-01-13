@@ -31,6 +31,12 @@ func (server *rpcServer) Run() {
 
 	log.Printf("!!! %#v", viewId)
 
+	_ = server.CallViewMethod(
+		viewId,
+		"TextView",
+		"setTextSize", 0, float(60.0),
+	)
+
 	for {
 		payload := <-server.input
 
@@ -42,7 +48,7 @@ func (server *rpcServer) Run() {
 			viewId,
 			"TextView",
 			"setText", fmt.Sprintf(
-				"% 3.2f ; % 3.2f ; % 3.2f",
+				"% 3.2f\n% 3.2f\n% 3.2f",
 				values[0], values[1], values[2],
 			),
 		)
@@ -57,6 +63,7 @@ func (server *rpcServer) Call(
 	payload map[string]interface{},
 ) map[string]interface{} {
 	payloadJson, _ := json.Marshal(payload)
+	log.Printf("!!! SENT %#v", string(payloadJson))
 
 	resultJson := server.frontend.CallFrontend(string(payloadJson))
 
