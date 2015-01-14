@@ -53,14 +53,19 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
         public void onSensorChanged(SensorEvent event) {
             JSONObject json = new JSONObject();
             JSONArray jsonValues = new JSONArray();
+            JSONObject jsonData = new JSONObject();
 
             try {
-                json.put("sensor_id", mSensorId);
+                json.put("event", "sensorChange");
+
+                jsonData.put("sensor_id", mSensorId);
                 for (float value : event.values) {
                     jsonValues.put(value);
                 }
 
-                json.put("values", jsonValues);
+                jsonData.put("values", jsonValues);
+
+                json.put("data", jsonData);
             } catch (Exception e) {
                 // @TODO
             }

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/rand"
 
 	"github.com/zazab/zhash"
 )
@@ -49,16 +50,41 @@ func (android *android) Run() {
 
 		data := zhash.HashFromMap(payload)
 
-		values, _ := data.GetFloatSlice("values")
+		log.Printf("!!! %#v", data)
 
-		_ = android.CallViewMethod(
-			viewId,
-			"TextView",
-			"setText", fmt.Sprintf(
-				"% 3.2f\n% 3.2f\n% 3.2f",
-				values[0], values[1], values[2],
-			),
-		)
+		eventName, err := data.GetString("event")
+		if err != nil {
+			continue
+		}
+
+		switch eventName {
+		case "sensorChange":
+			values, _ := data.GetFloatSlice("data", "values")
+
+			_ = android.CallViewMethod(
+				viewId,
+				"TextView",
+				"setText", fmt.Sprintf(
+					"% 3.2f\n% 3.2f\n% 3.2f",
+					values[0], values[1], values[2],
+				),
+			)
+
+		case "click":
+			texts := []string{
+				"how dare you",
+				"i say so",
+				"i don't mine",
+				"wazzzzup",
+				"don't click on me, you stupid chicken!",
+			}
+			viewId, _ := data.GetString("data", "view_id")
+			_ = android.CallViewMethod(
+				viewId,
+				"TextView",
+				"setText", texts[rand.Intn(len(texts))],
+			)
+		}
 	}
 }
 
@@ -70,7 +96,7 @@ func (android *android) Call(
 	payload map[string]interface{},
 ) map[string]interface{} {
 	payloadJson, _ := json.Marshal(payload)
-	log.Printf("!!! SENT %#v", string(payloadJson))
+	//log.Printf("!!! SENT %#v", string(payloadJson))
 
 	resultJson := android.frontend.CallFrontend(string(payloadJson))
 

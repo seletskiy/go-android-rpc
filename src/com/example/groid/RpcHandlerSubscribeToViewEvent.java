@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.rpc.Rpc;
+import go.groid.Groid;
 
 import org.json.*;
 import android.app.Activity;
@@ -40,45 +40,46 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
 
 
         try {
-			eventName = payload.getString("event");
-			String eventNameUcFirst = Character
-				.toString(eventName.charAt(0))
-				.toUpperCase()+eventName.substring(1);
+            eventName = payload.getString("event");
+            String eventNameUcFirst = Character
+                .toString(eventName.charAt(0))
+                .toUpperCase()+eventName.substring(1);
 
-			ListenerFactory listenerFactory = new ListenerFactory();
-			Object listener;
-			Method[] factoryMethods;
-			Method[] viewMethods;
+            ListenerFactory listenerFactory = new ListenerFactory();
+            Object listener;
+            Method[] factoryMethods;
+            Method[] viewMethods;
 
-			final View view = activity.findViewById(Integer.parseInt(viewId));
-			final Object viewObject;
+            final View view = activity.findViewById(Integer.parseInt(viewId));
+            final Object viewObject;
 
-			try {
-				factoryMethods = listenerFactory.getClass().getDeclaredMethods();
-				viewObject = Class.forName(viewType).cast(view);
-				viewMethods = Class.forName(viewType).getDeclaredMethods();
-			} catch(Exception e) {
-				// @TODO
-				Log.v("!!!", e.toString());
-				return result;
-			}
+            try {
+                factoryMethods = listenerFactory.getClass().getDeclaredMethods();
+                viewObject = Class.forName(viewType).cast(view);
+                //viewMethods = Class.forName(viewType).getDeclaredMethods();
+                viewMethods = View.class.getDeclaredMethods();
+            } catch(Exception e) {
+                // @TODO
+                Log.v("!!!", e.toString());
+                return result;
+            }
 
-			for (Method factoryMethod : factoryMethods) {
-				if (!factoryMethod.getName().equals(eventName)) {
-					continue;
-				}
+            for (Method factoryMethod : factoryMethods) {
+                if (!factoryMethod.getName().equals(eventName)) {
+                    continue;
+                }
 
-				for (Method viewMethod : viewMethods) {
-					if (!viewMethod.getName().equals("set"+eventNameUcFirst+"Listener")) {
-						continue;
-					}
+                for (Method viewMethod : viewMethods) {
+                    if (!viewMethod.getName().equals("set"+eventNameUcFirst+"Listener")) {
+                        continue;
+                    }
 
-					final List<Object> args = new ArrayList<Object>();
-					listener = factoryMethod.invoke(listenerFactory, args.toArray());
+                    final List<Object> args = new ArrayList<Object>();
+                    listener = factoryMethod.invoke(listenerFactory, args.toArray());
                     args.add(listener);
-					viewMethod.invoke(viewObject, args.toArray());
-				}
-			}
+                    viewMethod.invoke(viewObject, args.toArray());
+                }
+            }
         } catch (Exception e) {
             Log.v("!!!", e.toString());
         }
@@ -86,21 +87,26 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
         return result;
     }
 
-	public class ListenerFactory {
-		public OnClickListener onClick() {
-			return new OnClickListener() {
-				public void onClick(View v) {
-					JSONObject json = new JSONObject();
+    public class ListenerFactory {
+        public OnClickListener onClick() {
+            return new OnClickListener() {
+                public void onClick(View v) {
+                    JSONObject json = new JSONObject();
+                    JSONObject jsonData = new JSONObject();
 
-					try {
-						json.put("something", "clicked");
-					} catch (Exception e) {
-						// @TODO
-					}
+                    try {
+                        json.put("event", "click");
 
-					Rpc.CallBackend(json.toString());
-				}
-			};
-		}
-	}
+                        jsonData.put("view_id", String.format("%d", v.getId()));
+
+                        json.put("data", jsonData);
+                    } catch (Exception e) {
+                        // @TODO
+                    }
+
+                    Groid.CallBackend(json.toString());
+                }
+            };
+        }
+    }
 }
