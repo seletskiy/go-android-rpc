@@ -20,7 +20,7 @@ import (
 
 var usage = `Extract Android API methods list for later code generation.
 
-Tool will exctract all classes and their public methods signatures from
+Tool will exctract all classes with theirs public methods signatures from
 official android documentation and will output it in following format:
 
     class {class_name} <{url}>
@@ -35,6 +35,8 @@ Usage:
   $0 -h|--help
 
 Options:
+  -b         Output "base" classes only. E.g. not include classes like
+             "AbsListView.OnScrollListener".
   -v         Be verbose.
   -h --help  Show this help.
 `
@@ -104,7 +106,12 @@ func main() {
 
 	classes := getClassesList(packageName)
 
+	baseOnly := args["-b"].(bool)
 	for _, class := range classes {
+		if baseOnly && strings.Contains(class.Name, ".") {
+			continue
+		}
+
 		extractMethodsList(&class)
 
 		fmt.Println(class)
