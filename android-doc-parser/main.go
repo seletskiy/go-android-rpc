@@ -10,6 +10,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/docopt/docopt-go"
 	"golang.org/x/net/html"
 
 	"log"
@@ -17,119 +18,144 @@ import (
 	"launchpad.net/xmlpath"
 )
 
-type APIClass struct {
-	URL        string
+var usage = `Extract Android API methods list for later code generation.
+
+Tool will exctract all classes and their public methods signatures from
+official android documentation and will output it in following format:
+
+    class {class_name} <{url}>
+    method {return_type} {method_name}({method_arg}; {method_arg}; ...)
+    method {return_type} {method_name}({method_arg}; {method_arg}; ...)
+    ...
+
+Meant to be pipeable into code generation tool.
+
+Usage:
+  $0 [options] <package_name>
+  $0 -h|--help
+
+Options:
+  -v         Be verbose.
+  -h --help  Show this help.
+`
+
+type ApiClass struct {
+	Url     string
+	Name    string
+	Methods ApiMethods
+}
+
+type ApiMethod struct {
 	Name       string
-	APIMethods []APIMethod
+	ReturnType string
+	MethodArgs ApiMethodArgs
 }
 
-type APIMethod struct {
-	Name          string
-	ReturnType    string
-	APIMethodArgs APIMethodArgs
-}
+type ApiMethodArgs []ApiMethodArg
+type ApiMethods []ApiMethod
 
-type APIMethodArgs []APIMethodArg
-
-type APIMethodArg struct {
+type ApiMethodArg struct {
 	Type string
 	Name string
 }
 
 var (
-	xpathAPIClassA       = xmlpath.MustCompile(`//td[@class='jd-linkcol']/a`)
-	xpathAPIClassAHref   = xmlpath.MustCompile(`@href`)
-	xpathPubAPIMethodsTr = xmlpath.MustCompile(
+	xpathApiClassA       = xmlpath.MustCompile(`//td[@class='jd-linkcol']/a`)
+	xpathApiClassAHref   = xmlpath.MustCompile(`@href`)
+	xpathPubApiMethodsTr = xmlpath.MustCompile(
 		`//table[@id='pubmethods']//tr`,
 	)
 )
 
 var (
-	xpathPubAPIMethodsReturnType         = xmlpath.MustCompile(`td[1]`)
-	xpathPubAPIMethodsAPIMethodSignature = xmlpath.MustCompile(`td[2]/nobr`)
+	xpathPubApiMethodsReturnType         = xmlpath.MustCompile(`td[1]`)
+	xpathPubApiMethodsApiMethodSignature = xmlpath.MustCompile(`td[2]/nobr`)
 )
 
 var (
-	reAPIMethodAPIMethodArgs = regexp.MustCompile(`(\w+)\((.*)\)`)
+	reApiMethodApiMethodArgs = regexp.MustCompile(`(\w+)\((.*)\)`)
 
 	// some api pages contains unescaped html sequences, like like list<map<map>>
-	reBrokenAPIClassDescription = regexp.MustCompile(`\w+<([\w.,\s<>]+)>`)
+	reBrokenApiClassDescription = regexp.MustCompile(`\w+<([\w.,\s<>]+)>`)
 
 	// \xa0 stands for non-breakable space, we're parsing html after all
 	reSpaces               = regexp.MustCompile(`\s+|\xa0`)
-	reMatchAPIAPIMethodArg = regexp.MustCompile(`(\w+|\w+<.*>)\s+(\w+)`)
+	reMatchApiApiMethodArg = regexp.MustCompile(`(\w+|\w+<.*>)\s+(\w+)`)
 )
 
 var (
 	baseUrl      = `https://developer.android.com/%s`
-	packagesPath = `/reference/android/%s/package-summary.html`
+	packagesPath = `reference/android/%s/package-summary.html`
 )
 
+var debug = false
+
 func main() {
-	reader, err := os.Open("package-summary.html")
-	if err != nil {
-		panic(err)
+	args, _ := docopt.Parse(
+		strings.Replace(usage, `$0`, os.Args[0], -1),
+		nil, true, "v1", false,
+	)
+
+	packageName := strings.Replace(
+		args["<package_name>"].(string), `android.`, ``, -1,
+	)
+
+	debug = args["-v"].(bool)
+
+	classes := getClassesList(packageName)
+
+	for _, class := range classes {
+		extractMethodsList(&class)
+
+		fmt.Println(class)
 	}
+}
 
-	root, err := xmlpath.ParseHTML(reader)
-	if err != nil {
-		panic(err)
-	}
+func getClassesList(packageName string) []ApiClass {
+	root := getXpathParsedHTML(
+		fmt.Sprintf(baseUrl, fmt.Sprintf(packagesPath, packageName)),
+	)
 
-	classes := []APIClass{}
+	classes := []ApiClass{}
 
-	linksIterator := xpathAPIClassA.Iter(root)
+	linksIterator := xpathApiClassA.Iter(root)
 	for linksIterator.Next() {
 		node := linksIterator.Node()
-		href, _ := xpathAPIClassAHref.String(node)
-		classes = append(classes, APIClass{
-			URL:  fmt.Sprintf(baseUrl, href),
+		href, _ := xpathApiClassAHref.String(node)
+		classes = append(classes, ApiClass{
+			Url:  fmt.Sprintf(baseUrl, href),
 			Name: node.String(),
 		})
 	}
 
-	//classes = []APIClass{
-	//    APIClass{
-	//        URL: "https://developer.android.com//reference/android/widget/SimpleExpandableListAdapter.html",
-	//    },
-	//}
+	return classes
+}
 
-	for _, class := range classes {
-		log.Printf("%s", class)
+func extractMethodsList(class *ApiClass) {
+	root := getXpathParsedHTML(class.Url)
 
-		response, err := http.Get(class.URL)
-		if err != nil {
-			panic(err)
+	methodsIterator := xpathPubApiMethodsTr.Iter(root)
+
+	for methodsIterator.Next() {
+		node := methodsIterator.Node()
+
+		returnTypeRaw, ok := xpathPubApiMethodsReturnType.String(node)
+		if !ok {
+			continue
 		}
 
-		fixedHtml := fixHtml(response.Body)
-		root, err := xmlpath.ParseHTML(fixedHtml)
-		if err != nil {
-			fmt.Println(fixedHtml)
-			panic(err)
+		methodSignatureRaw, _ := xpathPubApiMethodsApiMethodSignature.String(
+			node,
+		)
+
+		name, args := parseSignature(methodSignatureRaw)
+		method := ApiMethod{
+			ReturnType: parseReturnType(returnTypeRaw),
+			Name:       name,
+			MethodArgs: args,
 		}
 
-		methodsIterator := xpathPubAPIMethodsTr.Iter(root)
-
-		for methodsIterator.Next() {
-			node := methodsIterator.Node()
-
-			returnTypeRaw, ok := xpathPubAPIMethodsReturnType.String(node)
-			if !ok {
-				continue
-			}
-
-			methodSignatureRaw, _ := xpathPubAPIMethodsAPIMethodSignature.String(node)
-
-			name, args := parseSignature(methodSignatureRaw)
-			method := APIMethod{
-				ReturnType:    parseReturnType(returnTypeRaw),
-				Name:          name,
-				APIMethodArgs: args,
-			}
-
-			log.Printf("%s", method)
-		}
+		class.Methods = append(class.Methods, method)
 	}
 }
 
@@ -141,7 +167,7 @@ func fixHtml(input io.Reader) io.Reader {
 
 	htmlString := string(htmlBytes)
 
-	brokenMatches := reBrokenAPIClassDescription.FindAllStringSubmatch(
+	brokenMatches := reBrokenApiClassDescription.FindAllStringSubmatch(
 		htmlString, -1,
 	)
 
@@ -172,18 +198,18 @@ func parseReturnType(raw string) string {
 	return strings.Replace(returnType, `abstract `, ``, 1)
 }
 
-func parseSignature(raw string) (name string, args []APIMethodArg) {
+func parseSignature(raw string) (name string, args []ApiMethodArg) {
 	raw = reSpaces.ReplaceAllLiteralString(raw, ` `)
 
-	splittedRaw := reAPIMethodAPIMethodArgs.FindStringSubmatch(raw)
+	splittedRaw := reApiMethodApiMethodArgs.FindStringSubmatch(raw)
 
 	name = strings.TrimSpace(splittedRaw[1])
 
-	argsRaw := reMatchAPIAPIMethodArg.FindAllStringSubmatch(splittedRaw[2], -1)
+	argsRaw := reMatchApiApiMethodArg.FindAllStringSubmatch(splittedRaw[2], -1)
 
-	args = []APIMethodArg{}
+	args = []ApiMethodArg{}
 	for _, argRaw := range argsRaw {
-		args = append(args, APIMethodArg{
+		args = append(args, ApiMethodArg{
 			Type: argRaw[1],
 			Name: argRaw[2],
 		})
@@ -192,25 +218,56 @@ func parseSignature(raw string) (name string, args []APIMethodArg) {
 	return name, args
 }
 
-func (class APIClass) String() string {
-	return fmt.Sprintf("class %s <%s>", class.Name, class.URL)
+func getXpathParsedHTML(url string) *xmlpath.Node {
+	if debug {
+		log.Printf("GET %s", url)
+	}
+
+	response, err := http.Get(url)
+	if err != nil {
+		panic(err)
+	}
+
+	fixedHtml := fixHtml(response.Body)
+	root, err := xmlpath.ParseHTML(fixedHtml)
+	if err != nil {
+		panic(err)
+	}
+
+	return root
 }
 
-func (method APIMethod) String() string {
+func (class ApiClass) String() string {
 	return fmt.Sprintf(
-		"method %s %s(%s)", method.ReturnType, method.Name, method.APIMethodArgs,
+		"class %s <%s>\n%s", class.Name, class.Url, class.Methods,
 	)
 }
 
-func (args APIMethodArgs) String() string {
+func (args ApiMethods) String() string {
 	result := make([]string, len(args))
 	for i, arg := range args {
 		result[i] = fmt.Sprint(arg)
 	}
 
-	return strings.Join(result, ", ")
+	return strings.Join(result, "\n")
 }
 
-func (arg APIMethodArg) String() string {
+func (method ApiMethod) String() string {
+	return fmt.Sprintf(
+		"method %s %s(%s)", method.ReturnType, method.Name, method.MethodArgs,
+	)
+}
+
+func (args ApiMethodArgs) String() string {
+	result := make([]string, len(args))
+	for i, arg := range args {
+		result[i] = fmt.Sprint(arg)
+	}
+
+	// ; here for easy split (, can be seen in complex types like map<a, b>)
+	return strings.Join(result, "; ")
+}
+
+func (arg ApiMethodArg) String() string {
 	return fmt.Sprintf("%s %s", arg.Type, arg.Name)
 }
