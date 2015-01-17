@@ -30,12 +30,17 @@ official android documentation and will output it in following format:
 
 Meant to be pipeable into code generation tool.
 
+To output only specific class from package use:
+  $0 -g '^CLASSNAME$' PACKAGE
+
 Usage:
   $0 [options] <package_name>
   $0 -h|--help
 
 Options:
-  -b         Output "base" classes only. E.g. not include classes like
+  -g=<re>    Output only class names matching regular expression
+             [default: ^].
+  -e         Output "non-base" classes too. E.g. include classes like
              "AbsListView.OnScrollListener".
   -v         Be verbose.
   -h --help  Show this help.
@@ -106,9 +111,15 @@ func main() {
 
 	classes := getClassesList(packageName)
 
-	baseOnly := args["-b"].(bool)
+	nameRegexp := regexp.MustCompile(args["-g"].(string))
+
+	baseOnly := !args["-e"].(bool)
 	for _, class := range classes {
 		if baseOnly && strings.Contains(class.Name, ".") {
+			continue
+		}
+
+		if !nameRegexp.MatchString(class.Name) {
 			continue
 		}
 
