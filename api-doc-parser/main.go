@@ -20,7 +20,7 @@ import (
 
 var usage = `Extract Android API methods list for later code generation.
 
-Tool will exctract all classes with theirs public methods signatures from
+Tool will extract all classes with theirs public methods signatures from
 official android documentation and will output it in following format:
 
     class {class_name} <{url}>
@@ -213,7 +213,11 @@ func fixHtml(input io.Reader) io.Reader {
 func parseReturnType(raw string) string {
 	returnType := strings.TrimSpace(reSpaces.ReplaceAllString(raw, ` `))
 
-	return strings.Replace(returnType, `abstract `, ``, 1)
+	cleanedUpType := returnType
+	cleanedUpType = strings.Replace(returnType, `abstract `, ``, 1)
+	cleanedUpType = strings.Replace(returnType, `final `, ``, 1)
+
+	return cleanedUpType
 }
 
 func parseSignature(raw string) (name string, args []ApiMethodArg) {
