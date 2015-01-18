@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/docopt/docopt-go"
@@ -38,12 +39,14 @@ Usage:
   $0 -h|--help
 
 Options:
-  -g=<re>    Output only class names matching regular expression
-             [default: ^].
-  -e         Output "non-base" classes too. E.g. include classes like
-             "AbsListView.OnScrollListener".
-  -v         Be verbose.
-  -h --help  Show this help.
+  -g=<re>       Output only class names matching regular expression
+                [default: ^].
+  -e            Output "non-base" classes too. E.g. include classes like
+                "AbsListView.OnScrollListener".
+  -l=<version>  Extract classes and methods for specified api version.
+                [default: 19].
+  -v            Be verbose.
+  -h --help     Show this help.
 `
 
 type ApiClass struct {
@@ -67,7 +70,10 @@ type ApiMethodArg struct {
 }
 
 var (
-	xpathApiClassA       = xmlpath.MustCompile(`//td[@class='jd-linkcol']/a`)
+	reClassApiVersion    = regexp.MustCompile(`apilevel-([\d]+)`)
+	xpathApiClassTr      = xmlpath.MustCompile(`//table[@class='jd-sumtable-expando']//tr`)
+	xpathApiClassTrClass = xmlpath.MustCompile(`@class`)
+	xpathApiClassA       = xmlpath.MustCompile(`td[@class='jd-linkcol']/a`)
 	xpathApiClassAHref   = xmlpath.MustCompile(`@href`)
 	xpathPubApiMethodsTr = xmlpath.MustCompile(
 		`//table[@id='pubmethods']//tr`,
@@ -109,7 +115,11 @@ func main() {
 
 	debug = args["-v"].(bool)
 
-	classes := getClassesList(packageName)
+	apiVersion, _ := strconv.ParseInt(
+		args["-l"].(string), 10, 0,
+	)
+
+	classes := getClassesList(packageName, apiVersion)
 
 	nameRegexp := regexp.MustCompile(args["-g"].(string))
 
@@ -129,21 +139,36 @@ func main() {
 	}
 }
 
-func getClassesList(packageName string) []ApiClass {
+func getClassesList(packageName string, apiLevel int64) []ApiClass {
 	root := getXpathParsedHTML(
 		fmt.Sprintf(baseUrl, fmt.Sprintf(packagesPath, packageName)),
 	)
 
 	classes := []ApiClass{}
 
-	linksIterator := xpathApiClassA.Iter(root)
-	for linksIterator.Next() {
-		node := linksIterator.Node()
-		href, _ := xpathApiClassAHref.String(node)
-		classes = append(classes, ApiClass{
-			Url:  fmt.Sprintf(baseUrl, href),
-			Name: node.String(),
-		})
+	trNodesIterator := xpathApiClassTr.Iter(root)
+	for trNodesIterator.Next() {
+		trRoot := trNodesIterator.Node()
+		trClass, _ := xpathApiClassTrClass.String(trRoot)
+
+		currentClassApiLevel, _ := strconv.ParseInt(
+			reClassApiVersion.FindStringSubmatch(trClass)[1], 10, 64,
+		)
+
+		if currentClassApiLevel > apiLevel {
+			continue
+		}
+
+		aNodeIterator := xpathApiClassA.Iter(trRoot)
+		for aNodeIterator.Next() {
+			aNode := aNodeIterator.Node()
+			href, _ := xpathApiClassAHref.String(aNode)
+
+			classes = append(classes, ApiClass{
+				Url:  fmt.Sprintf(baseUrl, href),
+				Name: aNode.String(),
+			})
+		}
 	}
 
 	return classes
