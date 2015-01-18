@@ -233,7 +233,8 @@ func parseSignature(raw string) (name string, args []ApiMethodArg) {
 	for _, argRaw := range argsRaw {
 		args = append(args, ApiMethodArg{
 			Type: argRaw[1],
-			Name: argRaw[2],
+			// "_" for possible intersections with go keywords
+			Name: argRaw[2] + "_",
 		})
 	}
 

@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.groid.Groid;
+import go.rpc.Rpc;
 import org.json.*;
 import android.view.*;
 import android.util.Log;
@@ -26,7 +26,7 @@ public class RpcHandlerGetSensorsList implements RpcHandlerInterface {
                     if (sensorManager.getDefaultSensor(id) != null) {
                         jsonFields.put(
                             field.getName(),
-                            String.format("%d", id)
+                            String.format("%s", id)
                         );
                     }
                 }

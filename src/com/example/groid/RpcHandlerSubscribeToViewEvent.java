@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.groid.Groid;
+import go.rpc.Rpc;
 
 import org.json.*;
 import android.app.Activity;
@@ -104,7 +104,7 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                         // @TODO
                     }
 
-                    Groid.CallBackend(json.toString());
+                    Rpc.CallBackend(json.toString());
                 }
             };
         }

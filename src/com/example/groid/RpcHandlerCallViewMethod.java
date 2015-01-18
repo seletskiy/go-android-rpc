@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.groid.Groid;
+import go.rpc.Rpc;
 import org.json.*;
 import android.view.*;
 import android.util.Log;

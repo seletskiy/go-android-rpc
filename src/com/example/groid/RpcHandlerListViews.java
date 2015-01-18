@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.groid.Groid;
+import go.rpc.Rpc;
 import org.json.*;
 import android.view.*;
 import android.util.Log;
@@ -26,6 +26,7 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
                 int resId = childView.getId();
                 JSONObject jsonChild = new JSONObject();
                 jsonChild.put("id", String.format("%d", resId));
+                jsonChild.put("type", childView.getClass().getSimpleName());
                 String resName = childView.getResources().getResourceEntryName(
                     childView.getId()
                 );

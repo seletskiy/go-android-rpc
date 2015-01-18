@@ -1,7 +1,7 @@
 package com.example.groid;
 
 import go.Go;
-import go.groid.Groid;
+import go.rpc.Rpc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
@@ -26,10 +26,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.useless_layout);
 
         mFrontend = new RpcFrontend(this);
-        Groid.Link(mFrontend);
+        Rpc.StartBackend(mFrontend);
     }
 
-    public class RpcFrontend extends Groid.Frontend.Stub {
+    public class RpcFrontend extends Rpc.Frontend.Stub {
         protected Context mContext;
         protected Map<String, RpcHandlerInterface> mHandlers;
 

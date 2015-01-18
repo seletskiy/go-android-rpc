@@ -1,6 +1,6 @@
 package com.example.groid;
 
-import go.groid.Groid;
+import go.rpc.Rpc;
 import org.json.*;
 import android.util.Log;
 import android.content.Context;
@@ -58,7 +58,7 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
             try {
                 json.put("event", "sensorChange");
 
-                jsonData.put("sensor_id", mSensorId);
+                jsonData.put("sensor_id", String.format("%s", mSensorId));
                 for (float value : event.values) {
                     jsonValues.put(value);
                 }
@@ -70,7 +70,7 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
                 // @TODO
             }
 
-            Groid.CallBackend(json.toString());
+            Rpc.CallBackend(json.toString());
         }
     }
 }

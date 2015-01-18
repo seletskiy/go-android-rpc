@@ -1,9 +1,9 @@
-package groid
+package android
 
 import "fmt"
 
-type float float64
+type Float float64
 
-func (number float) MarshalJSON() ([]byte, error) {
+func (number Float) MarshalJSON() ([]byte, error) {
 	return []byte(fmt.Sprintf("%f", number)), nil
 }
