@@ -52,6 +52,7 @@ Options:
 type ApiClass struct {
 	Url     string
 	Name    string
+	Version int
 	Methods ApiMethods
 }
 
@@ -115,11 +116,9 @@ func main() {
 
 	debug = args["-v"].(bool)
 
-	apiVersion, _ := strconv.ParseInt(
-		args["-l"].(string), 10, 0,
-	)
+	maxApiVersion, _ := strconv.Atoi(args["-l"].(string))
 
-	classes := getClassesList(packageName, apiVersion)
+	classes := getClassesList(packageName)
 
 	nameRegexp := regexp.MustCompile(args["-g"].(string))
 
@@ -133,13 +132,17 @@ func main() {
 			continue
 		}
 
+		if class.Version > maxApiVersion {
+			continue
+		}
+
 		extractMethodsList(&class)
 
 		fmt.Println(class)
 	}
 }
 
-func getClassesList(packageName string, apiLevel int64) []ApiClass {
+func getClassesList(packageName string) []ApiClass {
 	root := getXpathParsedHTML(
 		fmt.Sprintf(baseUrl, fmt.Sprintf(packagesPath, packageName)),
 	)
@@ -151,13 +154,9 @@ func getClassesList(packageName string, apiLevel int64) []ApiClass {
 		trRoot := trNodesIterator.Node()
 		trClass, _ := xpathApiClassTrClass.String(trRoot)
 
-		currentClassApiLevel, _ := strconv.ParseInt(
-			reClassApiVersion.FindStringSubmatch(trClass)[1], 10, 64,
+		currentClassApiLevel, _ := strconv.Atoi(
+			reClassApiVersion.FindStringSubmatch(trClass)[1],
 		)
-
-		if currentClassApiLevel > apiLevel {
-			continue
-		}
 
 		aNodeIterator := xpathApiClassA.Iter(trRoot)
 		for aNodeIterator.Next() {
@@ -165,8 +164,9 @@ func getClassesList(packageName string, apiLevel int64) []ApiClass {
 			href, _ := xpathApiClassAHref.String(aNode)
 
 			classes = append(classes, ApiClass{
-				Url:  fmt.Sprintf(baseUrl, href),
-				Name: aNode.String(),
+				Url:     fmt.Sprintf(baseUrl, href),
+				Name:    aNode.String(),
+				Version: currentClassApiLevel,
 			})
 		}
 	}
