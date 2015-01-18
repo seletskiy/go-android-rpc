@@ -1,5 +1,7 @@
 # Android GUI applications written entirely in Go
 
+See main.go for example application.
+
 ## State of the project
 
 * Can be done from Go:
@@ -7,7 +9,7 @@
   * list View widgets from any layout;
   * call any method with simple arguments for View widgets (accepting strings,
     numbers and boolean);
-  * bindings to all simple methods for View widgets as well as sdk bindings
+  * bindings to all simple methods for View widgets as well as SDK bindings
     generator (from API documentation);
   * subscribing to onClick events;
   * *WIP* subscribing on other View widget events;
