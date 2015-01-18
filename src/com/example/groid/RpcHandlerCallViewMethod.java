@@ -26,8 +26,16 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         try {
             methodName = payload.getString("viewMethod");
             id = payload.getString("id");
+
+            // @TODO: move package name to go code generator
+            String packageName = "android.widget";
+            if (payload.getString("type").equals("View")) {
+                packageName = "android.view";
+            }
+
             viewType = String.format(
-                "android.widget.%s",
+                "%s.%s",
+                packageName,
                 payload.getString("type")
             );
 

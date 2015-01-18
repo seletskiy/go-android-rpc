@@ -11,5 +11,6 @@
     <Button android:id="@+id/useless_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hapticFeedbackEnabled="true"
         android:text="click me!" />
 </LinearLayout>
