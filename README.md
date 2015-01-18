@@ -7,8 +7,10 @@
   * list View widgets from any layout;
   * call any method with simple arguments for View widgets (accepting strings,
     numbers and boolean);
-  * *WIP* subscribing on View widget events (onClicks, ...);
-  * *WIP* bindings to all simple methods for View widgets;
+  * bindings to all simple methods for View widgets as well as sdk bindings
+    generator (from API documentation);
+  * subscribing to onClick events;
+  * *WIP* subscribing on other View widget events;
 
 ## What a feature is that?
 
