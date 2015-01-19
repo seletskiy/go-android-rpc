@@ -62,6 +62,7 @@ After preparation, clone project and start cute little all.bash:
 ```
 go get -d github.com/seletskiy/go-android-rpc
 cd $GOPATH/src/github.com/seletskiy/go-android-rpc
+./generate.bash
 setup-android-env-go ./all.bash
 ```
 
