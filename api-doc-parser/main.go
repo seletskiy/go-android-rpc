@@ -43,7 +43,7 @@ Options:
                 [default: ^].
   -e            Output "non-base" classes too. E.g. include classes like
                 "AbsListView.OnScrollListener".
-  -l=<version>  Extract classes and methods for specified api version.
+  -l=<version>  Extract classes and methods for specified api version
                 [default: 19].
   -v            Be verbose.
   -h --help     Show this help.
@@ -59,6 +59,7 @@ type ApiClass struct {
 type ApiMethod struct {
 	Name       string
 	ReturnType string
+	Version    int
 	MethodArgs ApiMethodArgs
 }
 
@@ -71,17 +72,17 @@ type ApiMethodArg struct {
 }
 
 var (
-	reClassApiVersion    = regexp.MustCompile(`apilevel-([\d]+)`)
-	xpathApiClassTr      = xmlpath.MustCompile(`//table[@class='jd-sumtable-expando']//tr`)
-	xpathApiClassTrClass = xmlpath.MustCompile(`@class`)
-	xpathApiClassA       = xmlpath.MustCompile(`td[@class='jd-linkcol']/a`)
-	xpathApiClassAHref   = xmlpath.MustCompile(`@href`)
-	xpathPubApiMethodsTr = xmlpath.MustCompile(
-		`//table[@id='pubmethods']//tr`,
-	)
+	reApiVersion            = regexp.MustCompile(`apilevel-([\d]+)`)
+	xpathApiClassTr         = xmlpath.MustCompile(`//table[@class='jd-sumtable-expando']//tr`)
+	xpathApiClassA          = xmlpath.MustCompile(`td[@class='jd-linkcol']/a`)
+	xpathApiClassAHref      = xmlpath.MustCompile(`@href`)
+	xpathHtmlAttributeClass = xmlpath.MustCompile(`@class`)
 )
 
 var (
+	xpathPubApiMethodsTr = xmlpath.MustCompile(
+		`//table[@id='pubmethods']//tr`,
+	)
 	xpathPubApiMethodsReturnType         = xmlpath.MustCompile(`td[1]`)
 	xpathPubApiMethodsApiMethodSignature = xmlpath.MustCompile(`td[2]/nobr`)
 )
@@ -137,6 +138,7 @@ func main() {
 		}
 
 		extractMethodsList(&class)
+		filterMethodsByApiVersion(&class, maxApiVersion)
 
 		fmt.Println(class)
 	}
@@ -152,10 +154,10 @@ func getClassesList(packageName string) []ApiClass {
 	trNodesIterator := xpathApiClassTr.Iter(root)
 	for trNodesIterator.Next() {
 		trRoot := trNodesIterator.Node()
-		trClass, _ := xpathApiClassTrClass.String(trRoot)
+		trClass, _ := xpathHtmlAttributeClass.String(trRoot)
 
 		currentClassApiLevel, _ := strconv.Atoi(
-			reClassApiVersion.FindStringSubmatch(trClass)[1],
+			reApiVersion.FindStringSubmatch(trClass)[1],
 		)
 
 		aNodeIterator := xpathApiClassA.Iter(trRoot)
@@ -180,26 +182,42 @@ func extractMethodsList(class *ApiClass) {
 	methodsIterator := xpathPubApiMethodsTr.Iter(root)
 
 	for methodsIterator.Next() {
-		node := methodsIterator.Node()
+		trRoot := methodsIterator.Node()
 
-		returnTypeRaw, ok := xpathPubApiMethodsReturnType.String(node)
+		returnTypeRaw, ok := xpathPubApiMethodsReturnType.String(trRoot)
 		if !ok {
 			continue
 		}
 
 		methodSignatureRaw, _ := xpathPubApiMethodsApiMethodSignature.String(
-			node,
+			trRoot,
+		)
+
+		trClass, _ := xpathHtmlAttributeClass.String(trRoot)
+		apiVersion, _ := strconv.Atoi(
+			reApiVersion.FindStringSubmatch(trClass)[1],
 		)
 
 		name, args := parseSignature(methodSignatureRaw)
 		method := ApiMethod{
 			ReturnType: parseReturnType(returnTypeRaw),
 			Name:       name,
+			Version:    apiVersion,
 			MethodArgs: args,
 		}
 
 		class.Methods = append(class.Methods, method)
 	}
+}
+
+func filterMethodsByApiVersion(class *ApiClass, maxApiVersion int) {
+	filteredMethods := []ApiMethod{}
+	for _, method := range class.Methods {
+		if method.Version <= maxApiVersion {
+			filteredMethods = append(filteredMethods, method)
+		}
+	}
+	class.Methods = filteredMethods
 }
 
 func fixHtml(input io.Reader) io.Reader {
