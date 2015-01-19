@@ -38,7 +38,6 @@ func (handler ButtonHandler) OnClick() {
 	}
 
 	handler.button.PerformHapticFeedback(0)
-
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
 }
 

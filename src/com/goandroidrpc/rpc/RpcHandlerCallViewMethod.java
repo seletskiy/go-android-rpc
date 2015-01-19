@@ -13,6 +13,9 @@ import java.lang.reflect.Field;
 import android.widget.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.Callable;
 
 public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
@@ -119,18 +122,29 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
 
         final Method methodToCall = targetMethod;
 
-        activity.runOnUiThread(new Runnable(){
-            public void run() {
-                try {
-                    methodToCall.invoke(viewObject, requestedParams.toArray());
-                } catch(Exception e) {
-                    // @TODO
-                    Log.v("!!!", e.toString());
+        FutureTask<String> futureResult = new FutureTask<String>(
+            new Callable<String> () {
+                @Override
+                public String call() throws Exception {
+                    Log.v("!!! future", "pre");
+                    Log.v("!!! future method", methodToCall.getName());
+                    String callbackResult = (String) methodToCall.invoke(viewObject, requestedParams.toArray());
+                    if (callbackResult == null) {
+                        Log.v("!!! future result", "null");
+                    } else {
+                        Log.v("!!! future result", callbackResult);
+                    }
+                    Log.v("!!! future", "post");
+                    return callbackResult;
                 }
-
-                view.invalidate();
             }
-        });
+        );
+        activity.runOnUiThread(futureResult);
+        try {
+            result.put("result", futureResult.get());
+        } catch (Exception e) {
+            Log.v("!!! future exception", e.toString());
+        }
 
         return result;
     }
