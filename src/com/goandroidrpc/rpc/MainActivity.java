@@ -1,4 +1,4 @@
-package com.example.groid;
+package com.goandroidrpc.rpc;
 
 import go.Go;
 import go.rpc.Rpc;
@@ -10,7 +10,7 @@ import org.json.*;
 import android.util.Log;
 
 /*
- * MainActivity is the entry point for the groid app.
+ * MainActivity is the entry point for RPC endpoint of go-android-rpc.
  *
  * From here, the Go runtime is initialized and a Go function is
  * invoked via gobind language bindings.

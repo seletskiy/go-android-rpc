@@ -1,4 +1,4 @@
-package com.example.groid;
+package com.goandroidrpc.rpc;
 
 import go.rpc.Rpc;
 

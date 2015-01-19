@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.example.groid"
+	package="com.goandroidrpc.rpc"
 	android:versionCode="1"
 	android:versionName="1.0">
 
-	<application android:label="groid">
-		<activity android:name="com.example.groid.MainActivity"
-			android:label="groid"
+	<application android:label="goandroidrpc">
+		<activity android:name="com.goandroidrpc.rpc.MainActivity"
+			android:label="goandroidrpc"
 			android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

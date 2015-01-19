@@ -1,4 +1,4 @@
-package com.example.groid;
+package com.goandroidrpc.rpc;
 
 import android.content.Context;
 import org.json.JSONObject;

@@ -6,7 +6,7 @@ set -e
 
 ./make.bash
 
-adb install -r bin/groid-debug.apk
+adb install -r bin/goandroidrpc-debug.apk
 
 adb shell am start -a android.intent.action.MAIN \
-    -n com.example.groid/com.example.groid.MainActivity
+    -n com.goandroidrpc.rpc/com.goandroidrpc.rpc.MainActivity
