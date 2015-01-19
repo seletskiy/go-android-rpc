@@ -1,6 +1,6 @@
 # Android GUI applications written entirely in Go
 
-See [main.go](blob/master/main.go) for example application.
+See [main.go](main.go) for example application.
 
 ## State of the project
 
