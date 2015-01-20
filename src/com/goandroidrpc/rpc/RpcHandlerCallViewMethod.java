@@ -42,10 +42,14 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 payload.getString("type")
             );
 
-            jsonArgs = payload.getJSONArray("args");
+            if (!payload.isNull("args")) {
+                jsonArgs = payload.getJSONArray("args");
+            } else {
+                jsonArgs = new JSONArray();
+            }
         } catch(Exception e) {
             // @TODO
-            Log.v("!!!", e.toString());
+            Log.v("!!! CVM init", e.toString());
             return result;
         }
 
@@ -58,7 +62,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             allMethods = Class.forName(viewType).getDeclaredMethods();
         } catch(Exception e) {
             // @TODO
-            Log.v("!!!", e.toString());
+            Log.v("!!! CVM methods", e.toString());
             return result;
         }
 
@@ -81,7 +85,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                     requestedParamTypes.add(jsonArgs.get(i).getClass());
                 }
             } catch(Exception e) {
-                Log.v("!!!", e.toString());
+                Log.v("!!! CVM fill", e.toString());
             }
         }
 
@@ -119,23 +123,17 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             return new JSONObject();
         }
 
-
         final Method methodToCall = targetMethod;
 
         FutureTask<String> futureResult = new FutureTask<String>(
             new Callable<String> () {
                 @Override
                 public String call() throws Exception {
-                    Log.v("!!! future", "pre");
-                    Log.v("!!! future method", methodToCall.getName());
-                    String callbackResult = (String) methodToCall.invoke(viewObject, requestedParams.toArray());
-                    if (callbackResult == null) {
-                        Log.v("!!! future result", "null");
-                    } else {
-                        Log.v("!!! future result", callbackResult);
+                    Object result = methodToCall.invoke(viewObject, requestedParams.toArray());
+                    if (result != null) {
+                        return result.toString();
                     }
-                    Log.v("!!! future", "post");
-                    return callbackResult;
+                    return "";
                 }
             }
         );
@@ -143,7 +141,11 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         try {
             result.put("result", futureResult.get());
         } catch (Exception e) {
-            Log.v("!!! future exception", e.toString());
+            try {
+                result.put("error", e.toString());
+            } catch (JSONException je) {
+                Log.v("!!! json", je.toString());
+            }
         }
 
         return result;

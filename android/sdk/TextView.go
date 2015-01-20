@@ -15,7 +15,6 @@ func NewTextView(id string) interface{} {
 	return obj
 }
 
-
 func init() {
 	android.ViewTypeConstructors["TextView"] = NewTextView
 }
@@ -121,8 +120,8 @@ func (obj TextView) GetAutoLinkMask() {
 	)
 }
 
-func (obj TextView) GetBaseline() {
-	android.CallViewMethod(
+func (obj TextView) GetBaseline() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetInternalId_(),
 		"TextView",
 		"getBaseline",
@@ -1297,4 +1296,3 @@ func (obj TextView) SetWidth(pixels_ int) {
 		pixels_,
 	)
 }
-

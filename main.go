@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 
 	"github.com/seletskiy/go-android-rpc/android"
-	"github.com/zazab/zhash"
 
 	"github.com/seletskiy/go-android-rpc/android/sdk"
 
@@ -39,6 +39,11 @@ func (handler ButtonHandler) OnClick() {
 
 	handler.button.PerformHapticFeedback(0)
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
+	log.Printf("!!! go here")
+
+	result := handler.button.GetBaseline()
+	log.Printf("!!! go there")
+	log.Printf("!!! go result %v", result["result"])
 }
 
 func (handler ButtonHandler) OnTouch() {
@@ -53,33 +58,11 @@ func (handler ButtonHandler) OnTouch() {
 }
 
 func start() {
-	sensors := zhash.HashFromMap(android.GetSensorsList())
-
-	accelDisplay := android.GetViewById("useless_layout", "useless_accel").(sdk.TextView)
-	accelDisplay.SetTextSize(40.0)
-
 	uselessButton := android.GetViewById("useless_layout", "useless_button").(sdk.Button)
 	android.OnClick(uselessButton, ButtonHandler{uselessButton})
-
-	touchButton := android.GetViewById("useless_layout", "useless_touch_button").(sdk.Button)
-	android.OnTouch(touchButton, ButtonHandler{touchButton})
-
-	accelerometerId, err := sensors.GetString(
-		"sensors", "TYPE_ACCELEROMETER",
-	)
-
-	if err != nil {
-		panic(err)
-	}
-
-	android.SubscribeToSensorValues(
-		accelerometerId,
-		AccelerometerHandler{accelDisplay},
-	)
 }
 
 func main() {
 	android.OnStart(start)
-
 	android.Enter()
 }
