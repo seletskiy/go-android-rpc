@@ -1,7 +1,7 @@
 package com.goandroidrpc.rpc;
 
 import go.Go;
-import go.rpc.Rpc;
+import go.android.Rpc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;

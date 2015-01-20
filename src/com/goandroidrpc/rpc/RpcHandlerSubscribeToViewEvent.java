@@ -1,6 +1,6 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
+import go.android.Rpc;
 
 import org.json.*;
 import android.app.Activity;
@@ -105,6 +105,30 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                     }
 
                     Rpc.CallBackend(json.toString());
+                }
+            };
+        }
+
+        public OnTouchListener onTouch() {
+            return new OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    JSONObject json = new JSONObject();
+                    JSONObject jsonData = new JSONObject();
+                    Log.v("!!!", "got here");
+
+                    try {
+                        json.put("event", "touch");
+
+                        jsonData.put("view_id", String.format("%d", v.getId()));
+
+                        json.put("data", jsonData);
+                    } catch (Exception e) {
+                        // @TODO
+                    }
+
+                    Rpc.CallBackend(json.toString());
+
+                    return true;
                 }
             };
         }

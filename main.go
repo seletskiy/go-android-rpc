@@ -42,6 +42,17 @@ func (handler ButtonHandler) OnClick() {
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
 }
 
+func (handler ButtonHandler) OnTouch() {
+	texts := []string{
+		"/\\/\\/\\/\\/\\/\\/\\/\\",
+		"\\/\\/\\/\\/\\/\\/\\/\\/",
+	}
+
+	handler.button.PerformHapticFeedback(0)
+
+	handler.button.SetText1s(texts[rand.Intn(len(texts))])
+}
+
 func start() {
 	sensors := zhash.HashFromMap(android.GetSensorsList())
 
@@ -50,6 +61,9 @@ func start() {
 
 	uselessButton := android.GetViewById("useless_layout", "useless_button").(sdk.Button)
 	android.OnClick(uselessButton, ButtonHandler{uselessButton})
+
+	touchButton := android.GetViewById("useless_layout", "useless_touch_button").(sdk.Button)
+	android.OnTouch(touchButton, ButtonHandler{touchButton})
 
 	accelerometerId, err := sensors.GetString(
 		"sensors", "TYPE_ACCELEROMETER",

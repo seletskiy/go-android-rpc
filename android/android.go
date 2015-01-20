@@ -29,12 +29,17 @@ type OnClickListener interface {
 	OnClick()
 }
 
+type OnTouchListener interface {
+	OnTouch()
+}
+
 type ViewObject interface {
 	GetInternalId_() string
 }
 
 var sensorListeners = map[string]SensorListener{}
 var onClickListeners = map[string]OnClickListener{}
+var onTouchListeners = map[string]OnTouchListener{}
 
 type outputChanType struct {
 	Data    PayloadType
@@ -143,11 +148,13 @@ func SubscribeToViewEvent(
 	id string,
 	viewType string,
 	event string,
-	callback OnClickListener,
+	callback interface{},
 ) map[string]interface{} {
 	switch event {
 	case "onClick":
-		onClickListeners[id] = callback
+		onClickListeners[id] = callback.(OnClickListener)
+	case "onTouch":
+		onTouchListeners[id] = callback.(OnTouchListener)
 	}
 
 	return goBackend.call(map[string]interface{}{
@@ -164,6 +171,16 @@ func OnClick(
 ) {
 	SubscribeToViewEvent(
 		view.GetInternalId_(), reflect.TypeOf(view).Name(), "onClick",
+		callback,
+	)
+}
+
+func OnTouch(
+	view ViewObject,
+	callback OnTouchListener,
+) {
+	SubscribeToViewEvent(
+		view.GetInternalId_(), reflect.TypeOf(view).Name(), "onTouch",
 		callback,
 	)
 }
@@ -205,6 +222,8 @@ func (server *backend) Run() {
 			server.onSensorChange(zhash.HashFromMap(data))
 		case "click":
 			server.onClick(zhash.HashFromMap(data))
+		case "touch":
+			server.onTouch(zhash.HashFromMap(data))
 		}
 	}
 }
@@ -253,4 +272,18 @@ func (server *backend) onClick(data zhash.Hash) {
 	}
 
 	callback.OnClick()
+}
+
+func (server *backend) onTouch(data zhash.Hash) {
+	viewId, err := data.GetString("view_id")
+	if err != nil {
+		panic(err)
+	}
+
+	callback, ok := onTouchListeners[viewId]
+	if !ok {
+		return
+	}
+
+	callback.OnTouch()
 }

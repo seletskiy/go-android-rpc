@@ -1,6 +1,6 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
+import go.android.Rpc;
 import org.json.*;
 import android.util.Log;
 import android.content.Context;
