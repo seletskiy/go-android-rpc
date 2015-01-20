@@ -1,7 +1,5 @@
 package android
 
-//go:generate ./generate.bash
-
 import (
 	"log"
 	"reflect"
