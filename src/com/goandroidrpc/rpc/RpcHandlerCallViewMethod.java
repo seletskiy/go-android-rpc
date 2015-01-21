@@ -130,10 +130,17 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 @Override
                 public String call() throws Exception {
                     Object result = methodToCall.invoke(viewObject, requestedParams.toArray());
-                    if (result != null) {
+                    if (
+                            result != null && (
+                                result instanceof Integer ||
+                                result instanceof String ||
+                                result instanceof Boolean
+                            )
+                    ) {
                         return result.toString();
+                    } else {
+                        return "";
                     }
-                    return "";
                 }
             }
         );
@@ -144,7 +151,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             try {
                 result.put("error", e.toString());
             } catch (JSONException je) {
-                Log.v("!!! json", je.toString());
+                Log.v("!!! CVM put result", je.toString());
             }
         }
 
