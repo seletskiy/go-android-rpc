@@ -22,24 +22,24 @@ func init() {
 
 func (obj StackView) Advance() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"StackView",
+		obj.GetId(),
+		"android.widget.StackView",
 		"advance",
 	)
 }
 
 func (obj StackView) ShowNext() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"StackView",
+		obj.GetId(),
+		"android.widget.StackView",
 		"showNext",
 	)
 }
 
 func (obj StackView) ShowPrevious() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"StackView",
+		obj.GetId(),
+		"android.widget.StackView",
 		"showPrevious",
 	)
 }

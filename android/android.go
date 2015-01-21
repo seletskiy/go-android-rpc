@@ -32,7 +32,7 @@ type OnTouchListener interface {
 }
 
 type ViewObject interface {
-	GetInternalId_() string
+	GetId() string
 }
 
 var sensorListeners = map[string]SensorListener{}
@@ -168,7 +168,7 @@ func OnClick(
 	callback OnClickListener,
 ) {
 	SubscribeToViewEvent(
-		view.GetInternalId_(), reflect.TypeOf(view).Name(), "onClick",
+		view.GetId(), reflect.TypeOf(view).Name(), "onClick",
 		callback,
 	)
 }
@@ -178,7 +178,7 @@ func OnTouch(
 	callback OnTouchListener,
 ) {
 	SubscribeToViewEvent(
-		view.GetInternalId_(), reflect.TypeOf(view).Name(), "onTouch",
+		view.GetId(), reflect.TypeOf(view).Name(), "onTouch",
 		callback,
 	)
 }
@@ -204,7 +204,7 @@ func AttachView(
 	goBackend.call(map[string]interface{}{
 		"method":      "CallViewMethod",
 		"viewMethod":  "attach",
-		"id":          view.GetInternalId_(),
+		"id":          view.GetId(),
 		"viewGroupId": viewGroupId,
 	})
 }

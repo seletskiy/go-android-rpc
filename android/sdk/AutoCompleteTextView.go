@@ -22,112 +22,112 @@ func init() {
 
 func (obj AutoCompleteTextView) ClearListSelection() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"clearListSelection",
 	)
 }
 
 func (obj AutoCompleteTextView) DismissDropDown() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"dismissDropDown",
 	)
 }
 
 func (obj AutoCompleteTextView) EnoughToFilter() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"enoughToFilter",
 	)
 }
 
 func (obj AutoCompleteTextView) GetCompletionHint() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getCompletionHint",
 	)
 }
 
 func (obj AutoCompleteTextView) GetDropDownAnchor() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getDropDownAnchor",
 	)
 }
 
 func (obj AutoCompleteTextView) GetDropDownHeight() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getDropDownHeight",
 	)
 }
 
 func (obj AutoCompleteTextView) GetDropDownHorizontalOffset() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getDropDownHorizontalOffset",
 	)
 }
 
 func (obj AutoCompleteTextView) GetDropDownVerticalOffset() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getDropDownVerticalOffset",
 	)
 }
 
 func (obj AutoCompleteTextView) GetDropDownWidth() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getDropDownWidth",
 	)
 }
 
 func (obj AutoCompleteTextView) GetListSelection() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getListSelection",
 	)
 }
 
 func (obj AutoCompleteTextView) GetThreshold() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"getThreshold",
 	)
 }
 
 func (obj AutoCompleteTextView) IsPerformingCompletion() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"isPerformingCompletion",
 	)
 }
 
 func (obj AutoCompleteTextView) IsPopupShowing() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"isPopupShowing",
 	)
 }
 
 func (obj AutoCompleteTextView) OnFilterComplete(count_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"onFilterComplete",
 		count_,
 	)
@@ -135,8 +135,8 @@ func (obj AutoCompleteTextView) OnFilterComplete(count_ int) {
 
 func (obj AutoCompleteTextView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"onWindowFocusChanged",
 		hasWindowFocus_,
 	)
@@ -144,24 +144,24 @@ func (obj AutoCompleteTextView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 
 func (obj AutoCompleteTextView) PerformCompletion() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"performCompletion",
 	)
 }
 
 func (obj AutoCompleteTextView) PerformValidation() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"performValidation",
 	)
 }
 
 func (obj AutoCompleteTextView) SetCompletionHint(hint_ string) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setCompletionHint",
 		hint_,
 	)
@@ -169,8 +169,8 @@ func (obj AutoCompleteTextView) SetCompletionHint(hint_ string) {
 
 func (obj AutoCompleteTextView) SetDropDownAnchor(id_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownAnchor",
 		id_,
 	)
@@ -178,8 +178,8 @@ func (obj AutoCompleteTextView) SetDropDownAnchor(id_ int) {
 
 func (obj AutoCompleteTextView) SetDropDownBackgroundResource(id_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownBackgroundResource",
 		id_,
 	)
@@ -187,8 +187,8 @@ func (obj AutoCompleteTextView) SetDropDownBackgroundResource(id_ int) {
 
 func (obj AutoCompleteTextView) SetDropDownHeight(height_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownHeight",
 		height_,
 	)
@@ -196,8 +196,8 @@ func (obj AutoCompleteTextView) SetDropDownHeight(height_ int) {
 
 func (obj AutoCompleteTextView) SetDropDownHorizontalOffset(offset_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownHorizontalOffset",
 		offset_,
 	)
@@ -205,8 +205,8 @@ func (obj AutoCompleteTextView) SetDropDownHorizontalOffset(offset_ int) {
 
 func (obj AutoCompleteTextView) SetDropDownVerticalOffset(offset_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownVerticalOffset",
 		offset_,
 	)
@@ -214,8 +214,8 @@ func (obj AutoCompleteTextView) SetDropDownVerticalOffset(offset_ int) {
 
 func (obj AutoCompleteTextView) SetDropDownWidth(width_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setDropDownWidth",
 		width_,
 	)
@@ -223,8 +223,8 @@ func (obj AutoCompleteTextView) SetDropDownWidth(width_ int) {
 
 func (obj AutoCompleteTextView) SetListSelection(position_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setListSelection",
 		position_,
 	)
@@ -232,8 +232,8 @@ func (obj AutoCompleteTextView) SetListSelection(position_ int) {
 
 func (obj AutoCompleteTextView) SetText(text_ string, filter_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setText",
 		text_, filter_,
 	)
@@ -241,8 +241,8 @@ func (obj AutoCompleteTextView) SetText(text_ string, filter_ bool) {
 
 func (obj AutoCompleteTextView) SetThreshold(threshold_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"setThreshold",
 		threshold_,
 	)
@@ -250,8 +250,8 @@ func (obj AutoCompleteTextView) SetThreshold(threshold_ int) {
 
 func (obj AutoCompleteTextView) ShowDropDown() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.AutoCompleteTextView",
 		"showDropDown",
 	)
 }

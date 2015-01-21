@@ -7,20 +7,14 @@ import org.json.*;
 import android.view.*;
 import android.util.Log;
 import android.content.Context;
-import android.hardware.*;
 import android.app.Activity;
-import android.widget.*;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 
-import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.Callable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.CancellationException;
@@ -37,97 +31,57 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         mOrphanViews = new HashMap<Integer, View>();
     }
 
-    public JSONObject Handle(Context context, JSONObject request) {
+    public JSONObject Handle(
+        Context context, JSONObject request
+    ) throws JSONException {
         JSONObject result = new JSONObject();
-        String id;
-        String methodName;
+
         try {
-            methodName = request.getString("viewMethod");
-            id = request.getString("id");
-        } catch (Exception e) {
-            // @TODO
-            Log.v("!!!", e.toString());
-            return result;
-        }
-
-        if (methodName.equals("new")) {
-            String viewType;
-            try {
-                // @TODO: move package name to go code generator
-                String packageName = "android.widget";
-                if (request.getString("type").equals("View")) {
-                    packageName = "android.view";
-                }
-
-                viewType = String.format(
-                    "%s.%s",
-                    packageName,
+            String methodName = request.getString("viewMethod");
+            String id = request.getString("id");
+            if (methodName.equals("new")) {
+                result = createView(
+                    (Activity) context,
+                    Integer.parseInt(id),
                     request.getString("type")
                 );
-            } catch(Exception e) {
-                // @TODO
-                Log.v("!!!", e.toString());
-                return result;
-            }
-
-            result = createView(
-                (Activity) context,
-                Integer.parseInt(id),
-                viewType
-            );
-        } else if (methodName.equals("attach")) {
-            String viewGroupId;
-            try {
-                viewGroupId = request.getString("viewGroupId");
-            } catch (Exception e) {
-                Log.v("!!!", e.toString());
-                return result;
-            }
-
-            result = attachView(
-                (Activity) context,
-                Integer.parseInt(id),
-                Integer.parseInt(viewGroupId)
-            );
-        } else {
-            JSONArray methodArgs;
-            String viewType;
-            try {
-                methodArgs = request.getJSONArray("args");
-
-                // @TODO: move package name to go code generator
-                String packageName = "android.widget";
-                if (request.getString("type").equals("View")) {
-                    packageName = "android.view";
-                }
-
-                viewType = String.format(
-                    "%s.%s",
-                    packageName,
-                    request.getString("type")
+            } else if (methodName.equals("attach")) {
+                result = attachView(
+                    (Activity) context,
+                    Integer.parseInt(id),
+                    Integer.parseInt(request.getString("viewGroupId"))
                 );
-            } catch (Exception e) {
-                Log.v("!!!", e.toString());
-                return result;
-            }
-
-            View view;
-            if (mOrphanViews.containsKey(Integer.parseInt(id))) {
-                try {
-                    view = mOrphanViews.get(Integer.parseInt(id));
-                } catch(Exception e) {
-                    // @TODO
-                    Log.v("!!!", String.format("%s", e));
-                    return result;
-                }
             } else {
-                view = ((Activity) context).findViewById(Integer.parseInt(id));
-            }
+                JSONArray methodArgs = request.getJSONArray("args");
 
-            result = callMethod(
-                (Activity) context,
-                view,
-                methodName, viewType, methodArgs
+                View view;
+                if (mOrphanViews.containsKey(Integer.parseInt(id))) {
+                    try {
+                        view = mOrphanViews.get(Integer.parseInt(id));
+                    } catch(Exception e) {
+                        result.put("error",
+                            String.format(
+                                "view with ID '%d' is not dynamically created",
+                                id
+                            )
+                        );
+                        return result;
+                    }
+                } else {
+                    view = ((Activity) context).findViewById(
+                        Integer.parseInt(id));
+                }
+
+                result = callMethod(
+                    (Activity) context,
+                    view,
+                    methodName, request.getString("type"),
+                    methodArgs
+                );
+            }
+        } catch (JSONException e) {
+            result.put("error",
+                String.format("error in request: %s", e.getMessage())
             );
         }
 
@@ -137,7 +91,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     protected JSONObject createView(
         Activity activity,
         Integer id, String viewType
-    ) {
+    ) throws JSONException {
         JSONObject result = new JSONObject();
 
         Class viewClass;
@@ -145,7 +99,10 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         try {
             viewClass = Class.forName(viewType);
         } catch(Exception e) {
-            // @TODO
+            result.put(
+                "error",
+                String.format("class not found '%s'", viewType)
+            );
             return result;
         }
 
@@ -156,8 +113,11 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             // @TODO: actually, find exact constructor.
             view = (View) constructors[0].newInstance(activity);
         } catch(Exception e) {
-            // @TODO
-            Log.v("!!!", String.format("%s", e));
+            // @TODO: properly handle exception
+            result.put(
+                "error",
+                String.format("%s", e)
+            );
             return result;
         }
 
@@ -172,17 +132,24 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         Activity activity,
         Integer id,
         Integer targetViewId
-    ) {
+    ) throws JSONException {
         JSONObject result = new JSONObject();
 
         targetViewId = R.id.useless_layout;
-        final ViewGroup targetView = (ViewGroup) activity.findViewById(targetViewId);
+        final ViewGroup targetView = (ViewGroup) activity.findViewById(
+            targetViewId
+        );
+
         final View orphanView;
         try {
             orphanView = mOrphanViews.get(id);
         } catch(Exception e) {
-            // @TODO
-            Log.v("!!!", String.format("%s", e));
+            result.put("error",
+                String.format(
+                    "view with ID '%d' is not either not exist or already attached",
+                    id
+                )
+            );
             return result;
         }
 
@@ -198,8 +165,6 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             }
         });
 
-        Log.v("!!!", String.format("%s", 2));
-
         return result;
     }
 
@@ -210,6 +175,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     ) {
         JSONObject result = new JSONObject();
 
+        Log.v("!!!", String.format("%s %s %s", view, methodName, viewType));
         final Object viewObject;
 
         Method[] allMethods;

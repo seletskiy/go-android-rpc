@@ -22,80 +22,80 @@ func init() {
 
 func (obj VideoView) CanPause() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"canPause",
 	)
 }
 
 func (obj VideoView) CanSeekBackward() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"canSeekBackward",
 	)
 }
 
 func (obj VideoView) CanSeekForward() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"canSeekForward",
 	)
 }
 
 func (obj VideoView) GetAudioSessionId() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"getAudioSessionId",
 	)
 }
 
 func (obj VideoView) GetBufferPercentage() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"getBufferPercentage",
 	)
 }
 
 func (obj VideoView) GetCurrentPosition() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"getCurrentPosition",
 	)
 }
 
 func (obj VideoView) GetDuration() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"getDuration",
 	)
 }
 
 func (obj VideoView) IsPlaying() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"isPlaying",
 	)
 }
 
 func (obj VideoView) Pause() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"pause",
 	)
 }
 
 func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"resolveAdjustedSize",
 		desiredSize_, measureSpec_,
 	)
@@ -103,16 +103,16 @@ func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) {
 
 func (obj VideoView) Resume() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"resume",
 	)
 }
 
 func (obj VideoView) SeekTo(msec_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"seekTo",
 		msec_,
 	)
@@ -120,8 +120,8 @@ func (obj VideoView) SeekTo(msec_ int) {
 
 func (obj VideoView) SetVideoPath(path_ string) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"setVideoPath",
 		path_,
 	)
@@ -129,24 +129,24 @@ func (obj VideoView) SetVideoPath(path_ string) {
 
 func (obj VideoView) Start() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"start",
 	)
 }
 
 func (obj VideoView) StopPlayback() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"stopPlayback",
 	)
 }
 
 func (obj VideoView) Suspend() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"VideoView",
+		obj.GetId(),
+		"android.widget.VideoView",
 		"suspend",
 	)
 }

@@ -22,8 +22,8 @@ func init() {
 
 func (obj ScrollView) ArrowScroll(direction_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"arrowScroll",
 		direction_,
 	)
@@ -31,16 +31,16 @@ func (obj ScrollView) ArrowScroll(direction_ int) {
 
 func (obj ScrollView) ComputeScroll() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"computeScroll",
 	)
 }
 
 func (obj ScrollView) Fling(velocityY_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"fling",
 		velocityY_,
 	)
@@ -48,8 +48,8 @@ func (obj ScrollView) Fling(velocityY_ int) {
 
 func (obj ScrollView) FullScroll(direction_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"fullScroll",
 		direction_,
 	)
@@ -57,32 +57,32 @@ func (obj ScrollView) FullScroll(direction_ int) {
 
 func (obj ScrollView) GetMaxScrollAmount() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"getMaxScrollAmount",
 	)
 }
 
 func (obj ScrollView) IsFillViewport() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"isFillViewport",
 	)
 }
 
 func (obj ScrollView) IsSmoothScrollingEnabled() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"isSmoothScrollingEnabled",
 	)
 }
 
 func (obj ScrollView) PageScroll(direction_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"pageScroll",
 		direction_,
 	)
@@ -90,8 +90,8 @@ func (obj ScrollView) PageScroll(direction_ int) {
 
 func (obj ScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"requestDisallowInterceptTouchEvent",
 		disallowIntercept_,
 	)
@@ -99,16 +99,16 @@ func (obj ScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool
 
 func (obj ScrollView) RequestLayout() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"requestLayout",
 	)
 }
 
 func (obj ScrollView) ScrollTo(x_ int, y_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"scrollTo",
 		x_, y_,
 	)
@@ -116,8 +116,8 @@ func (obj ScrollView) ScrollTo(x_ int, y_ int) {
 
 func (obj ScrollView) SetFillViewport(fillViewport_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"setFillViewport",
 		fillViewport_,
 	)
@@ -125,8 +125,8 @@ func (obj ScrollView) SetFillViewport(fillViewport_ bool) {
 
 func (obj ScrollView) SetOverScrollMode(mode_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"setOverScrollMode",
 		mode_,
 	)
@@ -134,8 +134,8 @@ func (obj ScrollView) SetOverScrollMode(mode_ int) {
 
 func (obj ScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"setSmoothScrollingEnabled",
 		smoothScrollingEnabled_,
 	)
@@ -143,16 +143,16 @@ func (obj ScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) {
 
 func (obj ScrollView) ShouldDelayChildPressedState() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"shouldDelayChildPressedState",
 	)
 }
 
 func (obj ScrollView) SmoothScrollBy(dx_ int, dy_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"smoothScrollBy",
 		dx_, dy_,
 	)
@@ -160,8 +160,8 @@ func (obj ScrollView) SmoothScrollBy(dx_ int, dy_ int) {
 
 func (obj ScrollView) SmoothScrollTo(x_ int, y_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ScrollView",
+		obj.GetId(),
+		"android.widget.ScrollView",
 		"smoothScrollTo",
 		x_, y_,
 	)

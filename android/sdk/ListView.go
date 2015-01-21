@@ -22,72 +22,72 @@ func init() {
 
 func (obj ListView) AreFooterDividersEnabled() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"areFooterDividersEnabled",
 	)
 }
 
 func (obj ListView) AreHeaderDividersEnabled() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"areHeaderDividersEnabled",
 	)
 }
 
 func (obj ListView) GetDividerHeight() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"getDividerHeight",
 	)
 }
 
 func (obj ListView) GetFooterViewsCount() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"getFooterViewsCount",
 	)
 }
 
 func (obj ListView) GetHeaderViewsCount() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"getHeaderViewsCount",
 	)
 }
 
 func (obj ListView) GetItemsCanFocus() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"getItemsCanFocus",
 	)
 }
 
 func (obj ListView) GetMaxScrollAmount() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"getMaxScrollAmount",
 	)
 }
 
 func (obj ListView) IsOpaque() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"isOpaque",
 	)
 }
 
 func (obj ListView) SetCacheColorHint(color_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setCacheColorHint",
 		color_,
 	)
@@ -95,8 +95,8 @@ func (obj ListView) SetCacheColorHint(color_ int) {
 
 func (obj ListView) SetDividerHeight(height_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setDividerHeight",
 		height_,
 	)
@@ -104,8 +104,8 @@ func (obj ListView) SetDividerHeight(height_ int) {
 
 func (obj ListView) SetFooterDividersEnabled(footerDividersEnabled_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setFooterDividersEnabled",
 		footerDividersEnabled_,
 	)
@@ -113,8 +113,8 @@ func (obj ListView) SetFooterDividersEnabled(footerDividersEnabled_ bool) {
 
 func (obj ListView) SetHeaderDividersEnabled(headerDividersEnabled_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setHeaderDividersEnabled",
 		headerDividersEnabled_,
 	)
@@ -122,8 +122,8 @@ func (obj ListView) SetHeaderDividersEnabled(headerDividersEnabled_ bool) {
 
 func (obj ListView) SetItemsCanFocus(itemsCanFocus_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setItemsCanFocus",
 		itemsCanFocus_,
 	)
@@ -131,8 +131,8 @@ func (obj ListView) SetItemsCanFocus(itemsCanFocus_ bool) {
 
 func (obj ListView) SetSelection(position_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setSelection",
 		position_,
 	)
@@ -140,16 +140,16 @@ func (obj ListView) SetSelection(position_ int) {
 
 func (obj ListView) SetSelectionAfterHeaderView() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"setSelectionAfterHeaderView",
 	)
 }
 
 func (obj ListView) SmoothScrollByOffset(offset_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"smoothScrollByOffset",
 		offset_,
 	)
@@ -157,8 +157,8 @@ func (obj ListView) SmoothScrollByOffset(offset_ int) {
 
 func (obj ListView) SmoothScrollToPosition(position_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"ListView",
+		obj.GetId(),
+		"android.widget.ListView",
 		"smoothScrollToPosition",
 		position_,
 	)

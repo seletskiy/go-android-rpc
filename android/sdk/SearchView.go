@@ -22,96 +22,96 @@ func init() {
 
 func (obj SearchView) GetImeOptions() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"getImeOptions",
 	)
 }
 
 func (obj SearchView) GetInputType() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"getInputType",
 	)
 }
 
 func (obj SearchView) GetMaxWidth() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"getMaxWidth",
 	)
 }
 
 func (obj SearchView) GetQuery() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"getQuery",
 	)
 }
 
 func (obj SearchView) GetQueryHint() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"getQueryHint",
 	)
 }
 
 func (obj SearchView) IsIconfiedByDefault() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"isIconfiedByDefault",
 	)
 }
 
 func (obj SearchView) IsIconified() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"isIconified",
 	)
 }
 
 func (obj SearchView) IsQueryRefinementEnabled() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"isQueryRefinementEnabled",
 	)
 }
 
 func (obj SearchView) IsSubmitButtonEnabled() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"isSubmitButtonEnabled",
 	)
 }
 
 func (obj SearchView) OnActionViewCollapsed() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"onActionViewCollapsed",
 	)
 }
 
 func (obj SearchView) OnActionViewExpanded() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"onActionViewExpanded",
 	)
 }
 
 func (obj SearchView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"onWindowFocusChanged",
 		hasWindowFocus_,
 	)
@@ -119,8 +119,8 @@ func (obj SearchView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 
 func (obj SearchView) SetIconified(iconify_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setIconified",
 		iconify_,
 	)
@@ -128,8 +128,8 @@ func (obj SearchView) SetIconified(iconify_ bool) {
 
 func (obj SearchView) SetIconifiedByDefault(iconified_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setIconifiedByDefault",
 		iconified_,
 	)
@@ -137,8 +137,8 @@ func (obj SearchView) SetIconifiedByDefault(iconified_ bool) {
 
 func (obj SearchView) SetImeOptions(imeOptions_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setImeOptions",
 		imeOptions_,
 	)
@@ -146,8 +146,8 @@ func (obj SearchView) SetImeOptions(imeOptions_ int) {
 
 func (obj SearchView) SetInputType(inputType_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setInputType",
 		inputType_,
 	)
@@ -155,8 +155,8 @@ func (obj SearchView) SetInputType(inputType_ int) {
 
 func (obj SearchView) SetMaxWidth(maxpixels_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setMaxWidth",
 		maxpixels_,
 	)
@@ -164,8 +164,8 @@ func (obj SearchView) SetMaxWidth(maxpixels_ int) {
 
 func (obj SearchView) SetQuery(query_ string, submit_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setQuery",
 		query_, submit_,
 	)
@@ -173,8 +173,8 @@ func (obj SearchView) SetQuery(query_ string, submit_ bool) {
 
 func (obj SearchView) SetQueryHint(hint_ string) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setQueryHint",
 		hint_,
 	)
@@ -182,8 +182,8 @@ func (obj SearchView) SetQueryHint(hint_ string) {
 
 func (obj SearchView) SetQueryRefinementEnabled(enable_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setQueryRefinementEnabled",
 		enable_,
 	)
@@ -191,8 +191,8 @@ func (obj SearchView) SetQueryRefinementEnabled(enable_ bool) {
 
 func (obj SearchView) SetSubmitButtonEnabled(enabled_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"SearchView",
+		obj.GetId(),
+		"android.widget.SearchView",
 		"setSubmitButtonEnabled",
 		enabled_,
 	)

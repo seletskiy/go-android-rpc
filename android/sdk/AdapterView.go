@@ -22,48 +22,48 @@ func init() {
 
 func (obj AdapterView) GetCount() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"getCount",
 	)
 }
 
 func (obj AdapterView) GetFirstVisiblePosition() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"getFirstVisiblePosition",
 	)
 }
 
 func (obj AdapterView) GetLastVisiblePosition() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"getLastVisiblePosition",
 	)
 }
 
 func (obj AdapterView) GetSelectedItemPosition() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"getSelectedItemPosition",
 	)
 }
 
 func (obj AdapterView) RemoveAllViews() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"removeAllViews",
 	)
 }
 
 func (obj AdapterView) RemoveViewAt(index_ int) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"removeViewAt",
 		index_,
 	)
@@ -71,8 +71,8 @@ func (obj AdapterView) RemoveViewAt(index_ int) {
 
 func (obj AdapterView) SetFocusable(focusable_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"setFocusable",
 		focusable_,
 	)
@@ -80,8 +80,8 @@ func (obj AdapterView) SetFocusable(focusable_ bool) {
 
 func (obj AdapterView) SetFocusableInTouchMode(focusable_ bool) {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"AdapterView",
+		obj.GetId(),
+		"android.widget.AdapterView",
 		"setFocusableInTouchMode",
 		focusable_,
 	)

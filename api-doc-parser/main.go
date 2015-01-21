@@ -24,6 +24,7 @@ var usage = `Extract Android API methods list for later code generation.
 Tool will extract all classes with theirs public methods signatures from
 official android documentation and will output it in following format:
 
+    package {package_name}
     class {class_name} <{url}>
     method {return_type} {method_name}({method_arg}; {method_arg}; ...)
     method {return_type} {method_name}({method_arg}; {method_arg}; ...)
@@ -121,8 +122,9 @@ func main() {
 
 	classes := getClassesList(packageName)
 
-	nameRegexp := regexp.MustCompile(args["-g"].(string))
+	fmt.Printf("package android.%s\n", packageName)
 
+	nameRegexp := regexp.MustCompile(args["-g"].(string))
 	baseOnly := !args["-e"].(bool)
 	for _, class := range classes {
 		if baseOnly && strings.Contains(class.Name, ".") {

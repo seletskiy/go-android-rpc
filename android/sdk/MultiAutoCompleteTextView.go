@@ -22,16 +22,16 @@ func init() {
 
 func (obj MultiAutoCompleteTextView) EnoughToFilter() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"MultiAutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.MultiAutoCompleteTextView",
 		"enoughToFilter",
 	)
 }
 
 func (obj MultiAutoCompleteTextView) PerformValidation() {
 	android.CallViewMethod(
-		obj.GetInternalId_(),
-		"MultiAutoCompleteTextView",
+		obj.GetId(),
+		"android.widget.MultiAutoCompleteTextView",
 		"performValidation",
 	)
 }
