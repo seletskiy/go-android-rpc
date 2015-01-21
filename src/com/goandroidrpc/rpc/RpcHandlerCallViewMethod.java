@@ -16,6 +16,10 @@ import java.lang.reflect.Type;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.Callable;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.CancellationException;
+import java.lang.InterruptedException;
 
 public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
@@ -125,36 +129,77 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
 
         final Method methodToCall = targetMethod;
 
-        FutureTask<String> futureResult = new FutureTask<String>(
-            new Callable<String> () {
-                @Override
-                public String call() throws Exception {
-                    Object result = methodToCall.invoke(viewObject, requestedParams.toArray());
-                    if (
-                            result != null && (
-                                result instanceof Integer ||
-                                result instanceof String ||
-                                result instanceof Boolean
-                            )
-                    ) {
-                        return result.toString();
-                    } else {
-                        return "";
-                    }
-                }
-            }
-        );
-        activity.runOnUiThread(futureResult);
         try {
-            result.put("result", futureResult.get());
+            UIThreadCaller uiThreadCaller = new UIThreadCaller(activity);
+            Object callerResult = uiThreadCaller.call(
+                viewObject,
+                methodToCall,
+                requestedParams
+            );
+            Typer typer = new Typer();
+            String strResult = "";
+            if (typer.isSimpleType(callerResult)) {
+                strResult = callerResult.toString();
+            }
+            result.put("result", strResult);
         } catch (Exception e) {
             try {
                 result.put("error", e.toString());
             } catch (JSONException je) {
-                Log.v("!!! CVM put result", je.toString());
+                Log.v("!!! UIThreadCaller failed to put error to JSON", je.toString());
             }
         }
 
         return result;
+    }
+
+    public class UIThreadCaller {
+        protected Activity mActivity;
+
+        UIThreadCaller(Activity activity) {
+            mActivity = activity;
+        }
+
+        public Object call(
+            final Object mViewObject,
+            final Method mMethodToCall,
+            final List<Object> mRequestedParams
+        )
+        throws
+            InterruptedException,
+            ExecutionException,
+            CancellationException
+        {
+            FutureTask<Object> futureResult = new FutureTask<Object>(
+                new Callable<Object> () {
+                    @Override
+                    public Object call() throws Exception {
+                        Object result = mMethodToCall.invoke(
+                            mViewObject,
+                            mRequestedParams.toArray()
+                        );
+                        return result;
+                    }
+                }
+            );
+            mActivity.runOnUiThread(futureResult);
+            Object result = futureResult.get();
+            return result;
+        }
+    }
+
+    public class Typer {
+        public boolean isSimpleType(Object var) {
+            if (
+                var != null && (
+                    var instanceof Integer ||
+                    var instanceof String ||
+                    var instanceof Boolean
+                )
+            ) {
+                return true;
+            }
+            return false;
+        }
     }
 }
