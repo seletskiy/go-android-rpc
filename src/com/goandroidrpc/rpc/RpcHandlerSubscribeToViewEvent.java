@@ -51,6 +51,7 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
             Method[] viewMethods;
 
             final View view = activity.findViewById(Integer.parseInt(viewId));
+            Log.v("!!!", String.format("%s", view));
             final Object viewObject;
 
             try {

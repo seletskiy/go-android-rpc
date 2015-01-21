@@ -60,6 +60,28 @@ func (handler ButtonHandler) OnTouch() {
 func start() {
 	uselessButton := android.GetViewById("useless_layout", "useless_button").(sdk.Button)
 	android.OnClick(uselessButton, ButtonHandler{uselessButton})
+
+	touchButton := android.GetViewById("useless_layout", "useless_touch_button").(sdk.Button)
+	android.OnTouch(touchButton, ButtonHandler{touchButton})
+
+	accelerometerId, err := sensors.GetString(
+		"sensors", "TYPE_ACCELEROMETER",
+	)
+
+	if err != nil {
+		panic(err)
+	}
+
+	android.SubscribeToSensorValues(
+		accelerometerId,
+		AccelerometerHandler{accelDisplay},
+	)
+
+	newView := android.CreateView("123", "Button").(sdk.Button)
+	newView.SetText1s("123")
+
+	android.AttachView(newView, "2130837504")
+	android.OnTouch(newView, ButtonHandler{newView})
 }
 
 func main() {

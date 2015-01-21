@@ -185,6 +185,32 @@ func OnTouch(
 	)
 }
 
+func CreateView(
+	id string,
+	viewType string,
+) ViewObject {
+	goBackend.call(map[string]interface{}{
+		"method":     "CallViewMethod",
+		"viewMethod": "new",
+		"id":         id,
+		"type":       viewType,
+	})
+
+	return ViewTypeConstructors[viewType](id).(ViewObject)
+}
+
+func AttachView(
+	view ViewObject,
+	viewGroupId string,
+) {
+	goBackend.call(map[string]interface{}{
+		"method":      "CallViewMethod",
+		"viewMethod":  "attach",
+		"id":          view.GetInternalId_(),
+		"viewGroupId": viewGroupId,
+	})
+}
+
 func (server *backend) Run() {
 	defer func() {
 		err := recover()

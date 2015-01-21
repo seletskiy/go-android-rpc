@@ -1,18 +1,23 @@
 package com.goandroidrpc.rpc;
 
 import go.rpc.Rpc;
+
 import org.json.*;
+
 import android.view.*;
 import android.util.Log;
 import android.content.Context;
 import android.hardware.*;
 import android.app.Activity;
+import android.widget.*;
+
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import android.widget.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
+
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.Callable;
@@ -21,43 +26,190 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.CancellationException;
 import java.lang.InterruptedException;
 
+import java.util.Map;
+import java.util.HashMap;
+
+
 public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
-    public JSONObject Handle(Context context, JSONObject payload) {
+    protected Map<Integer, View> mOrphanViews;
+
+    RpcHandlerCallViewMethod() {
+        mOrphanViews = new HashMap<Integer, View>();
+    }
+
+    public JSONObject Handle(Context context, JSONObject request) {
         JSONObject result = new JSONObject();
-
-        Activity activity = (Activity) context;
         String id;
-        String viewType;
         String methodName;
-        JSONArray jsonArgs;
         try {
-            methodName = payload.getString("viewMethod");
-            id = payload.getString("id");
-
-            // @TODO: move package name to go code generator
-            String packageName = "android.widget";
-            if (payload.getString("type").equals("View")) {
-                packageName = "android.view";
-            }
-
-            viewType = String.format(
-                "%s.%s",
-                packageName,
-                payload.getString("type")
-            );
-
-            if (!payload.isNull("args")) {
-                jsonArgs = payload.getJSONArray("args");
-            } else {
-                jsonArgs = new JSONArray();
-            }
-        } catch(Exception e) {
+            methodName = request.getString("viewMethod");
+            id = request.getString("id");
+        } catch (Exception e) {
             // @TODO
-            Log.v("!!! CVM init", e.toString());
+            Log.v("!!!", e.toString());
             return result;
         }
 
-        final View view = activity.findViewById(Integer.parseInt(id));
+        if (methodName.equals("new")) {
+            String viewType;
+            try {
+                // @TODO: move package name to go code generator
+                String packageName = "android.widget";
+                if (request.getString("type").equals("View")) {
+                    packageName = "android.view";
+                }
+
+                viewType = String.format(
+                    "%s.%s",
+                    packageName,
+                    request.getString("type")
+                );
+            } catch(Exception e) {
+                // @TODO
+                Log.v("!!!", e.toString());
+                return result;
+            }
+
+            result = createView(
+                (Activity) context,
+                Integer.parseInt(id),
+                viewType
+            );
+        } else if (methodName.equals("attach")) {
+            String viewGroupId;
+            try {
+                viewGroupId = request.getString("viewGroupId");
+            } catch (Exception e) {
+                Log.v("!!!", e.toString());
+                return result;
+            }
+
+            result = attachView(
+                (Activity) context,
+                Integer.parseInt(id),
+                Integer.parseInt(viewGroupId)
+            );
+        } else {
+            JSONArray methodArgs;
+            String viewType;
+            try {
+                methodArgs = request.getJSONArray("args");
+
+                // @TODO: move package name to go code generator
+                String packageName = "android.widget";
+                if (request.getString("type").equals("View")) {
+                    packageName = "android.view";
+                }
+
+                viewType = String.format(
+                    "%s.%s",
+                    packageName,
+                    request.getString("type")
+                );
+            } catch (Exception e) {
+                Log.v("!!!", e.toString());
+                return result;
+            }
+
+            View view;
+            if (mOrphanViews.containsKey(Integer.parseInt(id))) {
+                try {
+                    view = mOrphanViews.get(Integer.parseInt(id));
+                } catch(Exception e) {
+                    // @TODO
+                    Log.v("!!!", String.format("%s", e));
+                    return result;
+                }
+            } else {
+                view = ((Activity) context).findViewById(Integer.parseInt(id));
+            }
+
+            result = callMethod(
+                (Activity) context,
+                view,
+                methodName, viewType, methodArgs
+            );
+        }
+
+        return result;
+    }
+
+    protected JSONObject createView(
+        Activity activity,
+        Integer id, String viewType
+    ) {
+        JSONObject result = new JSONObject();
+
+        Class viewClass;
+
+        try {
+            viewClass = Class.forName(viewType);
+        } catch(Exception e) {
+            // @TODO
+            return result;
+        }
+
+        Constructor[] constructors = viewClass.getConstructors();
+
+        View view;
+        try {
+            // @TODO: actually, find exact constructor.
+            view = (View) constructors[0].newInstance(activity);
+        } catch(Exception e) {
+            // @TODO
+            Log.v("!!!", String.format("%s", e));
+            return result;
+        }
+
+        view.setId(id);
+
+        mOrphanViews.put(id, view);
+
+        return result;
+    }
+
+    protected JSONObject attachView(
+        Activity activity,
+        Integer id,
+        Integer targetViewId
+    ) {
+        JSONObject result = new JSONObject();
+
+        targetViewId = R.id.useless_layout;
+        final ViewGroup targetView = (ViewGroup) activity.findViewById(targetViewId);
+        final View orphanView;
+        try {
+            orphanView = mOrphanViews.get(id);
+        } catch(Exception e) {
+            // @TODO
+            Log.v("!!!", String.format("%s", e));
+            return result;
+        }
+
+
+        activity.runOnUiThread(new Runnable(){
+            public void run() {
+                try {
+                    targetView.addView(orphanView);
+                } catch(Exception e) {
+                    // @TODO
+                    Log.v("!!!", e.toString());
+                }
+            }
+        });
+
+        Log.v("!!!", String.format("%s", 2));
+
+        return result;
+    }
+
+    protected JSONObject callMethod(
+        Activity activity,
+        final View view, String methodName, String viewType,
+        JSONArray methodArgs
+    ) {
+        JSONObject result = new JSONObject();
+
         final Object viewObject;
 
         Method[] allMethods;
@@ -73,20 +225,20 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         final List<Object> requestedParams = new ArrayList<Object>();
         final List<Class> requestedParamTypes = new ArrayList<Class>();
 
-        for (int i = 0; i < jsonArgs.length(); i++) {
+        for (int i = 0; i < methodArgs.length(); i++) {
             try {
-                if (jsonArgs.get(i) instanceof Integer) {
+                if (methodArgs.get(i) instanceof Integer) {
                     // because get(i) will return Integer class, not int,
                     // which is not acceptable for methods, that wants int.
-                    requestedParams.add(jsonArgs.getInt(i));
+                    requestedParams.add(methodArgs.getInt(i));
                     requestedParamTypes.add(int.class);
-                } else if (jsonArgs.get(i) instanceof Double) {
+                } else if (methodArgs.get(i) instanceof Double) {
                     // downcast to float
                     requestedParamTypes.add(float.class);
-                    requestedParams.add((float) jsonArgs.getDouble(i));
+                    requestedParams.add((float) methodArgs.getDouble(i));
                 } else {
-                    requestedParams.add(jsonArgs.get(i));
-                    requestedParamTypes.add(jsonArgs.get(i).getClass());
+                    requestedParams.add(methodArgs.get(i));
+                    requestedParamTypes.add(methodArgs.get(i).getClass());
                 }
             } catch(Exception e) {
                 Log.v("!!! CVM fill", e.toString());
