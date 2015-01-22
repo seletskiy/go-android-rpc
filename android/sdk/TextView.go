@@ -15,8 +15,12 @@ func NewTextView(id string) interface{} {
 	return obj
 }
 
+func (obj TextView) GetClassName() string {
+	return "android.widget.TextView"
+}
+
 func init() {
-	android.ViewTypeConstructors["TextView"] = NewTextView
+	android.ViewTypeConstructors["android.widget.TextView"] = NewTextView
 }
 
 func (obj TextView) Append(text_ string) {

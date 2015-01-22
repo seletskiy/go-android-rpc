@@ -15,9 +15,12 @@ func NewExpandableListView(id string) interface{} {
 	return obj
 }
 
+func (obj ExpandableListView) GetClassName() string {
+	return "android.widget.ExpandableListView"
+}
 
 func init() {
-	android.ViewTypeConstructors["ExpandableListView"] = NewExpandableListView
+	android.ViewTypeConstructors["android.widget.ExpandableListView"] = NewExpandableListView
 }
 
 func (obj ExpandableListView) CollapseGroup(groupPos_ int) {

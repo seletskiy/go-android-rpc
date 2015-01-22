@@ -21,23 +21,18 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
         JSONObject result = new JSONObject();
 
-        Activity activity = (Activity) context;
-        String viewId;
+        String id;
         String eventName;
         String viewType;
 
         try {
-            viewId = payload.getString("id");
-            viewType = String.format(
-                "android.widget.%s",
-                payload.getString("type")
-            );
+            id = payload.getString("id");
+            viewType = payload.getString("type");
         } catch(Exception e) {
             // @TODO
             Log.v("!!!", e.toString());
             return result;
         }
-
 
         try {
             eventName = payload.getString("event");
@@ -49,8 +44,15 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
             Object listener;
             Method[] factoryMethods;
             Method[] viewMethods;
+            MainActivity activity = (MainActivity) context;
 
-            final View view = activity.findViewById(Integer.parseInt(viewId));
+            final View view;
+            if (activity.orphanViews.containsKey(Integer.parseInt(id))) {
+                view = activity.orphanViews.get(Integer.parseInt(id));
+            } else {
+                view = ((Activity) context).findViewById(Integer.parseInt(id));
+            }
+
             Log.v("!!!", String.format("%s", view));
             final Object viewObject;
 
@@ -115,7 +117,6 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                 public boolean onTouch(View v, MotionEvent event) {
                     JSONObject json = new JSONObject();
                     JSONObject jsonData = new JSONObject();
-                    Log.v("!!!", "got here");
 
                     try {
                         json.put("event", "touch");

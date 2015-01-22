@@ -15,9 +15,12 @@ func NewScrollView(id string) interface{} {
 	return obj
 }
 
+func (obj ScrollView) GetClassName() string {
+	return "android.widget.ScrollView"
+}
 
 func init() {
-	android.ViewTypeConstructors["ScrollView"] = NewScrollView
+	android.ViewTypeConstructors["android.widget.ScrollView"] = NewScrollView
 }
 
 func (obj ScrollView) ArrowScroll(direction_ int) {

@@ -15,9 +15,12 @@ func NewHorizontalScrollView(id string) interface{} {
 	return obj
 }
 
+func (obj HorizontalScrollView) GetClassName() string {
+	return "android.widget.HorizontalScrollView"
+}
 
 func init() {
-	android.ViewTypeConstructors["HorizontalScrollView"] = NewHorizontalScrollView
+	android.ViewTypeConstructors["android.widget.HorizontalScrollView"] = NewHorizontalScrollView
 }
 
 func (obj HorizontalScrollView) ArrowScroll(direction_ int) {

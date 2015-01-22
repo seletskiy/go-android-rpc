@@ -2,7 +2,6 @@ package android
 
 import (
 	"log"
-	"reflect"
 	"runtime/debug"
 
 	"github.com/zazab/zhash"
@@ -33,6 +32,7 @@ type OnTouchListener interface {
 
 type ViewObject interface {
 	GetId() string
+	GetClassName() string
 }
 
 var sensorListeners = map[string]SensorListener{}
@@ -168,7 +168,7 @@ func OnClick(
 	callback OnClickListener,
 ) {
 	SubscribeToViewEvent(
-		view.GetId(), reflect.TypeOf(view).Name(), "onClick",
+		view.GetId(), view.GetClassName(), "onClick",
 		callback,
 	)
 }
@@ -178,7 +178,7 @@ func OnTouch(
 	callback OnTouchListener,
 ) {
 	SubscribeToViewEvent(
-		view.GetId(), reflect.TypeOf(view).Name(), "onTouch",
+		view.GetId(), view.GetClassName(), "onTouch",
 		callback,
 	)
 }
@@ -188,10 +188,9 @@ func CreateView(
 	viewType string,
 ) ViewObject {
 	goBackend.call(map[string]interface{}{
-		"method":     "CallViewMethod",
-		"viewMethod": "new",
-		"id":         id,
-		"type":       viewType,
+		"method": "CreateView",
+		"id":     id,
+		"type":   viewType,
 	})
 
 	return ViewTypeConstructors[viewType](id).(ViewObject)
@@ -202,8 +201,7 @@ func AttachView(
 	viewGroupId string,
 ) {
 	goBackend.call(map[string]interface{}{
-		"method":      "CallViewMethod",
-		"viewMethod":  "attach",
+		"method":      "AttachView",
 		"id":          view.GetId(),
 		"viewGroupId": viewGroupId,
 	})
@@ -262,7 +260,9 @@ func (server *backend) call(
 		ReplyTo: replyTo,
 	}
 
-	return <-replyTo
+	reply := <-replyTo
+
+	return reply
 }
 
 func (server *backend) onSensorChange(data zhash.Hash) {

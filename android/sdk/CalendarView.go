@@ -15,9 +15,12 @@ func NewCalendarView(id string) interface{} {
 	return obj
 }
 
+func (obj CalendarView) GetClassName() string {
+	return "android.widget.CalendarView"
+}
 
 func init() {
-	android.ViewTypeConstructors["CalendarView"] = NewCalendarView
+	android.ViewTypeConstructors["android.widget.CalendarView"] = NewCalendarView
 }
 
 func (obj CalendarView) GetDateTextAppearance() {

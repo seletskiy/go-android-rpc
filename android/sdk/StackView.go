@@ -15,9 +15,12 @@ func NewStackView(id string) interface{} {
 	return obj
 }
 
+func (obj StackView) GetClassName() string {
+	return "android.widget.StackView"
+}
 
 func init() {
-	android.ViewTypeConstructors["StackView"] = NewStackView
+	android.ViewTypeConstructors["android.widget.StackView"] = NewStackView
 }
 
 func (obj StackView) Advance() {

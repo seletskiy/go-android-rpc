@@ -15,9 +15,12 @@ func NewAbsListView(id string) interface{} {
 	return obj
 }
 
+func (obj AbsListView) GetClassName() string {
+	return "android.widget.AbsListView"
+}
 
 func init() {
-	android.ViewTypeConstructors["AbsListView"] = NewAbsListView
+	android.ViewTypeConstructors["android.widget.AbsListView"] = NewAbsListView
 }
 
 func (obj AbsListView) BeforeTextChanged(s_ string, start_ int, count_ int, after_ int) {

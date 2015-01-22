@@ -15,9 +15,12 @@ func NewListView(id string) interface{} {
 	return obj
 }
 
+func (obj ListView) GetClassName() string {
+	return "android.widget.ListView"
+}
 
 func init() {
-	android.ViewTypeConstructors["ListView"] = NewListView
+	android.ViewTypeConstructors["android.widget.ListView"] = NewListView
 }
 
 func (obj ListView) AreFooterDividersEnabled() {

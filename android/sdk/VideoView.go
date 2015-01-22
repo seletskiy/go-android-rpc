@@ -15,9 +15,12 @@ func NewVideoView(id string) interface{} {
 	return obj
 }
 
+func (obj VideoView) GetClassName() string {
+	return "android.widget.VideoView"
+}
 
 func init() {
-	android.ViewTypeConstructors["VideoView"] = NewVideoView
+	android.ViewTypeConstructors["android.widget.VideoView"] = NewVideoView
 }
 
 func (obj VideoView) CanPause() {

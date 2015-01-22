@@ -20,9 +20,12 @@ func (obj View) GetId() string  {
 	return obj.id
 }
 
+func (obj View) GetClassName() string {
+	return "android.view.View"
+}
 
 func init() {
-	android.ViewTypeConstructors["View"] = NewView
+	android.ViewTypeConstructors["android.view.View"] = NewView
 }
 
 func (obj View) AnnounceForAccessibility(text_ string) {

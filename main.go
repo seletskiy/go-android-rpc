@@ -77,8 +77,8 @@ func start() {
 		AccelerometerHandler{accelDisplay},
 	)
 
-	newView := android.CreateView("123", "Button").(sdk.Button)
-	newView.SetText1s("123")
+	newView := android.CreateView("123", "android.widget.Button").(sdk.Button)
+	newView.SetText1s("I'm generated!")
 
 	android.AttachView(newView, "2130837504")
 	android.OnTouch(newView, ButtonHandler{newView})

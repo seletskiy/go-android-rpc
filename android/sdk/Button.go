@@ -15,8 +15,11 @@ func NewButton(id string) interface{} {
 	return obj
 }
 
+func (obj Button) GetClassName() string {
+	return "android.widget.Button"
+}
 
 func init() {
-	android.ViewTypeConstructors["Button"] = NewButton
+	android.ViewTypeConstructors["android.widget.Button"] = NewButton
 }
 

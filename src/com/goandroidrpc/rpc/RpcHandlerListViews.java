@@ -26,7 +26,7 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
                 int resId = childView.getId();
                 JSONObject jsonChild = new JSONObject();
                 jsonChild.put("id", String.format("%d", resId));
-                jsonChild.put("type", childView.getClass().getSimpleName());
+                jsonChild.put("type", childView.getClass().getName());
                 String resName = childView.getResources().getResourceEntryName(
                     childView.getId()
                 );

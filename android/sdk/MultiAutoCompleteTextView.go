@@ -15,9 +15,12 @@ func NewMultiAutoCompleteTextView(id string) interface{} {
 	return obj
 }
 
+func (obj MultiAutoCompleteTextView) GetClassName() string {
+	return "android.widget.MultiAutoCompleteTextView"
+}
 
 func init() {
-	android.ViewTypeConstructors["MultiAutoCompleteTextView"] = NewMultiAutoCompleteTextView
+	android.ViewTypeConstructors["android.widget.MultiAutoCompleteTextView"] = NewMultiAutoCompleteTextView
 }
 
 func (obj MultiAutoCompleteTextView) EnoughToFilter() {

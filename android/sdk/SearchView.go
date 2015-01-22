@@ -15,9 +15,12 @@ func NewSearchView(id string) interface{} {
 	return obj
 }
 
+func (obj SearchView) GetClassName() string {
+	return "android.widget.SearchView"
+}
 
 func init() {
-	android.ViewTypeConstructors["SearchView"] = NewSearchView
+	android.ViewTypeConstructors["android.widget.SearchView"] = NewSearchView
 }
 
 func (obj SearchView) GetImeOptions() {

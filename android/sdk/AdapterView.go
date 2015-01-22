@@ -15,9 +15,12 @@ func NewAdapterView(id string) interface{} {
 	return obj
 }
 
+func (obj AdapterView) GetClassName() string {
+	return "android.widget.AdapterView"
+}
 
 func init() {
-	android.ViewTypeConstructors["AdapterView"] = NewAdapterView
+	android.ViewTypeConstructors["android.widget.AdapterView"] = NewAdapterView
 }
 
 func (obj AdapterView) GetCount() {

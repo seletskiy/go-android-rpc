@@ -15,9 +15,12 @@ func NewGridView(id string) interface{} {
 	return obj
 }
 
+func (obj GridView) GetClassName() string {
+	return "android.widget.GridView"
+}
 
 func init() {
-	android.ViewTypeConstructors["GridView"] = NewGridView
+	android.ViewTypeConstructors["android.widget.GridView"] = NewGridView
 }
 
 func (obj GridView) GetColumnWidth() {

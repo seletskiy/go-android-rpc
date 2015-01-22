@@ -15,9 +15,12 @@ func NewCheckedTextView(id string) interface{} {
 	return obj
 }
 
+func (obj CheckedTextView) GetClassName() string {
+	return "android.widget.CheckedTextView"
+}
 
 func init() {
-	android.ViewTypeConstructors["CheckedTextView"] = NewCheckedTextView
+	android.ViewTypeConstructors["android.widget.CheckedTextView"] = NewCheckedTextView
 }
 
 func (obj CheckedTextView) IsChecked() {

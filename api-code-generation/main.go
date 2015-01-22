@@ -84,7 +84,7 @@ func main() {
 			generateClass(output, baseStruct, className, url, packageName)
 
 			if registry != "" {
-				generateRegistryInit(output, registry, className)
+				generateRegistryInit(output, registry, className, packageName)
 			}
 
 			currentClassName = className
@@ -128,14 +128,16 @@ func generateClass(
 }
 
 func generateRegistryInit(
-	output io.Writer, registry, className string,
+	output io.Writer, registry, className, packageName string,
 ) {
 	viewTpl.Lookup("registry").Execute(output, struct {
-		TypeName string
-		Registry string
+		TypeName       string
+		Registry       string
+		SdkPackageName string
 	}{
 		className,
 		registry,
+		packageName,
 	})
 }
 

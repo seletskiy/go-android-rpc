@@ -11,9 +11,7 @@ import android.app.Activity;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -23,62 +21,32 @@ import java.lang.InterruptedException;
 import java.util.Map;
 import java.util.HashMap;
 
-
 public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
-    protected Map<Integer, View> mOrphanViews;
-
-    RpcHandlerCallViewMethod() {
-        mOrphanViews = new HashMap<Integer, View>();
-    }
-
     public JSONObject Handle(
         Context context, JSONObject request
     ) throws JSONException {
         JSONObject result = new JSONObject();
 
+        MainActivity activity = (MainActivity) context;
+
         try {
             String methodName = request.getString("viewMethod");
             String id = request.getString("id");
-            if (methodName.equals("new")) {
-                result = createView(
-                    (Activity) context,
-                    Integer.parseInt(id),
-                    request.getString("type")
-                );
-            } else if (methodName.equals("attach")) {
-                result = attachView(
-                    (Activity) context,
-                    Integer.parseInt(id),
-                    Integer.parseInt(request.getString("viewGroupId"))
-                );
+            JSONArray methodArgs = request.getJSONArray("args");
+
+            View view;
+            if (activity.orphanViews.containsKey(Integer.parseInt(id))) {
+                view = activity.orphanViews.get(Integer.parseInt(id));
             } else {
-                JSONArray methodArgs = request.getJSONArray("args");
-
-                View view;
-                if (mOrphanViews.containsKey(Integer.parseInt(id))) {
-                    try {
-                        view = mOrphanViews.get(Integer.parseInt(id));
-                    } catch(Exception e) {
-                        result.put("error",
-                            String.format(
-                                "view with ID '%d' is not dynamically created",
-                                id
-                            )
-                        );
-                        return result;
-                    }
-                } else {
-                    view = ((Activity) context).findViewById(
-                        Integer.parseInt(id));
-                }
-
-                result = callMethod(
-                    (Activity) context,
-                    view,
-                    methodName, request.getString("type"),
-                    methodArgs
-                );
+                view = ((Activity) context).findViewById(Integer.parseInt(id));
             }
+
+            result = callMethod(
+                activity,
+                view,
+                methodName, request.getString("type"),
+                methodArgs
+            );
         } catch (JSONException e) {
             result.put("error",
                 String.format("error in request: %s", e.getMessage())
@@ -88,94 +56,13 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         return result;
     }
 
-    protected JSONObject createView(
-        Activity activity,
-        Integer id, String viewType
-    ) throws JSONException {
-        JSONObject result = new JSONObject();
-
-        Class viewClass;
-
-        try {
-            viewClass = Class.forName(viewType);
-        } catch(Exception e) {
-            result.put(
-                "error",
-                String.format("class not found '%s'", viewType)
-            );
-            return result;
-        }
-
-        Constructor[] constructors = viewClass.getConstructors();
-
-        View view;
-        try {
-            // @TODO: actually, find exact constructor.
-            view = (View) constructors[0].newInstance(activity);
-        } catch(Exception e) {
-            // @TODO: properly handle exception
-            result.put(
-                "error",
-                String.format("%s", e)
-            );
-            return result;
-        }
-
-        view.setId(id);
-
-        mOrphanViews.put(id, view);
-
-        return result;
-    }
-
-    protected JSONObject attachView(
-        Activity activity,
-        Integer id,
-        Integer targetViewId
-    ) throws JSONException {
-        JSONObject result = new JSONObject();
-
-        targetViewId = R.id.useless_layout;
-        final ViewGroup targetView = (ViewGroup) activity.findViewById(
-            targetViewId
-        );
-
-        final View orphanView;
-        try {
-            orphanView = mOrphanViews.get(id);
-        } catch(Exception e) {
-            result.put("error",
-                String.format(
-                    "view with ID '%d' is not either not exist or already attached",
-                    id
-                )
-            );
-            return result;
-        }
-
-
-        activity.runOnUiThread(new Runnable(){
-            public void run() {
-                try {
-                    targetView.addView(orphanView);
-                } catch(Exception e) {
-                    // @TODO
-                    Log.v("!!!", e.toString());
-                }
-            }
-        });
-
-        return result;
-    }
-
     protected JSONObject callMethod(
-        Activity activity,
+        MainActivity activity,
         final View view, String methodName, String viewType,
         JSONArray methodArgs
     ) {
         JSONObject result = new JSONObject();
 
-        Log.v("!!!", String.format("%s %s %s", view, methodName, viewType));
         final Object viewObject;
 
         Method[] allMethods;

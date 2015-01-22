@@ -31,21 +31,23 @@ func New{{.TypeName}}(id string) interface{} {
 
 func (obj {{.TypeName}}) GetId() string  {
 	return obj.id
-}
-{{else}}
+}{{else}}
 
 func New{{.TypeName}}(id string) interface{} {
 	obj := {{.TypeName}}{New{{.Base}}(id).({{.Base}})}
 
 	return obj
+}{{end}}
+
+func (obj {{.TypeName}}) GetClassName() string {
+	return "{{.SdkPackageName}}.{{.TypeName}}"
 }
-{{end}}
 
 `, "\n")))
 
 var _ = template.Must(viewTpl.New("registry").Parse(strings.TrimLeft(`
 func init() {
-	android.{{.Registry}}["{{.TypeName}}"] = New{{.TypeName}}
+	android.{{.Registry}}["{{.SdkPackageName}}.{{.TypeName}}"] = New{{.TypeName}}
 }
 
 `, "\n")))

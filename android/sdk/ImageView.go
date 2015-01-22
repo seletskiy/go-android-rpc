@@ -15,9 +15,12 @@ func NewImageView(id string) interface{} {
 	return obj
 }
 
+func (obj ImageView) GetClassName() string {
+	return "android.widget.ImageView"
+}
 
 func init() {
-	android.ViewTypeConstructors["ImageView"] = NewImageView
+	android.ViewTypeConstructors["android.widget.ImageView"] = NewImageView
 }
 
 func (obj ImageView) ClearColorFilter() {

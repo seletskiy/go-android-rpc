@@ -15,9 +15,12 @@ func NewAutoCompleteTextView(id string) interface{} {
 	return obj
 }
 
+func (obj AutoCompleteTextView) GetClassName() string {
+	return "android.widget.AutoCompleteTextView"
+}
 
 func init() {
-	android.ViewTypeConstructors["AutoCompleteTextView"] = NewAutoCompleteTextView
+	android.ViewTypeConstructors["android.widget.AutoCompleteTextView"] = NewAutoCompleteTextView
 }
 
 func (obj AutoCompleteTextView) ClearListSelection() {

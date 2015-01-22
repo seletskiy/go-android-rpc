@@ -8,6 +8,7 @@ import android.content.Context;
 import java.util.*;
 import org.json.*;
 import android.util.Log;
+import android.view.*;
 
 /*
  * MainActivity is the entry point for RPC endpoint of go-android-rpc.
@@ -16,7 +17,13 @@ import android.util.Log;
  * invoked via gobind language bindings.
  */
 public class MainActivity extends Activity {
+    public Map<Integer, View> orphanViews;
+
     protected RpcFrontend mFrontend;
+
+    public MainActivity() {
+        orphanViews = new HashMap<Integer, View>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
