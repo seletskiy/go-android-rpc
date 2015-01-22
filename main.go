@@ -6,6 +6,7 @@ import (
 	"math/rand"
 
 	"github.com/seletskiy/go-android-rpc/android"
+	"github.com/zazab/zhash"
 
 	"github.com/seletskiy/go-android-rpc/android/sdk"
 
@@ -58,6 +59,11 @@ func (handler ButtonHandler) OnTouch() {
 }
 
 func start() {
+	sensors := zhash.HashFromMap(android.GetSensorsList())
+
+	accelDisplay := android.GetViewById("useless_layout", "useless_accel").(sdk.TextView)
+	accelDisplay.SetTextSize(40.0)
+
 	uselessButton := android.GetViewById("useless_layout", "useless_button").(sdk.Button)
 	android.OnClick(uselessButton, ButtonHandler{uselessButton})
 
@@ -78,10 +84,11 @@ func start() {
 	)
 
 	newView := android.CreateView("123", "android.widget.Button").(sdk.Button)
-	newView.SetText1s("I'm generated!")
+	log.Printf("%#v", newView)
+	//newView.SetText1s("I'm generated!")
 
-	android.AttachView(newView, "2130837504")
-	android.OnTouch(newView, ButtonHandler{newView})
+	//android.AttachView(newView, "2130837504")
+	//android.OnTouch(newView, ButtonHandler{newView})
 }
 
 func main() {

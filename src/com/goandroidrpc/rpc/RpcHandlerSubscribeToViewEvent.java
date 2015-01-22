@@ -3,9 +3,10 @@ package com.goandroidrpc.rpc;
 import go.rpc.Rpc;
 
 import org.json.*;
-import android.app.Activity;
 
+import android.app.Activity;
 import android.view.*;
+import android.os.Looper;
 import android.util.Log;
 import android.content.Context;
 
@@ -117,6 +118,7 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                 public boolean onTouch(View v, MotionEvent event) {
                     JSONObject json = new JSONObject();
                     JSONObject jsonData = new JSONObject();
+                   Log.v("!!!", String.format("%s",    Looper.getMainLooper().getThread() == Thread.currentThread()));
 
                     try {
                         json.put("event", "touch");

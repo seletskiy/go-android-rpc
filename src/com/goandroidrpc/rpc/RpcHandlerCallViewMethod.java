@@ -9,17 +9,10 @@ import android.util.Log;
 import android.content.Context;
 import android.app.Activity;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.lang.reflect.Method;
-import java.util.concurrent.FutureTask;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.CancellationException;
-import java.lang.InterruptedException;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
 public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     public JSONObject Handle(
@@ -60,7 +53,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         MainActivity activity,
         final View view, String methodName, String viewType,
         JSONArray methodArgs
-    ) {
+    ) throws JSONException {
         JSONObject result = new JSONObject();
 
         final Object viewObject;
@@ -135,76 +128,29 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         final Method methodToCall = targetMethod;
 
         try {
+            Log.v("!!!", String.format("%s", "before"));
             UIThreadCaller uiThreadCaller = new UIThreadCaller(activity);
             Object callerResult = uiThreadCaller.call(
-                viewObject,
-                methodToCall,
-                requestedParams
-            );
-            Typer typer = new Typer();
-            String strResult = "";
-            if (typer.isSimpleType(callerResult)) {
-                strResult = callerResult.toString();
-            }
-            result.put("result", strResult);
-        } catch (Exception e) {
-            try {
-                result.put("error", e.toString());
-            } catch (JSONException je) {
-                Log.v("!!! UIThreadCaller failed to put error to JSON", je.toString());
-            }
-        }
-
-        return result;
-    }
-
-    public class UIThreadCaller {
-        protected Activity mActivity;
-
-        UIThreadCaller(Activity activity) {
-            mActivity = activity;
-        }
-
-        public Object call(
-            final Object mViewObject,
-            final Method mMethodToCall,
-            final List<Object> mRequestedParams
-        )
-        throws
-            InterruptedException,
-            ExecutionException,
-            CancellationException
-        {
-            FutureTask<Object> futureResult = new FutureTask<Object>(
                 new Callable<Object> () {
                     @Override
                     public Object call() throws Exception {
-                        Object result = mMethodToCall.invoke(
-                            mViewObject,
-                            mRequestedParams.toArray()
+                        Log.v("!!!", String.format("%s", "in"));
+                        Object result = methodToCall.invoke(
+                            viewObject,
+                            requestedParams.toArray()
                         );
                         return result;
                     }
                 }
             );
-            mActivity.runOnUiThread(futureResult);
-            Object result = futureResult.get();
-            return result;
-        }
-    }
 
-    public class Typer {
-        public boolean isSimpleType(Object var) {
-            if (
-                var != null && (
-                    var instanceof Integer ||
-                    var instanceof String ||
-                    var instanceof Boolean
-                )
-            ) {
-                return true;
-            }
-            return false;
+            Log.v("!!!", String.format("%s", "after"));
+            JsonConverter converter = new JsonConverter();
+            result.put("result", converter.Convert(callerResult));
+        } catch (Exception e) {
+            result.put("error", e.toString());
         }
+
+        return result;
     }
 }
