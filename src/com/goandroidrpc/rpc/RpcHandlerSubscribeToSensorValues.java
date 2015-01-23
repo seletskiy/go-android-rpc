@@ -1,12 +1,17 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
-import org.json.*;
-import android.util.Log;
-import android.content.Context;
-import android.hardware.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.util.Log;
 
 public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
     protected List<Listener> mListeners;
@@ -24,7 +29,7 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
                 Context.SENSOR_SERVICE
             );
 
-            Listener listener = new Listener(sensorId);
+            Listener listener = new Listener(sensorId, (MainActivity) context);
 
             sensorManager.registerListener(listener,
                 sensorManager.getDefaultSensor(sensorId),
@@ -41,9 +46,11 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
 
     public class Listener implements SensorEventListener {
         protected int mSensorId;
+        protected MainActivity mActivity;
 
-        Listener(int id) {
+        Listener(int id, MainActivity activity) {
             mSensorId = id;
+            mActivity = activity;
         }
 
         @Override
@@ -70,7 +77,8 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
                 // @TODO
             }
 
-            Rpc.CallBackend(json.toString());
+            Log.v("!!!", String.format("sensors %s", json.toString()));
+            mActivity.rpcBackend.call(json.toString());
         }
     }
 }

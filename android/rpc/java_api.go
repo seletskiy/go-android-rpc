@@ -57,8 +57,18 @@ func CallBackend(payload string) string {
 		return ""
 	}
 
-	android.SendEvent(data)
+	log.Printf("CallBackend %#v", payload)
+	replyTo := make(chan android.PayloadType, 0)
+	android.SendEvent(data, replyTo)
+	log.Printf("%#v", "ready to reply")
 
-	// no reply for you, feeble java!
-	return ""
+	reply, err := json.Marshal(map[string]interface{}{
+		"result": <-replyTo,
+	})
+
+	if err != nil {
+		panic(err)
+	}
+
+	return string(reply)
 }

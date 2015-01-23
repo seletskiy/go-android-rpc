@@ -9,6 +9,7 @@ import java.util.*;
 import org.json.*;
 import android.util.Log;
 import android.view.*;
+import com.goandroidrpc.rpc.UIThreadRunner;
 
 /*
  * MainActivity is the entry point for RPC endpoint of go-android-rpc.
@@ -19,10 +20,15 @@ import android.view.*;
 public class MainActivity extends Activity {
     public Map<Integer, View> orphanViews;
 
-    protected RpcFrontend mFrontend;
+    public RpcBackendCaller rpcBackend;
+    public RpcFrontend rpcFrontend;
+
+    public UIThreadRunner uiThreadRunner;
 
     public MainActivity() {
         orphanViews = new HashMap<Integer, View>();
+        uiThreadRunner = new UIThreadRunner(this);
+        rpcBackend = new RpcBackendCaller(uiThreadRunner);
     }
 
     @Override
@@ -32,8 +38,8 @@ public class MainActivity extends Activity {
         Go.init(getApplicationContext());
         setContentView(R.layout.useless_layout);
 
-        mFrontend = new RpcFrontend(this);
-        Rpc.StartBackend(mFrontend);
+        rpcFrontend = new RpcFrontend(this);
+        Rpc.StartBackend(rpcFrontend);
     }
 
     public class RpcFrontend extends Rpc.Frontend.Stub {
@@ -48,6 +54,8 @@ public class MainActivity extends Activity {
         public String CallFrontend(final String payload) {
             try {
                 JSONObject json = new JSONObject(payload);
+
+                Log.v("!!!", String.format("%s", payload));
 
                 String handlerName = String.format(
                     "%s.RpcHandler%s",

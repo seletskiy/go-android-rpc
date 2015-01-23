@@ -40,22 +40,23 @@ func (handler ButtonHandler) OnClick() {
 
 	handler.button.PerformHapticFeedback(0)
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
-	log.Printf("!!! go here")
 
-	result := handler.button.GetBaseline()
-	log.Printf("!!! go there")
-	log.Printf("!!! go result %v", result["result"])
+	result := handler.button.GetText()
+	log.Printf("!!! current text: %s", result)
 }
 
-func (handler ButtonHandler) OnTouch() {
+func (handler ButtonHandler) OnTouch() android.PayloadType {
 	texts := []string{
-		"/\\/\\/\\/\\/\\/\\/\\/\\",
-		"\\/\\/\\/\\/\\/\\/\\/\\/",
+		`/\/\/\/\/\/\/\/\`,
+		`\/\/\/\/\/\/\/\/`,
 	}
 
 	handler.button.PerformHapticFeedback(0)
 
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
+
+	// wow, it will be returned as OnTouch result in Java!
+	return false
 }
 
 func start() {
@@ -63,9 +64,6 @@ func start() {
 
 	accelDisplay := android.GetViewById("useless_layout", "useless_accel").(sdk.TextView)
 	accelDisplay.SetTextSize(40.0)
-
-	uselessButton := android.GetViewById("useless_layout", "useless_button").(sdk.Button)
-	android.OnClick(uselessButton, ButtonHandler{uselessButton})
 
 	touchButton := android.GetViewById("useless_layout", "useless_touch_button").(sdk.Button)
 	android.OnTouch(touchButton, ButtonHandler{touchButton})
@@ -85,10 +83,10 @@ func start() {
 
 	newView := android.CreateView("123", "android.widget.Button").(sdk.Button)
 	log.Printf("%#v", newView)
-	//newView.SetText1s("I'm generated!")
+	newView.SetText1s("I'm generated!")
 
-	//android.AttachView(newView, "2130837504")
-	//android.OnTouch(newView, ButtonHandler{newView})
+	android.OnClick(newView, ButtonHandler{newView})
+	android.AttachView(newView, "2130837504")
 }
 
 func main() {

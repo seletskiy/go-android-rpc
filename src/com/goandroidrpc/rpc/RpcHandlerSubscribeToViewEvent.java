@@ -12,6 +12,11 @@ import android.content.Context;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 import java.lang.Class;
 import java.lang.Character;
 import java.lang.reflect.Method;
@@ -41,11 +46,12 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                 .toString(eventName.charAt(0))
                 .toUpperCase()+eventName.substring(1);
 
-            ListenerFactory listenerFactory = new ListenerFactory();
+            MainActivity activity = (MainActivity) context;
+            ListenerFactory listenerFactory = new ListenerFactory(activity);
+
             Object listener;
             Method[] factoryMethods;
             Method[] viewMethods;
-            MainActivity activity = (MainActivity) context;
 
             final View view;
             if (activity.orphanViews.containsKey(Integer.parseInt(id))) {
@@ -54,7 +60,6 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                 view = ((Activity) context).findViewById(Integer.parseInt(id));
             }
 
-            Log.v("!!!", String.format("%s", view));
             final Object viewObject;
 
             try {
@@ -92,6 +97,12 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
     }
 
     public class ListenerFactory {
+        protected MainActivity mActivity;
+
+        ListenerFactory(MainActivity activity) {
+            mActivity = activity;
+        }
+
         public OnClickListener onClick() {
             return new OnClickListener() {
                 public void onClick(View v) {
@@ -100,15 +111,13 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
 
                     try {
                         json.put("event", "click");
-
-                        jsonData.put("view_id", String.format("%d", v.getId()));
-
+                        jsonData.put("viewId", String.format("%d", v.getId()));
                         json.put("data", jsonData);
                     } catch (Exception e) {
                         // @TODO
                     }
 
-                    Rpc.CallBackend(json.toString());
+                    mActivity.rpcBackend.call(json.toString());
                 }
             };
         }
@@ -118,21 +127,18 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
                 public boolean onTouch(View v, MotionEvent event) {
                     JSONObject json = new JSONObject();
                     JSONObject jsonData = new JSONObject();
-                   Log.v("!!!", String.format("%s",    Looper.getMainLooper().getThread() == Thread.currentThread()));
 
                     try {
                         json.put("event", "touch");
-
-                        jsonData.put("view_id", String.format("%d", v.getId()));
-
+                        jsonData.put("viewId", String.format("%d", v.getId()));
                         json.put("data", jsonData);
                     } catch (Exception e) {
                         // @TODO
                     }
 
-                    Rpc.CallBackend(json.toString());
+                    Object result = mActivity.rpcBackend.call(json.toString());
 
-                    return true;
+                    return (Boolean)result;
                 }
             };
         }

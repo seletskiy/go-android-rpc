@@ -476,8 +476,8 @@ func (obj TextView) GetShadowRadius() {
 	)
 }
 
-func (obj TextView) GetText() {
-	android.CallViewMethod(
+func (obj TextView) GetText() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getText",

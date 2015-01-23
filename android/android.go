@@ -13,7 +13,7 @@ import (
 // access it directly
 var ViewTypeConstructors = map[string]func(id string) interface{}{}
 
-type PayloadType map[string]interface{}
+type PayloadType interface{}
 
 type SensorListener interface {
 	OnChange(values []float64)
@@ -27,7 +27,7 @@ type OnClickListener interface {
 }
 
 type OnTouchListener interface {
-	OnTouch()
+	OnTouch() PayloadType
 }
 
 type ViewObject interface {
@@ -39,13 +39,13 @@ var sensorListeners = map[string]SensorListener{}
 var onClickListeners = map[string]OnClickListener{}
 var onTouchListeners = map[string]OnTouchListener{}
 
-type outputChanType struct {
+type payloadWithReply struct {
 	Data    PayloadType
 	ReplyTo chan PayloadType
 }
 
-type inputChan chan PayloadType
-type outputChan chan outputChanType
+type inputChan chan payloadWithReply
+type outputChan chan payloadWithReply
 
 type backend struct {
 	input   inputChan
@@ -63,12 +63,15 @@ func OnStart(callback func()) {
 	goBackend.onStart = callback
 }
 
-func GetRequest() outputChanType {
+func GetRequest() payloadWithReply {
 	return <-goBackend.output
 }
 
-func SendEvent(payload PayloadType) {
-	goBackend.input <- payload
+func SendEvent(payload PayloadType, replyTo chan PayloadType) {
+	goBackend.input <- payloadWithReply{
+		Data:    payload,
+		ReplyTo: replyTo,
+	}
 }
 
 func Start() {
@@ -220,32 +223,36 @@ func (server *backend) Run() {
 	server.running = true
 
 	if server.onStart != nil {
-		server.onStart()
+		go server.onStart()
 	}
 
 	log.Printf("Backend started")
 
 	for {
-		payload := <-server.input
+		event := <-server.input
 
-		event := zhash.HashFromMap(payload)
-		data, err := event.GetMap("data")
+		log.Printf("%#v", event)
+
+		dataHash := zhash.HashFromMap(event.Data.(map[string]interface{}))
+		data, err := dataHash.GetMap("data")
 		if err != nil {
 			panic(err)
 		}
 
-		eventName, err := event.GetString("event")
+		eventName, err := dataHash.GetString("event")
 		if err != nil {
 			panic(err)
 		}
 
 		switch eventName {
 		case "sensorChange":
-			server.onSensorChange(zhash.HashFromMap(data))
+			log.Printf("%#v", "before")
+			event.ReplyTo <- server.onSensorChange(zhash.HashFromMap(data))
+			log.Printf("%#v", "replied")
 		case "click":
-			server.onClick(zhash.HashFromMap(data))
+			event.ReplyTo <- server.onClick(zhash.HashFromMap(data))
 		case "touch":
-			server.onTouch(zhash.HashFromMap(data))
+			event.ReplyTo <- server.onTouch(zhash.HashFromMap(data))
 		}
 	}
 }
@@ -255,17 +262,17 @@ func (server *backend) call(
 ) map[string]interface{} {
 	replyTo := make(chan PayloadType, 0)
 
-	server.output <- outputChanType{
+	server.output <- payloadWithReply{
 		Data:    payload,
 		ReplyTo: replyTo,
 	}
 
 	reply := <-replyTo
 
-	return reply
+	return reply.(map[string]interface{})
 }
 
-func (server *backend) onSensorChange(data zhash.Hash) {
+func (server *backend) onSensorChange(data zhash.Hash) PayloadType {
 	sensorId, err := data.GetString("sensor_id")
 	if err != nil {
 		panic(err)
@@ -273,7 +280,7 @@ func (server *backend) onSensorChange(data zhash.Hash) {
 
 	callback, ok := sensorListeners[sensorId]
 	if !ok {
-		return
+		return nil
 	}
 
 	values, err := data.GetFloatSlice("values")
@@ -282,32 +289,36 @@ func (server *backend) onSensorChange(data zhash.Hash) {
 	}
 
 	callback.OnChange(values)
+
+	return nil
 }
 
-func (server *backend) onClick(data zhash.Hash) {
-	viewId, err := data.GetString("view_id")
+func (server *backend) onClick(data zhash.Hash) PayloadType {
+	viewId, err := data.GetString("viewId")
 	if err != nil {
 		panic(err)
 	}
 
 	callback, ok := onClickListeners[viewId]
 	if !ok {
-		return
+		return nil
 	}
 
 	callback.OnClick()
+
+	return nil
 }
 
-func (server *backend) onTouch(data zhash.Hash) {
-	viewId, err := data.GetString("view_id")
+func (server *backend) onTouch(data zhash.Hash) PayloadType {
+	viewId, err := data.GetString("viewId")
 	if err != nil {
 		panic(err)
 	}
 
 	callback, ok := onTouchListeners[viewId]
 	if !ok {
-		return
+		return nil
 	}
 
-	callback.OnTouch()
+	return callback.OnTouch()
 }
