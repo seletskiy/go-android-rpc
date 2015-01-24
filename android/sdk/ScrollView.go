@@ -23,150 +23,150 @@ func init() {
 	android.ViewTypeConstructors["android.widget.ScrollView"] = NewScrollView
 }
 
-func (obj ScrollView) ArrowScroll(direction_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) ArrowScroll(direction_ int) (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"arrowScroll",
 		direction_,
-	)
+	))
 }
 
-func (obj ScrollView) ComputeScroll() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) ComputeScroll() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"computeScroll",
-	)
+	))
 }
 
-func (obj ScrollView) Fling(velocityY_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) Fling(velocityY_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"fling",
 		velocityY_,
-	)
+	))
 }
 
-func (obj ScrollView) FullScroll(direction_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) FullScroll(direction_ int) (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"fullScroll",
 		direction_,
-	)
+	))
 }
 
-func (obj ScrollView) GetMaxScrollAmount() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) GetMaxScrollAmount() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"getMaxScrollAmount",
-	)
+	))
 }
 
-func (obj ScrollView) IsFillViewport() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) IsFillViewport() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"isFillViewport",
-	)
+	))
 }
 
-func (obj ScrollView) IsSmoothScrollingEnabled() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) IsSmoothScrollingEnabled() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"isSmoothScrollingEnabled",
-	)
+	))
 }
 
-func (obj ScrollView) PageScroll(direction_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) PageScroll(direction_ int) (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"pageScroll",
 		direction_,
-	)
+	))
 }
 
-func (obj ScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"requestDisallowInterceptTouchEvent",
 		disallowIntercept_,
-	)
+	))
 }
 
-func (obj ScrollView) RequestLayout() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) RequestLayout() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"requestLayout",
-	)
+	))
 }
 
-func (obj ScrollView) ScrollTo(x_ int, y_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) ScrollTo(x_ int, y_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"scrollTo",
 		x_, y_,
-	)
+	))
 }
 
-func (obj ScrollView) SetFillViewport(fillViewport_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) SetFillViewport(fillViewport_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"setFillViewport",
 		fillViewport_,
-	)
+	))
 }
 
-func (obj ScrollView) SetOverScrollMode(mode_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) SetOverScrollMode(mode_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"setOverScrollMode",
 		mode_,
-	)
+	))
 }
 
-func (obj ScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"setSmoothScrollingEnabled",
 		smoothScrollingEnabled_,
-	)
+	))
 }
 
-func (obj ScrollView) ShouldDelayChildPressedState() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) ShouldDelayChildPressedState() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"shouldDelayChildPressedState",
-	)
+	))
 }
 
-func (obj ScrollView) SmoothScrollBy(dx_ int, dy_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) SmoothScrollBy(dx_ int, dy_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"smoothScrollBy",
 		dx_, dy_,
-	)
+	))
 }
 
-func (obj ScrollView) SmoothScrollTo(x_ int, y_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj ScrollView) SmoothScrollTo(x_ int, y_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ScrollView",
 		"smoothScrollTo",
 		x_, y_,
-	)
+	))
 }
 

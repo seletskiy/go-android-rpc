@@ -173,9 +173,6 @@ func generateMethod(
 		return ""
 	}
 
-	// @TODO: fix me when #7 is ready
-	returnType = "map[string]interface{}"
-
 	displayMethodName := methodName
 	// hack for overloaded methods in java
 	for _, prevMethod := range prevMethods {

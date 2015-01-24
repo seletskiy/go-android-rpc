@@ -23,239 +23,239 @@ func init() {
 	android.ViewTypeConstructors["android.widget.AutoCompleteTextView"] = NewAutoCompleteTextView
 }
 
-func (obj AutoCompleteTextView) ClearListSelection() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) ClearListSelection() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"clearListSelection",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) DismissDropDown() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) DismissDropDown() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"dismissDropDown",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) EnoughToFilter() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) EnoughToFilter() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"enoughToFilter",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetCompletionHint() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetCompletionHint() (string, error) {
+	return return_string(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getCompletionHint",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetDropDownAnchor() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetDropDownAnchor() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getDropDownAnchor",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetDropDownHeight() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetDropDownHeight() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getDropDownHeight",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetDropDownHorizontalOffset() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetDropDownHorizontalOffset() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getDropDownHorizontalOffset",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetDropDownVerticalOffset() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetDropDownVerticalOffset() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getDropDownVerticalOffset",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetDropDownWidth() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetDropDownWidth() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getDropDownWidth",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetListSelection() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetListSelection() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getListSelection",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) GetThreshold() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) GetThreshold() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"getThreshold",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) IsPerformingCompletion() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) IsPerformingCompletion() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"isPerformingCompletion",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) IsPopupShowing() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) IsPopupShowing() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"isPopupShowing",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) OnFilterComplete(count_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) OnFilterComplete(count_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"onFilterComplete",
 		count_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) OnWindowFocusChanged(hasWindowFocus_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) OnWindowFocusChanged(hasWindowFocus_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"onWindowFocusChanged",
 		hasWindowFocus_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) PerformCompletion() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) PerformCompletion() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"performCompletion",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) PerformValidation() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) PerformValidation() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"performValidation",
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetCompletionHint(hint_ string) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetCompletionHint(hint_ string) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setCompletionHint",
 		hint_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownAnchor(id_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownAnchor(id_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownAnchor",
 		id_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownBackgroundResource(id_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownBackgroundResource(id_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownBackgroundResource",
 		id_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownHeight(height_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownHeight(height_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownHeight",
 		height_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownHorizontalOffset(offset_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownHorizontalOffset(offset_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownHorizontalOffset",
 		offset_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownVerticalOffset(offset_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownVerticalOffset(offset_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownVerticalOffset",
 		offset_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetDropDownWidth(width_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetDropDownWidth(width_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setDropDownWidth",
 		width_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetListSelection(position_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetListSelection(position_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setListSelection",
 		position_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetText(text_ string, filter_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetText(text_ string, filter_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setText",
 		text_, filter_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) SetThreshold(threshold_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) SetThreshold(threshold_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"setThreshold",
 		threshold_,
-	)
+	))
 }
 
-func (obj AutoCompleteTextView) ShowDropDown() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AutoCompleteTextView) ShowDropDown() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AutoCompleteTextView",
 		"showDropDown",
-	)
+	))
 }
 

@@ -23,70 +23,70 @@ func init() {
 	android.ViewTypeConstructors["android.widget.AdapterView"] = NewAdapterView
 }
 
-func (obj AdapterView) GetCount() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) GetCount() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getCount",
-	)
+	))
 }
 
-func (obj AdapterView) GetFirstVisiblePosition() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) GetFirstVisiblePosition() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getFirstVisiblePosition",
-	)
+	))
 }
 
-func (obj AdapterView) GetLastVisiblePosition() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) GetLastVisiblePosition() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getLastVisiblePosition",
-	)
+	))
 }
 
-func (obj AdapterView) GetSelectedItemPosition() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) GetSelectedItemPosition() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getSelectedItemPosition",
-	)
+	))
 }
 
-func (obj AdapterView) RemoveAllViews() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) RemoveAllViews() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"removeAllViews",
-	)
+	))
 }
 
-func (obj AdapterView) RemoveViewAt(index_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) RemoveViewAt(index_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"removeViewAt",
 		index_,
-	)
+	))
 }
 
-func (obj AdapterView) SetFocusable(focusable_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) SetFocusable(focusable_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"setFocusable",
 		focusable_,
-	)
+	))
 }
 
-func (obj AdapterView) SetFocusableInTouchMode(focusable_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj AdapterView) SetFocusableInTouchMode(focusable_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"setFocusableInTouchMode",
 		focusable_,
-	)
+	))
 }
 

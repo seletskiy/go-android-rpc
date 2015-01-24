@@ -133,12 +133,10 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         final Method methodToCall = targetMethod;
 
         try {
-            Log.v("!!!", String.format("%s", 123));
             Object callerResult = activity.uiThreadRunner.run(
                 new Callable<Object> () {
                     @Override
                     public Object call() throws Exception {
-                        Log.v("!!!", String.format("%s", "call"));
                         Object result = methodToCall.invoke(
                             viewObject,
                             requestedParams.toArray()
@@ -148,8 +146,17 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 }
             );
 
-            JsonConverter converter = new JsonConverter();
-            result.put("result", converter.Convert(callerResult));
+            if (callerResult == null) {
+                result.put("result", null);
+            }
+
+            if (
+                callerResult instanceof Integer ||
+                callerResult instanceof String ||
+                callerResult instanceof Boolean
+            ) {
+                result.put("result", callerResult);
+            }
         } catch (Exception e) {
             result.put("error", e.toString());
         }

@@ -23,38 +23,38 @@ func init() {
 	android.ViewTypeConstructors["android.widget.EditText"] = NewEditText
 }
 
-func (obj EditText) ExtendSelection(index_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj EditText) ExtendSelection(index_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.EditText",
 		"extendSelection",
 		index_,
-	)
+	))
 }
 
-func (obj EditText) SelectAll() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj EditText) SelectAll() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.EditText",
 		"selectAll",
-	)
+	))
 }
 
-func (obj EditText) SetSelection(index_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj EditText) SetSelection(index_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.EditText",
 		"setSelection",
 		index_,
-	)
+	))
 }
 
-func (obj EditText) SetSelection2ii(start_ int, stop_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj EditText) SetSelection2ii(start_ int, stop_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.EditText",
 		"setSelection",
 		start_, stop_,
-	)
+	))
 }
 

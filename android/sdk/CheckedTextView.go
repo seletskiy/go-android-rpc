@@ -23,63 +23,63 @@ func init() {
 	android.ViewTypeConstructors["android.widget.CheckedTextView"] = NewCheckedTextView
 }
 
-func (obj CheckedTextView) IsChecked() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) IsChecked() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"isChecked",
-	)
+	))
 }
 
-func (obj CheckedTextView) JumpDrawablesToCurrentState() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) JumpDrawablesToCurrentState() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"jumpDrawablesToCurrentState",
-	)
+	))
 }
 
-func (obj CheckedTextView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) OnRtlPropertiesChanged(layoutDirection_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"onRtlPropertiesChanged",
 		layoutDirection_,
-	)
+	))
 }
 
-func (obj CheckedTextView) SetCheckMarkDrawable(resid_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) SetCheckMarkDrawable(resid_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setCheckMarkDrawable",
 		resid_,
-	)
+	))
 }
 
-func (obj CheckedTextView) SetChecked(checked_ bool) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) SetChecked(checked_ bool) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setChecked",
 		checked_,
-	)
+	))
 }
 
-func (obj CheckedTextView) SetVisibility(visibility_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) SetVisibility(visibility_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setVisibility",
 		visibility_,
-	)
+	))
 }
 
-func (obj CheckedTextView) Toggle() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj CheckedTextView) Toggle() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"toggle",
-	)
+	))
 }
 

@@ -29,7 +29,7 @@ func New{{.TypeName}}(id string) interface{} {
 	return obj
 }
 
-func (obj {{.TypeName}}) GetId() string  {
+func (obj {{.TypeName}}) GetId() string {
 	return obj.id
 }{{else}}
 
@@ -74,17 +74,17 @@ var _ = template.Must(viewTpl.New("args_in_call").Funcs(tplutil.Last).Parse(
 
 var _ = template.Must(viewTpl.New("return").Funcs(tplutil.Last).Parse(
 	tplutil.Strip(`
-	{{" "}}{{if .ReturnType}}{{.ReturnType}} {{end}}
+	{{" "}}{{if .ReturnType}}({{.ReturnType}}, error) {{else}}error {{end}}
 `)))
 
 var _ = template.Must(viewTpl.New("method").Parse(strings.TrimLeft(`
 func (obj {{.TypeName}}) {{.DisplayMethodName}}({{template "args" .}}){{template "return" .}}{
-	return android.CallViewMethod(
+	return return_{{if .ReturnType}}{{.ReturnType}}{{else}}error{{end}}(android.CallViewMethod(
 		obj.GetId(),
 		"{{.SdkPackageName}}.{{.TypeName}}",
 		"{{.MethodName}}",{{if .Args}}
 		{{template "args_in_call" .}}{{end}}
-	)
+	))
 }
 
 `, "\n")))

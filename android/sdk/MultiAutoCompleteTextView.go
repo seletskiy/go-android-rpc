@@ -23,19 +23,19 @@ func init() {
 	android.ViewTypeConstructors["android.widget.MultiAutoCompleteTextView"] = NewMultiAutoCompleteTextView
 }
 
-func (obj MultiAutoCompleteTextView) EnoughToFilter() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj MultiAutoCompleteTextView) EnoughToFilter() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.MultiAutoCompleteTextView",
 		"enoughToFilter",
-	)
+	))
 }
 
-func (obj MultiAutoCompleteTextView) PerformValidation() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj MultiAutoCompleteTextView) PerformValidation() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.MultiAutoCompleteTextView",
 		"performValidation",
-	)
+	))
 }
 

@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
     public UIThreadRunner uiThreadRunner;
 
     public MainActivity() {
-        Log.v("!!!", String.format("%s", "started"));
         orphanViews = new HashMap<Integer, View>();
         uiThreadRunner = new UIThreadRunner(this);
         rpcBackend = new RpcBackendCaller(uiThreadRunner);
@@ -45,9 +44,15 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         rpcBackend.destroy();
         rpcFrontend.destroy();
-        super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v("!!! src/com/goandroidrpc/rpc/MainActivity.java:54", String.format("%s", "stopped"));
     }
 
     public class RpcFrontend extends Rpc.Frontend.Stub {
@@ -62,7 +67,6 @@ public class MainActivity extends Activity {
         public String CallFrontend(final String payload) {
             try {
                 JSONObject json = new JSONObject(payload);
-                Log.v("!!!", String.format("%s", json.toString()));
 
                 String handlerName = String.format(
                     "%s.RpcHandler%s",

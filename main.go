@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"runtime/debug"
 
 	"github.com/seletskiy/go-android-rpc/android"
 	"github.com/zazab/zhash"
@@ -41,10 +42,11 @@ func (handler ButtonHandler) OnClick() {
 	handler.button.PerformHapticFeedback(0)
 	handler.button.SetText1s(texts[rand.Intn(len(texts))])
 
-	result := handler.button.GetText()
-	log.Printf("!!! current text: %s", result)
+	result, err := handler.button.IsShown()
+	log.Printf("%#v", result)
+	log.Printf("%#v", err)
 
-	android.ChangeLayout("another_layout")
+	//android.ChangeLayout("another_layout")
 }
 
 func (handler ButtonHandler) OnTouch() android.PayloadType {
@@ -62,7 +64,6 @@ func (handler ButtonHandler) OnTouch() android.PayloadType {
 }
 
 func start() {
-	log.Printf("%#v", "onStart")
 	sensors := zhash.HashFromMap(android.GetSensorsList())
 
 	accelDisplay := android.GetViewById("main_layout", "useless_accel").(sdk.TextView)
@@ -93,7 +94,6 @@ func start() {
 	)
 
 	newView := android.CreateView("123", "android.widget.Button").(sdk.Button)
-	log.Printf("%#v", newView)
 	newView.SetText1s("I'm generated!")
 
 	android.OnClick(newView, ButtonHandler{newView})
@@ -103,10 +103,16 @@ func start() {
 	android.AttachView(newTextEdit, layout_id)
 	newTextEdit.SetText1s("123123")
 
-	log.Printf("%#v", "onStart END")
 }
 
 func main() {
+	defer func() {
+		err := recover()
+		log.Printf("PANIC %s", err)
+
+		log.Print(string(debug.Stack()))
+	}()
+
 	android.OnStart(start)
 	android.Enter()
 }

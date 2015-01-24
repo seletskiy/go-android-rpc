@@ -23,27 +23,27 @@ func init() {
 	android.ViewTypeConstructors["android.widget.StackView"] = NewStackView
 }
 
-func (obj StackView) Advance() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj StackView) Advance() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.StackView",
 		"advance",
-	)
+	))
 }
 
-func (obj StackView) ShowNext() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj StackView) ShowNext() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.StackView",
 		"showNext",
-	)
+	))
 }
 
-func (obj StackView) ShowPrevious() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj StackView) ShowPrevious() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.StackView",
 		"showPrevious",
-	)
+	))
 }
 

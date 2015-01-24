@@ -23,134 +23,134 @@ func init() {
 	android.ViewTypeConstructors["android.widget.VideoView"] = NewVideoView
 }
 
-func (obj VideoView) CanPause() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) CanPause() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canPause",
-	)
+	))
 }
 
-func (obj VideoView) CanSeekBackward() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) CanSeekBackward() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canSeekBackward",
-	)
+	))
 }
 
-func (obj VideoView) CanSeekForward() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) CanSeekForward() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canSeekForward",
-	)
+	))
 }
 
-func (obj VideoView) GetAudioSessionId() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) GetAudioSessionId() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getAudioSessionId",
-	)
+	))
 }
 
-func (obj VideoView) GetBufferPercentage() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) GetBufferPercentage() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getBufferPercentage",
-	)
+	))
 }
 
-func (obj VideoView) GetCurrentPosition() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) GetCurrentPosition() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getCurrentPosition",
-	)
+	))
 }
 
-func (obj VideoView) GetDuration() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) GetDuration() (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getDuration",
-	)
+	))
 }
 
-func (obj VideoView) IsPlaying() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) IsPlaying() (bool, error) {
+	return return_bool(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"isPlaying",
-	)
+	))
 }
 
-func (obj VideoView) Pause() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) Pause() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"pause",
-	)
+	))
 }
 
-func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) (int, error) {
+	return return_int(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"resolveAdjustedSize",
 		desiredSize_, measureSpec_,
-	)
+	))
 }
 
-func (obj VideoView) Resume() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) Resume() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"resume",
-	)
+	))
 }
 
-func (obj VideoView) SeekTo(msec_ int) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) SeekTo(msec_ int) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"seekTo",
 		msec_,
-	)
+	))
 }
 
-func (obj VideoView) SetVideoPath(path_ string) map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) SetVideoPath(path_ string) error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"setVideoPath",
 		path_,
-	)
+	))
 }
 
-func (obj VideoView) Start() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) Start() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"start",
-	)
+	))
 }
 
-func (obj VideoView) StopPlayback() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) StopPlayback() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"stopPlayback",
-	)
+	))
 }
 
-func (obj VideoView) Suspend() map[string]interface{} {
-	return android.CallViewMethod(
+func (obj VideoView) Suspend() error {
+	return return_error(android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"suspend",
-	)
+	))
 }
 
