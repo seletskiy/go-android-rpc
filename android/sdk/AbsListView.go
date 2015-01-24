@@ -23,8 +23,8 @@ func init() {
 	android.ViewTypeConstructors["android.widget.AbsListView"] = NewAbsListView
 }
 
-func (obj AbsListView) BeforeTextChanged(s_ string, start_ int, count_ int, after_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) BeforeTextChanged(s_ string, start_ int, count_ int, after_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"beforeTextChanged",
@@ -32,8 +32,8 @@ func (obj AbsListView) BeforeTextChanged(s_ string, start_ int, count_ int, afte
 	)
 }
 
-func (obj AbsListView) CanScrollList(direction_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) CanScrollList(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"canScrollList",
@@ -41,160 +41,160 @@ func (obj AbsListView) CanScrollList(direction_ int) {
 	)
 }
 
-func (obj AbsListView) ClearChoices() {
-	android.CallViewMethod(
+func (obj AbsListView) ClearChoices() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"clearChoices",
 	)
 }
 
-func (obj AbsListView) ClearTextFilter() {
-	android.CallViewMethod(
+func (obj AbsListView) ClearTextFilter() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"clearTextFilter",
 	)
 }
 
-func (obj AbsListView) DeferNotifyDataSetChanged() {
-	android.CallViewMethod(
+func (obj AbsListView) DeferNotifyDataSetChanged() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"deferNotifyDataSetChanged",
 	)
 }
 
-func (obj AbsListView) GetCacheColorHint() {
-	android.CallViewMethod(
+func (obj AbsListView) GetCacheColorHint() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getCacheColorHint",
 	)
 }
 
-func (obj AbsListView) GetCheckedItemCount() {
-	android.CallViewMethod(
+func (obj AbsListView) GetCheckedItemCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getCheckedItemCount",
 	)
 }
 
-func (obj AbsListView) GetCheckedItemPosition() {
-	android.CallViewMethod(
+func (obj AbsListView) GetCheckedItemPosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getCheckedItemPosition",
 	)
 }
 
-func (obj AbsListView) GetChoiceMode() {
-	android.CallViewMethod(
+func (obj AbsListView) GetChoiceMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getChoiceMode",
 	)
 }
 
-func (obj AbsListView) GetListPaddingBottom() {
-	android.CallViewMethod(
+func (obj AbsListView) GetListPaddingBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getListPaddingBottom",
 	)
 }
 
-func (obj AbsListView) GetListPaddingLeft() {
-	android.CallViewMethod(
+func (obj AbsListView) GetListPaddingLeft() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getListPaddingLeft",
 	)
 }
 
-func (obj AbsListView) GetListPaddingRight() {
-	android.CallViewMethod(
+func (obj AbsListView) GetListPaddingRight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getListPaddingRight",
 	)
 }
 
-func (obj AbsListView) GetListPaddingTop() {
-	android.CallViewMethod(
+func (obj AbsListView) GetListPaddingTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getListPaddingTop",
 	)
 }
 
-func (obj AbsListView) GetSolidColor() {
-	android.CallViewMethod(
+func (obj AbsListView) GetSolidColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getSolidColor",
 	)
 }
 
-func (obj AbsListView) GetTextFilter() {
-	android.CallViewMethod(
+func (obj AbsListView) GetTextFilter() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getTextFilter",
 	)
 }
 
-func (obj AbsListView) GetTranscriptMode() {
-	android.CallViewMethod(
+func (obj AbsListView) GetTranscriptMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getTranscriptMode",
 	)
 }
 
-func (obj AbsListView) GetVerticalScrollbarWidth() {
-	android.CallViewMethod(
+func (obj AbsListView) GetVerticalScrollbarWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"getVerticalScrollbarWidth",
 	)
 }
 
-func (obj AbsListView) HasTextFilter() {
-	android.CallViewMethod(
+func (obj AbsListView) HasTextFilter() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"hasTextFilter",
 	)
 }
 
-func (obj AbsListView) InvalidateViews() {
-	android.CallViewMethod(
+func (obj AbsListView) InvalidateViews() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"invalidateViews",
 	)
 }
 
-func (obj AbsListView) IsFastScrollAlwaysVisible() {
-	android.CallViewMethod(
+func (obj AbsListView) IsFastScrollAlwaysVisible() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isFastScrollAlwaysVisible",
 	)
 }
 
-func (obj AbsListView) IsFastScrollEnabled() {
-	android.CallViewMethod(
+func (obj AbsListView) IsFastScrollEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isFastScrollEnabled",
 	)
 }
 
-func (obj AbsListView) IsItemChecked(position_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) IsItemChecked(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isItemChecked",
@@ -202,56 +202,56 @@ func (obj AbsListView) IsItemChecked(position_ int) {
 	)
 }
 
-func (obj AbsListView) IsScrollingCacheEnabled() {
-	android.CallViewMethod(
+func (obj AbsListView) IsScrollingCacheEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isScrollingCacheEnabled",
 	)
 }
 
-func (obj AbsListView) IsSmoothScrollbarEnabled() {
-	android.CallViewMethod(
+func (obj AbsListView) IsSmoothScrollbarEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isSmoothScrollbarEnabled",
 	)
 }
 
-func (obj AbsListView) IsStackFromBottom() {
-	android.CallViewMethod(
+func (obj AbsListView) IsStackFromBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isStackFromBottom",
 	)
 }
 
-func (obj AbsListView) IsTextFilterEnabled() {
-	android.CallViewMethod(
+func (obj AbsListView) IsTextFilterEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"isTextFilterEnabled",
 	)
 }
 
-func (obj AbsListView) JumpDrawablesToCurrentState() {
-	android.CallViewMethod(
+func (obj AbsListView) JumpDrawablesToCurrentState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"jumpDrawablesToCurrentState",
 	)
 }
 
-func (obj AbsListView) OnCancelPendingInputEvents() {
-	android.CallViewMethod(
+func (obj AbsListView) OnCancelPendingInputEvents() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onCancelPendingInputEvents",
 	)
 }
 
-func (obj AbsListView) OnFilterComplete(count_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) OnFilterComplete(count_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onFilterComplete",
@@ -259,32 +259,32 @@ func (obj AbsListView) OnFilterComplete(count_ int) {
 	)
 }
 
-func (obj AbsListView) OnGlobalLayout() {
-	android.CallViewMethod(
+func (obj AbsListView) OnGlobalLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onGlobalLayout",
 	)
 }
 
-func (obj AbsListView) OnRemoteAdapterConnected() {
-	android.CallViewMethod(
+func (obj AbsListView) OnRemoteAdapterConnected() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onRemoteAdapterConnected",
 	)
 }
 
-func (obj AbsListView) OnRemoteAdapterDisconnected() {
-	android.CallViewMethod(
+func (obj AbsListView) OnRemoteAdapterDisconnected() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onRemoteAdapterDisconnected",
 	)
 }
 
-func (obj AbsListView) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onRtlPropertiesChanged",
@@ -292,8 +292,8 @@ func (obj AbsListView) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj AbsListView) OnTextChanged(s_ string, start_ int, before_ int, count_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) OnTextChanged(s_ string, start_ int, before_ int, count_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onTextChanged",
@@ -301,8 +301,8 @@ func (obj AbsListView) OnTextChanged(s_ string, start_ int, before_ int, count_ 
 	)
 }
 
-func (obj AbsListView) OnTouchModeChanged(isInTouchMode_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) OnTouchModeChanged(isInTouchMode_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onTouchModeChanged",
@@ -310,8 +310,8 @@ func (obj AbsListView) OnTouchModeChanged(isInTouchMode_ bool) {
 	)
 }
 
-func (obj AbsListView) OnWindowFocusChanged(hasWindowFocus_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) OnWindowFocusChanged(hasWindowFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"onWindowFocusChanged",
@@ -319,8 +319,8 @@ func (obj AbsListView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	)
 }
 
-func (obj AbsListView) PointToPosition(x_ int, y_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) PointToPosition(x_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"pointToPosition",
@@ -328,8 +328,8 @@ func (obj AbsListView) PointToPosition(x_ int, y_ int) {
 	)
 }
 
-func (obj AbsListView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"requestDisallowInterceptTouchEvent",
@@ -337,16 +337,16 @@ func (obj AbsListView) RequestDisallowInterceptTouchEvent(disallowIntercept_ boo
 	)
 }
 
-func (obj AbsListView) RequestLayout() {
-	android.CallViewMethod(
+func (obj AbsListView) RequestLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"requestLayout",
 	)
 }
 
-func (obj AbsListView) ScrollListBy(y_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) ScrollListBy(y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"scrollListBy",
@@ -354,8 +354,8 @@ func (obj AbsListView) ScrollListBy(y_ int) {
 	)
 }
 
-func (obj AbsListView) SendAccessibilityEvent(eventType_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SendAccessibilityEvent(eventType_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"sendAccessibilityEvent",
@@ -363,8 +363,8 @@ func (obj AbsListView) SendAccessibilityEvent(eventType_ int) {
 	)
 }
 
-func (obj AbsListView) SetCacheColorHint(color_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetCacheColorHint(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setCacheColorHint",
@@ -372,8 +372,8 @@ func (obj AbsListView) SetCacheColorHint(color_ int) {
 	)
 }
 
-func (obj AbsListView) SetChoiceMode(choiceMode_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetChoiceMode(choiceMode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setChoiceMode",
@@ -381,8 +381,8 @@ func (obj AbsListView) SetChoiceMode(choiceMode_ int) {
 	)
 }
 
-func (obj AbsListView) SetDrawSelectorOnTop(onTop_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetDrawSelectorOnTop(onTop_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setDrawSelectorOnTop",
@@ -390,8 +390,8 @@ func (obj AbsListView) SetDrawSelectorOnTop(onTop_ bool) {
 	)
 }
 
-func (obj AbsListView) SetFastScrollAlwaysVisible(alwaysShow_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetFastScrollAlwaysVisible(alwaysShow_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setFastScrollAlwaysVisible",
@@ -399,8 +399,8 @@ func (obj AbsListView) SetFastScrollAlwaysVisible(alwaysShow_ bool) {
 	)
 }
 
-func (obj AbsListView) SetFastScrollEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetFastScrollEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setFastScrollEnabled",
@@ -408,8 +408,8 @@ func (obj AbsListView) SetFastScrollEnabled(enabled_ bool) {
 	)
 }
 
-func (obj AbsListView) SetFilterText(filterText_ string) {
-	android.CallViewMethod(
+func (obj AbsListView) SetFilterText(filterText_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setFilterText",
@@ -417,8 +417,8 @@ func (obj AbsListView) SetFilterText(filterText_ string) {
 	)
 }
 
-func (obj AbsListView) SetFriction(friction_ float64) {
-	android.CallViewMethod(
+func (obj AbsListView) SetFriction(friction_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setFriction",
@@ -426,8 +426,8 @@ func (obj AbsListView) SetFriction(friction_ float64) {
 	)
 }
 
-func (obj AbsListView) SetItemChecked(position_ int, value_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetItemChecked(position_ int, value_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setItemChecked",
@@ -435,8 +435,8 @@ func (obj AbsListView) SetItemChecked(position_ int, value_ bool) {
 	)
 }
 
-func (obj AbsListView) SetOverScrollMode(mode_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetOverScrollMode(mode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setOverScrollMode",
@@ -444,8 +444,8 @@ func (obj AbsListView) SetOverScrollMode(mode_ int) {
 	)
 }
 
-func (obj AbsListView) SetScrollBarStyle(style_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetScrollBarStyle(style_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setScrollBarStyle",
@@ -453,8 +453,8 @@ func (obj AbsListView) SetScrollBarStyle(style_ int) {
 	)
 }
 
-func (obj AbsListView) SetScrollingCacheEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetScrollingCacheEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setScrollingCacheEnabled",
@@ -462,8 +462,8 @@ func (obj AbsListView) SetScrollingCacheEnabled(enabled_ bool) {
 	)
 }
 
-func (obj AbsListView) SetSelectionFromTop(position_ int, y_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetSelectionFromTop(position_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setSelectionFromTop",
@@ -471,8 +471,8 @@ func (obj AbsListView) SetSelectionFromTop(position_ int, y_ int) {
 	)
 }
 
-func (obj AbsListView) SetSelector(resID_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetSelector(resID_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setSelector",
@@ -480,8 +480,8 @@ func (obj AbsListView) SetSelector(resID_ int) {
 	)
 }
 
-func (obj AbsListView) SetSmoothScrollbarEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetSmoothScrollbarEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setSmoothScrollbarEnabled",
@@ -489,8 +489,8 @@ func (obj AbsListView) SetSmoothScrollbarEnabled(enabled_ bool) {
 	)
 }
 
-func (obj AbsListView) SetStackFromBottom(stackFromBottom_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetStackFromBottom(stackFromBottom_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setStackFromBottom",
@@ -498,8 +498,8 @@ func (obj AbsListView) SetStackFromBottom(stackFromBottom_ bool) {
 	)
 }
 
-func (obj AbsListView) SetTextFilterEnabled(textFilterEnabled_ bool) {
-	android.CallViewMethod(
+func (obj AbsListView) SetTextFilterEnabled(textFilterEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setTextFilterEnabled",
@@ -507,8 +507,8 @@ func (obj AbsListView) SetTextFilterEnabled(textFilterEnabled_ bool) {
 	)
 }
 
-func (obj AbsListView) SetTranscriptMode(mode_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetTranscriptMode(mode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setTranscriptMode",
@@ -516,8 +516,8 @@ func (obj AbsListView) SetTranscriptMode(mode_ int) {
 	)
 }
 
-func (obj AbsListView) SetVelocityScale(scale_ float64) {
-	android.CallViewMethod(
+func (obj AbsListView) SetVelocityScale(scale_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setVelocityScale",
@@ -525,8 +525,8 @@ func (obj AbsListView) SetVelocityScale(scale_ float64) {
 	)
 }
 
-func (obj AbsListView) SetVerticalScrollbarPosition(position_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SetVerticalScrollbarPosition(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"setVerticalScrollbarPosition",
@@ -534,8 +534,8 @@ func (obj AbsListView) SetVerticalScrollbarPosition(position_ int) {
 	)
 }
 
-func (obj AbsListView) SmoothScrollBy(distance_ int, duration_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SmoothScrollBy(distance_ int, duration_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"smoothScrollBy",
@@ -543,8 +543,8 @@ func (obj AbsListView) SmoothScrollBy(distance_ int, duration_ int) {
 	)
 }
 
-func (obj AbsListView) SmoothScrollToPosition(position_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SmoothScrollToPosition(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"smoothScrollToPosition",
@@ -552,8 +552,8 @@ func (obj AbsListView) SmoothScrollToPosition(position_ int) {
 	)
 }
 
-func (obj AbsListView) SmoothScrollToPosition2ii(position_ int, boundPosition_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SmoothScrollToPosition2ii(position_ int, boundPosition_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"smoothScrollToPosition",
@@ -561,8 +561,8 @@ func (obj AbsListView) SmoothScrollToPosition2ii(position_ int, boundPosition_ i
 	)
 }
 
-func (obj AbsListView) SmoothScrollToPositionFromTop(position_ int, offset_ int, duration_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SmoothScrollToPositionFromTop(position_ int, offset_ int, duration_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"smoothScrollToPositionFromTop",
@@ -570,8 +570,8 @@ func (obj AbsListView) SmoothScrollToPositionFromTop(position_ int, offset_ int,
 	)
 }
 
-func (obj AbsListView) SmoothScrollToPositionFromTop2ii(position_ int, offset_ int) {
-	android.CallViewMethod(
+func (obj AbsListView) SmoothScrollToPositionFromTop2ii(position_ int, offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AbsListView",
 		"smoothScrollToPositionFromTop",

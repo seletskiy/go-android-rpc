@@ -23,8 +23,8 @@ func init() {
 	android.ViewTypeConstructors["android.widget.ExpandableListView"] = NewExpandableListView
 }
 
-func (obj ExpandableListView) CollapseGroup(groupPos_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) CollapseGroup(groupPos_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"collapseGroup",
@@ -32,8 +32,8 @@ func (obj ExpandableListView) CollapseGroup(groupPos_ int) {
 	)
 }
 
-func (obj ExpandableListView) ExpandGroup(groupPos_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) ExpandGroup(groupPos_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"expandGroup",
@@ -41,8 +41,8 @@ func (obj ExpandableListView) ExpandGroup(groupPos_ int) {
 	)
 }
 
-func (obj ExpandableListView) ExpandGroup2ib(groupPos_ int, animate_ bool) {
-	android.CallViewMethod(
+func (obj ExpandableListView) ExpandGroup2ib(groupPos_ int, animate_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"expandGroup",
@@ -50,8 +50,8 @@ func (obj ExpandableListView) ExpandGroup2ib(groupPos_ int, animate_ bool) {
 	)
 }
 
-func (obj ExpandableListView) IsGroupExpanded(groupPosition_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) IsGroupExpanded(groupPosition_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"isGroupExpanded",
@@ -59,8 +59,8 @@ func (obj ExpandableListView) IsGroupExpanded(groupPosition_ int) {
 	)
 }
 
-func (obj ExpandableListView) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"onRtlPropertiesChanged",
@@ -68,8 +68,8 @@ func (obj ExpandableListView) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj ExpandableListView) SetChildIndicatorBounds(left_ int, right_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetChildIndicatorBounds(left_ int, right_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setChildIndicatorBounds",
@@ -77,8 +77,8 @@ func (obj ExpandableListView) SetChildIndicatorBounds(left_ int, right_ int) {
 	)
 }
 
-func (obj ExpandableListView) SetChildIndicatorBoundsRelative(start_ int, end_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetChildIndicatorBoundsRelative(start_ int, end_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setChildIndicatorBoundsRelative",
@@ -86,8 +86,8 @@ func (obj ExpandableListView) SetChildIndicatorBoundsRelative(start_ int, end_ i
 	)
 }
 
-func (obj ExpandableListView) SetIndicatorBounds(left_ int, right_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetIndicatorBounds(left_ int, right_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setIndicatorBounds",
@@ -95,8 +95,8 @@ func (obj ExpandableListView) SetIndicatorBounds(left_ int, right_ int) {
 	)
 }
 
-func (obj ExpandableListView) SetIndicatorBoundsRelative(start_ int, end_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetIndicatorBoundsRelative(start_ int, end_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setIndicatorBoundsRelative",
@@ -104,8 +104,8 @@ func (obj ExpandableListView) SetIndicatorBoundsRelative(start_ int, end_ int) {
 	)
 }
 
-func (obj ExpandableListView) SetSelectedChild(groupPosition_ int, childPosition_ int, shouldExpandGroup_ bool) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetSelectedChild(groupPosition_ int, childPosition_ int, shouldExpandGroup_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setSelectedChild",
@@ -113,8 +113,8 @@ func (obj ExpandableListView) SetSelectedChild(groupPosition_ int, childPosition
 	)
 }
 
-func (obj ExpandableListView) SetSelectedGroup(groupPosition_ int) {
-	android.CallViewMethod(
+func (obj ExpandableListView) SetSelectedGroup(groupPosition_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ExpandableListView",
 		"setSelectedGroup",

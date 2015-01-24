@@ -23,72 +23,72 @@ func init() {
 	android.ViewTypeConstructors["android.widget.ListView"] = NewListView
 }
 
-func (obj ListView) AreFooterDividersEnabled() {
-	android.CallViewMethod(
+func (obj ListView) AreFooterDividersEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"areFooterDividersEnabled",
 	)
 }
 
-func (obj ListView) AreHeaderDividersEnabled() {
-	android.CallViewMethod(
+func (obj ListView) AreHeaderDividersEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"areHeaderDividersEnabled",
 	)
 }
 
-func (obj ListView) GetDividerHeight() {
-	android.CallViewMethod(
+func (obj ListView) GetDividerHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"getDividerHeight",
 	)
 }
 
-func (obj ListView) GetFooterViewsCount() {
-	android.CallViewMethod(
+func (obj ListView) GetFooterViewsCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"getFooterViewsCount",
 	)
 }
 
-func (obj ListView) GetHeaderViewsCount() {
-	android.CallViewMethod(
+func (obj ListView) GetHeaderViewsCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"getHeaderViewsCount",
 	)
 }
 
-func (obj ListView) GetItemsCanFocus() {
-	android.CallViewMethod(
+func (obj ListView) GetItemsCanFocus() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"getItemsCanFocus",
 	)
 }
 
-func (obj ListView) GetMaxScrollAmount() {
-	android.CallViewMethod(
+func (obj ListView) GetMaxScrollAmount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"getMaxScrollAmount",
 	)
 }
 
-func (obj ListView) IsOpaque() {
-	android.CallViewMethod(
+func (obj ListView) IsOpaque() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"isOpaque",
 	)
 }
 
-func (obj ListView) SetCacheColorHint(color_ int) {
-	android.CallViewMethod(
+func (obj ListView) SetCacheColorHint(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setCacheColorHint",
@@ -96,8 +96,8 @@ func (obj ListView) SetCacheColorHint(color_ int) {
 	)
 }
 
-func (obj ListView) SetDividerHeight(height_ int) {
-	android.CallViewMethod(
+func (obj ListView) SetDividerHeight(height_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setDividerHeight",
@@ -105,8 +105,8 @@ func (obj ListView) SetDividerHeight(height_ int) {
 	)
 }
 
-func (obj ListView) SetFooterDividersEnabled(footerDividersEnabled_ bool) {
-	android.CallViewMethod(
+func (obj ListView) SetFooterDividersEnabled(footerDividersEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setFooterDividersEnabled",
@@ -114,8 +114,8 @@ func (obj ListView) SetFooterDividersEnabled(footerDividersEnabled_ bool) {
 	)
 }
 
-func (obj ListView) SetHeaderDividersEnabled(headerDividersEnabled_ bool) {
-	android.CallViewMethod(
+func (obj ListView) SetHeaderDividersEnabled(headerDividersEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setHeaderDividersEnabled",
@@ -123,8 +123,8 @@ func (obj ListView) SetHeaderDividersEnabled(headerDividersEnabled_ bool) {
 	)
 }
 
-func (obj ListView) SetItemsCanFocus(itemsCanFocus_ bool) {
-	android.CallViewMethod(
+func (obj ListView) SetItemsCanFocus(itemsCanFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setItemsCanFocus",
@@ -132,8 +132,8 @@ func (obj ListView) SetItemsCanFocus(itemsCanFocus_ bool) {
 	)
 }
 
-func (obj ListView) SetSelection(position_ int) {
-	android.CallViewMethod(
+func (obj ListView) SetSelection(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setSelection",
@@ -141,16 +141,16 @@ func (obj ListView) SetSelection(position_ int) {
 	)
 }
 
-func (obj ListView) SetSelectionAfterHeaderView() {
-	android.CallViewMethod(
+func (obj ListView) SetSelectionAfterHeaderView() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"setSelectionAfterHeaderView",
 	)
 }
 
-func (obj ListView) SmoothScrollByOffset(offset_ int) {
-	android.CallViewMethod(
+func (obj ListView) SmoothScrollByOffset(offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"smoothScrollByOffset",
@@ -158,8 +158,8 @@ func (obj ListView) SmoothScrollByOffset(offset_ int) {
 	)
 }
 
-func (obj ListView) SmoothScrollToPosition(position_ int) {
-	android.CallViewMethod(
+func (obj ListView) SmoothScrollToPosition(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ListView",
 		"smoothScrollToPosition",

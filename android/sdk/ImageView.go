@@ -23,96 +23,96 @@ func init() {
 	android.ViewTypeConstructors["android.widget.ImageView"] = NewImageView
 }
 
-func (obj ImageView) ClearColorFilter() {
-	android.CallViewMethod(
+func (obj ImageView) ClearColorFilter() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"clearColorFilter",
 	)
 }
 
-func (obj ImageView) GetAdjustViewBounds() {
-	android.CallViewMethod(
+func (obj ImageView) GetAdjustViewBounds() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getAdjustViewBounds",
 	)
 }
 
-func (obj ImageView) GetBaseline() {
-	android.CallViewMethod(
+func (obj ImageView) GetBaseline() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getBaseline",
 	)
 }
 
-func (obj ImageView) GetBaselineAlignBottom() {
-	android.CallViewMethod(
+func (obj ImageView) GetBaselineAlignBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getBaselineAlignBottom",
 	)
 }
 
-func (obj ImageView) GetCropToPadding() {
-	android.CallViewMethod(
+func (obj ImageView) GetCropToPadding() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getCropToPadding",
 	)
 }
 
-func (obj ImageView) GetImageAlpha() {
-	android.CallViewMethod(
+func (obj ImageView) GetImageAlpha() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getImageAlpha",
 	)
 }
 
-func (obj ImageView) GetMaxHeight() {
-	android.CallViewMethod(
+func (obj ImageView) GetMaxHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getMaxHeight",
 	)
 }
 
-func (obj ImageView) GetMaxWidth() {
-	android.CallViewMethod(
+func (obj ImageView) GetMaxWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"getMaxWidth",
 	)
 }
 
-func (obj ImageView) HasOverlappingRendering() {
-	android.CallViewMethod(
+func (obj ImageView) HasOverlappingRendering() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"hasOverlappingRendering",
 	)
 }
 
-func (obj ImageView) IsOpaque() {
-	android.CallViewMethod(
+func (obj ImageView) IsOpaque() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"isOpaque",
 	)
 }
 
-func (obj ImageView) JumpDrawablesToCurrentState() {
-	android.CallViewMethod(
+func (obj ImageView) JumpDrawablesToCurrentState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"jumpDrawablesToCurrentState",
 	)
 }
 
-func (obj ImageView) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj ImageView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"onRtlPropertiesChanged",
@@ -120,8 +120,8 @@ func (obj ImageView) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj ImageView) SetAdjustViewBounds(adjustViewBounds_ bool) {
-	android.CallViewMethod(
+func (obj ImageView) SetAdjustViewBounds(adjustViewBounds_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setAdjustViewBounds",
@@ -129,8 +129,8 @@ func (obj ImageView) SetAdjustViewBounds(adjustViewBounds_ bool) {
 	)
 }
 
-func (obj ImageView) SetAlpha(alpha_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetAlpha(alpha_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setAlpha",
@@ -138,8 +138,8 @@ func (obj ImageView) SetAlpha(alpha_ int) {
 	)
 }
 
-func (obj ImageView) SetBaseline(baseline_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetBaseline(baseline_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setBaseline",
@@ -147,8 +147,8 @@ func (obj ImageView) SetBaseline(baseline_ int) {
 	)
 }
 
-func (obj ImageView) SetBaselineAlignBottom(aligned_ bool) {
-	android.CallViewMethod(
+func (obj ImageView) SetBaselineAlignBottom(aligned_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setBaselineAlignBottom",
@@ -156,8 +156,8 @@ func (obj ImageView) SetBaselineAlignBottom(aligned_ bool) {
 	)
 }
 
-func (obj ImageView) SetColorFilter(color_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetColorFilter(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setColorFilter",
@@ -165,8 +165,8 @@ func (obj ImageView) SetColorFilter(color_ int) {
 	)
 }
 
-func (obj ImageView) SetCropToPadding(cropToPadding_ bool) {
-	android.CallViewMethod(
+func (obj ImageView) SetCropToPadding(cropToPadding_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setCropToPadding",
@@ -174,8 +174,8 @@ func (obj ImageView) SetCropToPadding(cropToPadding_ bool) {
 	)
 }
 
-func (obj ImageView) SetImageAlpha(alpha_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetImageAlpha(alpha_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setImageAlpha",
@@ -183,8 +183,8 @@ func (obj ImageView) SetImageAlpha(alpha_ int) {
 	)
 }
 
-func (obj ImageView) SetImageLevel(level_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetImageLevel(level_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setImageLevel",
@@ -192,8 +192,8 @@ func (obj ImageView) SetImageLevel(level_ int) {
 	)
 }
 
-func (obj ImageView) SetImageResource(resId_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetImageResource(resId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setImageResource",
@@ -201,8 +201,8 @@ func (obj ImageView) SetImageResource(resId_ int) {
 	)
 }
 
-func (obj ImageView) SetImageState(merge_ bool) {
-	android.CallViewMethod(
+func (obj ImageView) SetImageState(merge_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setImageState",
@@ -210,8 +210,8 @@ func (obj ImageView) SetImageState(merge_ bool) {
 	)
 }
 
-func (obj ImageView) SetMaxHeight(maxHeight_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetMaxHeight(maxHeight_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setMaxHeight",
@@ -219,8 +219,8 @@ func (obj ImageView) SetMaxHeight(maxHeight_ int) {
 	)
 }
 
-func (obj ImageView) SetMaxWidth(maxWidth_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetMaxWidth(maxWidth_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setMaxWidth",
@@ -228,8 +228,8 @@ func (obj ImageView) SetMaxWidth(maxWidth_ int) {
 	)
 }
 
-func (obj ImageView) SetSelected(selected_ bool) {
-	android.CallViewMethod(
+func (obj ImageView) SetSelected(selected_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setSelected",
@@ -237,8 +237,8 @@ func (obj ImageView) SetSelected(selected_ bool) {
 	)
 }
 
-func (obj ImageView) SetVisibility(visibility_ int) {
-	android.CallViewMethod(
+func (obj ImageView) SetVisibility(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.ImageView",
 		"setVisibility",

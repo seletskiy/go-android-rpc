@@ -38,7 +38,6 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
     ) throws JSONException {
         JSONObject result = new JSONObject();
 
-        targetViewId = R.id.useless_layout;
         final ViewGroup targetView = (ViewGroup) activity.findViewById(
             targetViewId
         );

@@ -77,7 +77,6 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
                 // @TODO
             }
 
-            Log.v("!!!", String.format("sensors %s", json.toString()));
             mActivity.rpcBackend.call(json.toString());
         }
     }

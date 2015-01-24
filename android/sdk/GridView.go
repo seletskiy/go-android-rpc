@@ -23,72 +23,72 @@ func init() {
 	android.ViewTypeConstructors["android.widget.GridView"] = NewGridView
 }
 
-func (obj GridView) GetColumnWidth() {
-	android.CallViewMethod(
+func (obj GridView) GetColumnWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getColumnWidth",
 	)
 }
 
-func (obj GridView) GetGravity() {
-	android.CallViewMethod(
+func (obj GridView) GetGravity() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getGravity",
 	)
 }
 
-func (obj GridView) GetHorizontalSpacing() {
-	android.CallViewMethod(
+func (obj GridView) GetHorizontalSpacing() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getHorizontalSpacing",
 	)
 }
 
-func (obj GridView) GetNumColumns() {
-	android.CallViewMethod(
+func (obj GridView) GetNumColumns() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getNumColumns",
 	)
 }
 
-func (obj GridView) GetRequestedColumnWidth() {
-	android.CallViewMethod(
+func (obj GridView) GetRequestedColumnWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getRequestedColumnWidth",
 	)
 }
 
-func (obj GridView) GetRequestedHorizontalSpacing() {
-	android.CallViewMethod(
+func (obj GridView) GetRequestedHorizontalSpacing() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getRequestedHorizontalSpacing",
 	)
 }
 
-func (obj GridView) GetStretchMode() {
-	android.CallViewMethod(
+func (obj GridView) GetStretchMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getStretchMode",
 	)
 }
 
-func (obj GridView) GetVerticalSpacing() {
-	android.CallViewMethod(
+func (obj GridView) GetVerticalSpacing() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"getVerticalSpacing",
 	)
 }
 
-func (obj GridView) SetColumnWidth(columnWidth_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetColumnWidth(columnWidth_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setColumnWidth",
@@ -96,8 +96,8 @@ func (obj GridView) SetColumnWidth(columnWidth_ int) {
 	)
 }
 
-func (obj GridView) SetGravity(gravity_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetGravity(gravity_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setGravity",
@@ -105,8 +105,8 @@ func (obj GridView) SetGravity(gravity_ int) {
 	)
 }
 
-func (obj GridView) SetHorizontalSpacing(horizontalSpacing_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetHorizontalSpacing(horizontalSpacing_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setHorizontalSpacing",
@@ -114,8 +114,8 @@ func (obj GridView) SetHorizontalSpacing(horizontalSpacing_ int) {
 	)
 }
 
-func (obj GridView) SetNumColumns(numColumns_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetNumColumns(numColumns_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setNumColumns",
@@ -123,8 +123,8 @@ func (obj GridView) SetNumColumns(numColumns_ int) {
 	)
 }
 
-func (obj GridView) SetSelection(position_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetSelection(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setSelection",
@@ -132,8 +132,8 @@ func (obj GridView) SetSelection(position_ int) {
 	)
 }
 
-func (obj GridView) SetStretchMode(stretchMode_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetStretchMode(stretchMode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setStretchMode",
@@ -141,8 +141,8 @@ func (obj GridView) SetStretchMode(stretchMode_ int) {
 	)
 }
 
-func (obj GridView) SetVerticalSpacing(verticalSpacing_ int) {
-	android.CallViewMethod(
+func (obj GridView) SetVerticalSpacing(verticalSpacing_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"setVerticalSpacing",
@@ -150,8 +150,8 @@ func (obj GridView) SetVerticalSpacing(verticalSpacing_ int) {
 	)
 }
 
-func (obj GridView) SmoothScrollByOffset(offset_ int) {
-	android.CallViewMethod(
+func (obj GridView) SmoothScrollByOffset(offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"smoothScrollByOffset",
@@ -159,8 +159,8 @@ func (obj GridView) SmoothScrollByOffset(offset_ int) {
 	)
 }
 
-func (obj GridView) SmoothScrollToPosition(position_ int) {
-	android.CallViewMethod(
+func (obj GridView) SmoothScrollToPosition(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.GridView",
 		"smoothScrollToPosition",

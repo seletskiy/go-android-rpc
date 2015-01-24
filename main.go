@@ -62,10 +62,10 @@ func (handler ButtonHandler) OnTouch() android.PayloadType {
 func start() {
 	sensors := zhash.HashFromMap(android.GetSensorsList())
 
-	accelDisplay := android.GetViewById("useless_layout", "useless_accel").(sdk.TextView)
+	accelDisplay := android.GetViewById("main_layout", "useless_accel").(sdk.TextView)
 	accelDisplay.SetTextSize(40.0)
 
-	touchButton := android.GetViewById("useless_layout", "useless_touch_button").(sdk.Button)
+	touchButton := android.GetViewById("main_layout", "useless_touch_button").(sdk.Button)
 	android.OnTouch(touchButton, ButtonHandler{touchButton})
 
 	accelerometerId, err := sensors.GetString(
@@ -86,7 +86,10 @@ func start() {
 	newView.SetText1s("I'm generated!")
 
 	android.OnClick(newView, ButtonHandler{newView})
-	android.AttachView(newView, "2130837504")
+	android.AttachView(newView, "2130903040")
+
+	newTextEdit := android.CreateView("124", "android.widget.EditText").(sdk.EditText)
+	android.AttachView(newTextEdit, "2130903040")
 }
 
 func main() {

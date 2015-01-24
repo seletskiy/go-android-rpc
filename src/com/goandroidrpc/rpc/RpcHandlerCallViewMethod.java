@@ -18,7 +18,6 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
     public JSONObject Handle(
         Context context, JSONObject request
     ) throws JSONException {
-        Log.v("!!!", String.format("CallView %s", request));
         JSONObject result = new JSONObject();
 
         MainActivity activity = (MainActivity) context;
@@ -70,7 +69,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
             allMethods = Class.forName(viewType).getDeclaredMethods();
         } catch(Exception e) {
             // @TODO
-            Log.v("!!! CVM methods", e.toString());
+            Log.v("!!!", String.format("%s", e));
             return result;
         }
 
@@ -93,7 +92,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                     requestedParamTypes.add(methodArgs.get(i).getClass());
                 }
             } catch(Exception e) {
-                Log.v("!!! CVM fill", e.toString());
+                Log.v("!!!", String.format("%s", e));
             }
         }
 
@@ -134,12 +133,10 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         final Method methodToCall = targetMethod;
 
         try {
-            Log.v("!!!", String.format("%s", "before real call"));
             Object callerResult = activity.uiThreadRunner.run(
                 new Callable<Object> () {
                     @Override
                     public Object call() throws Exception {
-                        Log.v("!!!", String.format("in real call %s", Thread.currentThread()));
                         Object result = methodToCall.invoke(
                             viewObject,
                             requestedParams.toArray()

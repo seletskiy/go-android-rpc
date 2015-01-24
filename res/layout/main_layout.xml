@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/useless_layout" >
+    android:id="@+id/main_layout" >
     <TextView android:id="@+id/useless_accel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

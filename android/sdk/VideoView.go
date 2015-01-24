@@ -23,80 +23,80 @@ func init() {
 	android.ViewTypeConstructors["android.widget.VideoView"] = NewVideoView
 }
 
-func (obj VideoView) CanPause() {
-	android.CallViewMethod(
+func (obj VideoView) CanPause() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canPause",
 	)
 }
 
-func (obj VideoView) CanSeekBackward() {
-	android.CallViewMethod(
+func (obj VideoView) CanSeekBackward() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canSeekBackward",
 	)
 }
 
-func (obj VideoView) CanSeekForward() {
-	android.CallViewMethod(
+func (obj VideoView) CanSeekForward() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"canSeekForward",
 	)
 }
 
-func (obj VideoView) GetAudioSessionId() {
-	android.CallViewMethod(
+func (obj VideoView) GetAudioSessionId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getAudioSessionId",
 	)
 }
 
-func (obj VideoView) GetBufferPercentage() {
-	android.CallViewMethod(
+func (obj VideoView) GetBufferPercentage() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getBufferPercentage",
 	)
 }
 
-func (obj VideoView) GetCurrentPosition() {
-	android.CallViewMethod(
+func (obj VideoView) GetCurrentPosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getCurrentPosition",
 	)
 }
 
-func (obj VideoView) GetDuration() {
-	android.CallViewMethod(
+func (obj VideoView) GetDuration() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"getDuration",
 	)
 }
 
-func (obj VideoView) IsPlaying() {
-	android.CallViewMethod(
+func (obj VideoView) IsPlaying() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"isPlaying",
 	)
 }
 
-func (obj VideoView) Pause() {
-	android.CallViewMethod(
+func (obj VideoView) Pause() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"pause",
 	)
 }
 
-func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) {
-	android.CallViewMethod(
+func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"resolveAdjustedSize",
@@ -104,16 +104,16 @@ func (obj VideoView) ResolveAdjustedSize(desiredSize_ int, measureSpec_ int) {
 	)
 }
 
-func (obj VideoView) Resume() {
-	android.CallViewMethod(
+func (obj VideoView) Resume() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"resume",
 	)
 }
 
-func (obj VideoView) SeekTo(msec_ int) {
-	android.CallViewMethod(
+func (obj VideoView) SeekTo(msec_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"seekTo",
@@ -121,8 +121,8 @@ func (obj VideoView) SeekTo(msec_ int) {
 	)
 }
 
-func (obj VideoView) SetVideoPath(path_ string) {
-	android.CallViewMethod(
+func (obj VideoView) SetVideoPath(path_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"setVideoPath",
@@ -130,24 +130,24 @@ func (obj VideoView) SetVideoPath(path_ string) {
 	)
 }
 
-func (obj VideoView) Start() {
-	android.CallViewMethod(
+func (obj VideoView) Start() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"start",
 	)
 }
 
-func (obj VideoView) StopPlayback() {
-	android.CallViewMethod(
+func (obj VideoView) StopPlayback() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"stopPlayback",
 	)
 }
 
-func (obj VideoView) Suspend() {
-	android.CallViewMethod(
+func (obj VideoView) Suspend() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.VideoView",
 		"suspend",

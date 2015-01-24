@@ -23,48 +23,48 @@ func init() {
 	android.ViewTypeConstructors["android.widget.AdapterView"] = NewAdapterView
 }
 
-func (obj AdapterView) GetCount() {
-	android.CallViewMethod(
+func (obj AdapterView) GetCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getCount",
 	)
 }
 
-func (obj AdapterView) GetFirstVisiblePosition() {
-	android.CallViewMethod(
+func (obj AdapterView) GetFirstVisiblePosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getFirstVisiblePosition",
 	)
 }
 
-func (obj AdapterView) GetLastVisiblePosition() {
-	android.CallViewMethod(
+func (obj AdapterView) GetLastVisiblePosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getLastVisiblePosition",
 	)
 }
 
-func (obj AdapterView) GetSelectedItemPosition() {
-	android.CallViewMethod(
+func (obj AdapterView) GetSelectedItemPosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"getSelectedItemPosition",
 	)
 }
 
-func (obj AdapterView) RemoveAllViews() {
-	android.CallViewMethod(
+func (obj AdapterView) RemoveAllViews() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"removeAllViews",
 	)
 }
 
-func (obj AdapterView) RemoveViewAt(index_ int) {
-	android.CallViewMethod(
+func (obj AdapterView) RemoveViewAt(index_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"removeViewAt",
@@ -72,8 +72,8 @@ func (obj AdapterView) RemoveViewAt(index_ int) {
 	)
 }
 
-func (obj AdapterView) SetFocusable(focusable_ bool) {
-	android.CallViewMethod(
+func (obj AdapterView) SetFocusable(focusable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"setFocusable",
@@ -81,8 +81,8 @@ func (obj AdapterView) SetFocusable(focusable_ bool) {
 	)
 }
 
-func (obj AdapterView) SetFocusableInTouchMode(focusable_ bool) {
-	android.CallViewMethod(
+func (obj AdapterView) SetFocusableInTouchMode(focusable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.AdapterView",
 		"setFocusableInTouchMode",

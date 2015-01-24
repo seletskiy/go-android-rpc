@@ -23,8 +23,8 @@ func init() {
 	android.ViewTypeConstructors["android.widget.HorizontalScrollView"] = NewHorizontalScrollView
 }
 
-func (obj HorizontalScrollView) ArrowScroll(direction_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) ArrowScroll(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"arrowScroll",
@@ -32,16 +32,16 @@ func (obj HorizontalScrollView) ArrowScroll(direction_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) ComputeScroll() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) ComputeScroll() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"computeScroll",
 	)
 }
 
-func (obj HorizontalScrollView) Fling(velocityX_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) Fling(velocityX_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"fling",
@@ -49,8 +49,8 @@ func (obj HorizontalScrollView) Fling(velocityX_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) FullScroll(direction_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) FullScroll(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"fullScroll",
@@ -58,32 +58,32 @@ func (obj HorizontalScrollView) FullScroll(direction_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) GetMaxScrollAmount() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) GetMaxScrollAmount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"getMaxScrollAmount",
 	)
 }
 
-func (obj HorizontalScrollView) IsFillViewport() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) IsFillViewport() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"isFillViewport",
 	)
 }
 
-func (obj HorizontalScrollView) IsSmoothScrollingEnabled() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) IsSmoothScrollingEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"isSmoothScrollingEnabled",
 	)
 }
 
-func (obj HorizontalScrollView) PageScroll(direction_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) PageScroll(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"pageScroll",
@@ -91,8 +91,8 @@ func (obj HorizontalScrollView) PageScroll(direction_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) RequestDisallowInterceptTouchEvent(disallowIntercept_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"requestDisallowInterceptTouchEvent",
@@ -100,16 +100,16 @@ func (obj HorizontalScrollView) RequestDisallowInterceptTouchEvent(disallowInter
 	)
 }
 
-func (obj HorizontalScrollView) RequestLayout() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) RequestLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"requestLayout",
 	)
 }
 
-func (obj HorizontalScrollView) ScrollTo(x_ int, y_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) ScrollTo(x_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"scrollTo",
@@ -117,8 +117,8 @@ func (obj HorizontalScrollView) ScrollTo(x_ int, y_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) SetFillViewport(fillViewport_ bool) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) SetFillViewport(fillViewport_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"setFillViewport",
@@ -126,8 +126,8 @@ func (obj HorizontalScrollView) SetFillViewport(fillViewport_ bool) {
 	)
 }
 
-func (obj HorizontalScrollView) SetOverScrollMode(mode_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) SetOverScrollMode(mode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"setOverScrollMode",
@@ -135,8 +135,8 @@ func (obj HorizontalScrollView) SetOverScrollMode(mode_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"setSmoothScrollingEnabled",
@@ -144,16 +144,16 @@ func (obj HorizontalScrollView) SetSmoothScrollingEnabled(smoothScrollingEnabled
 	)
 }
 
-func (obj HorizontalScrollView) ShouldDelayChildPressedState() {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) ShouldDelayChildPressedState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"shouldDelayChildPressedState",
 	)
 }
 
-func (obj HorizontalScrollView) SmoothScrollBy(dx_ int, dy_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) SmoothScrollBy(dx_ int, dy_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"smoothScrollBy",
@@ -161,8 +161,8 @@ func (obj HorizontalScrollView) SmoothScrollBy(dx_ int, dy_ int) {
 	)
 }
 
-func (obj HorizontalScrollView) SmoothScrollTo(x_ int, y_ int) {
-	android.CallViewMethod(
+func (obj HorizontalScrollView) SmoothScrollTo(x_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.HorizontalScrollView",
 		"smoothScrollTo",

@@ -23,96 +23,96 @@ func init() {
 	android.ViewTypeConstructors["android.widget.SearchView"] = NewSearchView
 }
 
-func (obj SearchView) GetImeOptions() {
-	android.CallViewMethod(
+func (obj SearchView) GetImeOptions() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"getImeOptions",
 	)
 }
 
-func (obj SearchView) GetInputType() {
-	android.CallViewMethod(
+func (obj SearchView) GetInputType() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"getInputType",
 	)
 }
 
-func (obj SearchView) GetMaxWidth() {
-	android.CallViewMethod(
+func (obj SearchView) GetMaxWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"getMaxWidth",
 	)
 }
 
-func (obj SearchView) GetQuery() {
-	android.CallViewMethod(
+func (obj SearchView) GetQuery() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"getQuery",
 	)
 }
 
-func (obj SearchView) GetQueryHint() {
-	android.CallViewMethod(
+func (obj SearchView) GetQueryHint() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"getQueryHint",
 	)
 }
 
-func (obj SearchView) IsIconfiedByDefault() {
-	android.CallViewMethod(
+func (obj SearchView) IsIconfiedByDefault() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"isIconfiedByDefault",
 	)
 }
 
-func (obj SearchView) IsIconified() {
-	android.CallViewMethod(
+func (obj SearchView) IsIconified() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"isIconified",
 	)
 }
 
-func (obj SearchView) IsQueryRefinementEnabled() {
-	android.CallViewMethod(
+func (obj SearchView) IsQueryRefinementEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"isQueryRefinementEnabled",
 	)
 }
 
-func (obj SearchView) IsSubmitButtonEnabled() {
-	android.CallViewMethod(
+func (obj SearchView) IsSubmitButtonEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"isSubmitButtonEnabled",
 	)
 }
 
-func (obj SearchView) OnActionViewCollapsed() {
-	android.CallViewMethod(
+func (obj SearchView) OnActionViewCollapsed() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"onActionViewCollapsed",
 	)
 }
 
-func (obj SearchView) OnActionViewExpanded() {
-	android.CallViewMethod(
+func (obj SearchView) OnActionViewExpanded() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"onActionViewExpanded",
 	)
 }
 
-func (obj SearchView) OnWindowFocusChanged(hasWindowFocus_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) OnWindowFocusChanged(hasWindowFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"onWindowFocusChanged",
@@ -120,8 +120,8 @@ func (obj SearchView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	)
 }
 
-func (obj SearchView) SetIconified(iconify_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) SetIconified(iconify_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setIconified",
@@ -129,8 +129,8 @@ func (obj SearchView) SetIconified(iconify_ bool) {
 	)
 }
 
-func (obj SearchView) SetIconifiedByDefault(iconified_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) SetIconifiedByDefault(iconified_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setIconifiedByDefault",
@@ -138,8 +138,8 @@ func (obj SearchView) SetIconifiedByDefault(iconified_ bool) {
 	)
 }
 
-func (obj SearchView) SetImeOptions(imeOptions_ int) {
-	android.CallViewMethod(
+func (obj SearchView) SetImeOptions(imeOptions_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setImeOptions",
@@ -147,8 +147,8 @@ func (obj SearchView) SetImeOptions(imeOptions_ int) {
 	)
 }
 
-func (obj SearchView) SetInputType(inputType_ int) {
-	android.CallViewMethod(
+func (obj SearchView) SetInputType(inputType_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setInputType",
@@ -156,8 +156,8 @@ func (obj SearchView) SetInputType(inputType_ int) {
 	)
 }
 
-func (obj SearchView) SetMaxWidth(maxpixels_ int) {
-	android.CallViewMethod(
+func (obj SearchView) SetMaxWidth(maxpixels_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setMaxWidth",
@@ -165,8 +165,8 @@ func (obj SearchView) SetMaxWidth(maxpixels_ int) {
 	)
 }
 
-func (obj SearchView) SetQuery(query_ string, submit_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) SetQuery(query_ string, submit_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setQuery",
@@ -174,8 +174,8 @@ func (obj SearchView) SetQuery(query_ string, submit_ bool) {
 	)
 }
 
-func (obj SearchView) SetQueryHint(hint_ string) {
-	android.CallViewMethod(
+func (obj SearchView) SetQueryHint(hint_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setQueryHint",
@@ -183,8 +183,8 @@ func (obj SearchView) SetQueryHint(hint_ string) {
 	)
 }
 
-func (obj SearchView) SetQueryRefinementEnabled(enable_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) SetQueryRefinementEnabled(enable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setQueryRefinementEnabled",
@@ -192,8 +192,8 @@ func (obj SearchView) SetQueryRefinementEnabled(enable_ bool) {
 	)
 }
 
-func (obj SearchView) SetSubmitButtonEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj SearchView) SetSubmitButtonEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.SearchView",
 		"setSubmitButtonEnabled",

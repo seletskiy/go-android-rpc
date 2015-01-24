@@ -23,96 +23,96 @@ func init() {
 	android.ViewTypeConstructors["android.widget.CalendarView"] = NewCalendarView
 }
 
-func (obj CalendarView) GetDateTextAppearance() {
-	android.CallViewMethod(
+func (obj CalendarView) GetDateTextAppearance() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getDateTextAppearance",
 	)
 }
 
-func (obj CalendarView) GetFirstDayOfWeek() {
-	android.CallViewMethod(
+func (obj CalendarView) GetFirstDayOfWeek() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getFirstDayOfWeek",
 	)
 }
 
-func (obj CalendarView) GetFocusedMonthDateColor() {
-	android.CallViewMethod(
+func (obj CalendarView) GetFocusedMonthDateColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getFocusedMonthDateColor",
 	)
 }
 
-func (obj CalendarView) GetSelectedWeekBackgroundColor() {
-	android.CallViewMethod(
+func (obj CalendarView) GetSelectedWeekBackgroundColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getSelectedWeekBackgroundColor",
 	)
 }
 
-func (obj CalendarView) GetShowWeekNumber() {
-	android.CallViewMethod(
+func (obj CalendarView) GetShowWeekNumber() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getShowWeekNumber",
 	)
 }
 
-func (obj CalendarView) GetShownWeekCount() {
-	android.CallViewMethod(
+func (obj CalendarView) GetShownWeekCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getShownWeekCount",
 	)
 }
 
-func (obj CalendarView) GetUnfocusedMonthDateColor() {
-	android.CallViewMethod(
+func (obj CalendarView) GetUnfocusedMonthDateColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getUnfocusedMonthDateColor",
 	)
 }
 
-func (obj CalendarView) GetWeekDayTextAppearance() {
-	android.CallViewMethod(
+func (obj CalendarView) GetWeekDayTextAppearance() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getWeekDayTextAppearance",
 	)
 }
 
-func (obj CalendarView) GetWeekNumberColor() {
-	android.CallViewMethod(
+func (obj CalendarView) GetWeekNumberColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getWeekNumberColor",
 	)
 }
 
-func (obj CalendarView) GetWeekSeparatorLineColor() {
-	android.CallViewMethod(
+func (obj CalendarView) GetWeekSeparatorLineColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"getWeekSeparatorLineColor",
 	)
 }
 
-func (obj CalendarView) IsEnabled() {
-	android.CallViewMethod(
+func (obj CalendarView) IsEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"isEnabled",
 	)
 }
 
-func (obj CalendarView) SetDateTextAppearance(resourceId_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetDateTextAppearance(resourceId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setDateTextAppearance",
@@ -120,8 +120,8 @@ func (obj CalendarView) SetDateTextAppearance(resourceId_ int) {
 	)
 }
 
-func (obj CalendarView) SetEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj CalendarView) SetEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setEnabled",
@@ -129,8 +129,8 @@ func (obj CalendarView) SetEnabled(enabled_ bool) {
 	)
 }
 
-func (obj CalendarView) SetFirstDayOfWeek(firstDayOfWeek_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetFirstDayOfWeek(firstDayOfWeek_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setFirstDayOfWeek",
@@ -138,8 +138,8 @@ func (obj CalendarView) SetFirstDayOfWeek(firstDayOfWeek_ int) {
 	)
 }
 
-func (obj CalendarView) SetFocusedMonthDateColor(color_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetFocusedMonthDateColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setFocusedMonthDateColor",
@@ -147,8 +147,8 @@ func (obj CalendarView) SetFocusedMonthDateColor(color_ int) {
 	)
 }
 
-func (obj CalendarView) SetSelectedDateVerticalBar(resourceId_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetSelectedDateVerticalBar(resourceId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setSelectedDateVerticalBar",
@@ -156,8 +156,8 @@ func (obj CalendarView) SetSelectedDateVerticalBar(resourceId_ int) {
 	)
 }
 
-func (obj CalendarView) SetSelectedWeekBackgroundColor(color_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetSelectedWeekBackgroundColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setSelectedWeekBackgroundColor",
@@ -165,8 +165,8 @@ func (obj CalendarView) SetSelectedWeekBackgroundColor(color_ int) {
 	)
 }
 
-func (obj CalendarView) SetShowWeekNumber(showWeekNumber_ bool) {
-	android.CallViewMethod(
+func (obj CalendarView) SetShowWeekNumber(showWeekNumber_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setShowWeekNumber",
@@ -174,8 +174,8 @@ func (obj CalendarView) SetShowWeekNumber(showWeekNumber_ bool) {
 	)
 }
 
-func (obj CalendarView) SetShownWeekCount(count_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetShownWeekCount(count_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setShownWeekCount",
@@ -183,8 +183,8 @@ func (obj CalendarView) SetShownWeekCount(count_ int) {
 	)
 }
 
-func (obj CalendarView) SetUnfocusedMonthDateColor(color_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetUnfocusedMonthDateColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setUnfocusedMonthDateColor",
@@ -192,8 +192,8 @@ func (obj CalendarView) SetUnfocusedMonthDateColor(color_ int) {
 	)
 }
 
-func (obj CalendarView) SetWeekDayTextAppearance(resourceId_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetWeekDayTextAppearance(resourceId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setWeekDayTextAppearance",
@@ -201,8 +201,8 @@ func (obj CalendarView) SetWeekDayTextAppearance(resourceId_ int) {
 	)
 }
 
-func (obj CalendarView) SetWeekNumberColor(color_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetWeekNumberColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setWeekNumberColor",
@@ -210,8 +210,8 @@ func (obj CalendarView) SetWeekNumberColor(color_ int) {
 	)
 }
 
-func (obj CalendarView) SetWeekSeparatorLineColor(color_ int) {
-	android.CallViewMethod(
+func (obj CalendarView) SetWeekSeparatorLineColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CalendarView",
 		"setWeekSeparatorLineColor",

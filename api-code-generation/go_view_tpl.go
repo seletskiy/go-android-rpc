@@ -79,7 +79,7 @@ var _ = template.Must(viewTpl.New("return").Funcs(tplutil.Last).Parse(
 
 var _ = template.Must(viewTpl.New("method").Parse(strings.TrimLeft(`
 func (obj {{.TypeName}}) {{.DisplayMethodName}}({{template "args" .}}){{template "return" .}}{
-	android.CallViewMethod(
+	return android.CallViewMethod(
 		obj.GetId(),
 		"{{.SdkPackageName}}.{{.TypeName}}",
 		"{{.MethodName}}",{{if .Args}}

@@ -10,6 +10,8 @@ mkdir -p android/sdk
     api-doc-parser/api-doc-parser -g 'View$' widget
 ) | api-code-generation/api-code-generation android/sdk -b View -r ViewTypeConstructors
 
-api-doc-parser/api-doc-parser -g '^Button$' widget |
-    api-code-generation/api-code-generation android/sdk -b TextView -r ViewTypeConstructors
+(
+    api-doc-parser/api-doc-parser -g '^Button$' widget ;
+    api-doc-parser/api-doc-parser -g '^EditText$' widget
+) | api-code-generation/api-code-generation android/sdk -b TextView -r ViewTypeConstructors
 

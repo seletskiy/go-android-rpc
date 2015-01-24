@@ -57,10 +57,8 @@ func CallBackend(payload string) string {
 		return ""
 	}
 
-	log.Printf("CallBackend %#v", payload)
 	replyTo := make(chan android.PayloadType, 0)
 	android.SendEvent(data, replyTo)
-	log.Printf("%#v", "ready to reply")
 
 	reply, err := json.Marshal(map[string]interface{}{
 		"result": <-replyTo,

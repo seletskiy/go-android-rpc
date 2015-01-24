@@ -23,8 +23,8 @@ func init() {
 	android.ViewTypeConstructors["android.widget.TextView"] = NewTextView
 }
 
-func (obj TextView) Append(text_ string) {
-	android.CallViewMethod(
+func (obj TextView) Append(text_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"append",
@@ -32,8 +32,8 @@ func (obj TextView) Append(text_ string) {
 	)
 }
 
-func (obj TextView) Append3sii(text_ string, start_ int, end_ int) {
-	android.CallViewMethod(
+func (obj TextView) Append3sii(text_ string, start_ int, end_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"append",
@@ -41,16 +41,16 @@ func (obj TextView) Append3sii(text_ string, start_ int, end_ int) {
 	)
 }
 
-func (obj TextView) BeginBatchEdit() {
-	android.CallViewMethod(
+func (obj TextView) BeginBatchEdit() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"beginBatchEdit",
 	)
 }
 
-func (obj TextView) BringPointIntoView(offset_ int) {
-	android.CallViewMethod(
+func (obj TextView) BringPointIntoView(offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"bringPointIntoView",
@@ -58,32 +58,32 @@ func (obj TextView) BringPointIntoView(offset_ int) {
 	)
 }
 
-func (obj TextView) CancelLongPress() {
-	android.CallViewMethod(
+func (obj TextView) CancelLongPress() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"cancelLongPress",
 	)
 }
 
-func (obj TextView) ClearComposingText() {
-	android.CallViewMethod(
+func (obj TextView) ClearComposingText() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"clearComposingText",
 	)
 }
 
-func (obj TextView) ComputeScroll() {
-	android.CallViewMethod(
+func (obj TextView) ComputeScroll() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"computeScroll",
 	)
 }
 
-func (obj TextView) Debug(depth_ int) {
-	android.CallViewMethod(
+func (obj TextView) Debug(depth_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"debug",
@@ -91,24 +91,24 @@ func (obj TextView) Debug(depth_ int) {
 	)
 }
 
-func (obj TextView) DidTouchFocusSelect() {
-	android.CallViewMethod(
+func (obj TextView) DidTouchFocusSelect() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"didTouchFocusSelect",
 	)
 }
 
-func (obj TextView) EndBatchEdit() {
-	android.CallViewMethod(
+func (obj TextView) EndBatchEdit() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"endBatchEdit",
 	)
 }
 
-func (obj TextView) GetAutoLinkMask() {
-	android.CallViewMethod(
+func (obj TextView) GetAutoLinkMask() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getAutoLinkMask",
@@ -123,288 +123,288 @@ func (obj TextView) GetBaseline() map[string]interface{} {
 	)
 }
 
-func (obj TextView) GetCompoundDrawablePadding() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundDrawablePadding() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundDrawablePadding",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingBottom() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingBottom",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingEnd() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingEnd() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingEnd",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingLeft() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingLeft() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingLeft",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingRight() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingRight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingRight",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingStart() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingStart() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingStart",
 	)
 }
 
-func (obj TextView) GetCompoundPaddingTop() {
-	android.CallViewMethod(
+func (obj TextView) GetCompoundPaddingTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCompoundPaddingTop",
 	)
 }
 
-func (obj TextView) GetCurrentHintTextColor() {
-	android.CallViewMethod(
+func (obj TextView) GetCurrentHintTextColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCurrentHintTextColor",
 	)
 }
 
-func (obj TextView) GetCurrentTextColor() {
-	android.CallViewMethod(
+func (obj TextView) GetCurrentTextColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getCurrentTextColor",
 	)
 }
 
-func (obj TextView) GetError() {
-	android.CallViewMethod(
+func (obj TextView) GetError() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getError",
 	)
 }
 
-func (obj TextView) GetExtendedPaddingBottom() {
-	android.CallViewMethod(
+func (obj TextView) GetExtendedPaddingBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getExtendedPaddingBottom",
 	)
 }
 
-func (obj TextView) GetExtendedPaddingTop() {
-	android.CallViewMethod(
+func (obj TextView) GetExtendedPaddingTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getExtendedPaddingTop",
 	)
 }
 
-func (obj TextView) GetFreezesText() {
-	android.CallViewMethod(
+func (obj TextView) GetFreezesText() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getFreezesText",
 	)
 }
 
-func (obj TextView) GetGravity() {
-	android.CallViewMethod(
+func (obj TextView) GetGravity() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getGravity",
 	)
 }
 
-func (obj TextView) GetHighlightColor() {
-	android.CallViewMethod(
+func (obj TextView) GetHighlightColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getHighlightColor",
 	)
 }
 
-func (obj TextView) GetHint() {
-	android.CallViewMethod(
+func (obj TextView) GetHint() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getHint",
 	)
 }
 
-func (obj TextView) GetImeActionId() {
-	android.CallViewMethod(
+func (obj TextView) GetImeActionId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getImeActionId",
 	)
 }
 
-func (obj TextView) GetImeActionLabel() {
-	android.CallViewMethod(
+func (obj TextView) GetImeActionLabel() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getImeActionLabel",
 	)
 }
 
-func (obj TextView) GetImeOptions() {
-	android.CallViewMethod(
+func (obj TextView) GetImeOptions() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getImeOptions",
 	)
 }
 
-func (obj TextView) GetIncludeFontPadding() {
-	android.CallViewMethod(
+func (obj TextView) GetIncludeFontPadding() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getIncludeFontPadding",
 	)
 }
 
-func (obj TextView) GetInputType() {
-	android.CallViewMethod(
+func (obj TextView) GetInputType() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getInputType",
 	)
 }
 
-func (obj TextView) GetLineCount() {
-	android.CallViewMethod(
+func (obj TextView) GetLineCount() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getLineCount",
 	)
 }
 
-func (obj TextView) GetLineHeight() {
-	android.CallViewMethod(
+func (obj TextView) GetLineHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getLineHeight",
 	)
 }
 
-func (obj TextView) GetLineSpacingExtra() {
-	android.CallViewMethod(
+func (obj TextView) GetLineSpacingExtra() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getLineSpacingExtra",
 	)
 }
 
-func (obj TextView) GetLineSpacingMultiplier() {
-	android.CallViewMethod(
+func (obj TextView) GetLineSpacingMultiplier() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getLineSpacingMultiplier",
 	)
 }
 
-func (obj TextView) GetLinksClickable() {
-	android.CallViewMethod(
+func (obj TextView) GetLinksClickable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getLinksClickable",
 	)
 }
 
-func (obj TextView) GetMarqueeRepeatLimit() {
-	android.CallViewMethod(
+func (obj TextView) GetMarqueeRepeatLimit() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMarqueeRepeatLimit",
 	)
 }
 
-func (obj TextView) GetMaxEms() {
-	android.CallViewMethod(
+func (obj TextView) GetMaxEms() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMaxEms",
 	)
 }
 
-func (obj TextView) GetMaxHeight() {
-	android.CallViewMethod(
+func (obj TextView) GetMaxHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMaxHeight",
 	)
 }
 
-func (obj TextView) GetMaxLines() {
-	android.CallViewMethod(
+func (obj TextView) GetMaxLines() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMaxLines",
 	)
 }
 
-func (obj TextView) GetMaxWidth() {
-	android.CallViewMethod(
+func (obj TextView) GetMaxWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMaxWidth",
 	)
 }
 
-func (obj TextView) GetMinEms() {
-	android.CallViewMethod(
+func (obj TextView) GetMinEms() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMinEms",
 	)
 }
 
-func (obj TextView) GetMinHeight() {
-	android.CallViewMethod(
+func (obj TextView) GetMinHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMinHeight",
 	)
 }
 
-func (obj TextView) GetMinLines() {
-	android.CallViewMethod(
+func (obj TextView) GetMinLines() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMinLines",
 	)
 }
 
-func (obj TextView) GetMinWidth() {
-	android.CallViewMethod(
+func (obj TextView) GetMinWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getMinWidth",
 	)
 }
 
-func (obj TextView) GetOffsetForPosition(x_ float64, y_ float64) {
-	android.CallViewMethod(
+func (obj TextView) GetOffsetForPosition(x_ float64, y_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getOffsetForPosition",
@@ -412,64 +412,64 @@ func (obj TextView) GetOffsetForPosition(x_ float64, y_ float64) {
 	)
 }
 
-func (obj TextView) GetPaintFlags() {
-	android.CallViewMethod(
+func (obj TextView) GetPaintFlags() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getPaintFlags",
 	)
 }
 
-func (obj TextView) GetPrivateImeOptions() {
-	android.CallViewMethod(
+func (obj TextView) GetPrivateImeOptions() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getPrivateImeOptions",
 	)
 }
 
-func (obj TextView) GetSelectionEnd() {
-	android.CallViewMethod(
+func (obj TextView) GetSelectionEnd() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getSelectionEnd",
 	)
 }
 
-func (obj TextView) GetSelectionStart() {
-	android.CallViewMethod(
+func (obj TextView) GetSelectionStart() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getSelectionStart",
 	)
 }
 
-func (obj TextView) GetShadowColor() {
-	android.CallViewMethod(
+func (obj TextView) GetShadowColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getShadowColor",
 	)
 }
 
-func (obj TextView) GetShadowDx() {
-	android.CallViewMethod(
+func (obj TextView) GetShadowDx() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getShadowDx",
 	)
 }
 
-func (obj TextView) GetShadowDy() {
-	android.CallViewMethod(
+func (obj TextView) GetShadowDy() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getShadowDy",
 	)
 }
 
-func (obj TextView) GetShadowRadius() {
-	android.CallViewMethod(
+func (obj TextView) GetShadowRadius() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getShadowRadius",
@@ -484,160 +484,160 @@ func (obj TextView) GetText() map[string]interface{} {
 	)
 }
 
-func (obj TextView) GetTextScaleX() {
-	android.CallViewMethod(
+func (obj TextView) GetTextScaleX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTextScaleX",
 	)
 }
 
-func (obj TextView) GetTextSize() {
-	android.CallViewMethod(
+func (obj TextView) GetTextSize() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTextSize",
 	)
 }
 
-func (obj TextView) GetTotalPaddingBottom() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingBottom",
 	)
 }
 
-func (obj TextView) GetTotalPaddingEnd() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingEnd() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingEnd",
 	)
 }
 
-func (obj TextView) GetTotalPaddingLeft() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingLeft() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingLeft",
 	)
 }
 
-func (obj TextView) GetTotalPaddingRight() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingRight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingRight",
 	)
 }
 
-func (obj TextView) GetTotalPaddingStart() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingStart() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingStart",
 	)
 }
 
-func (obj TextView) GetTotalPaddingTop() {
-	android.CallViewMethod(
+func (obj TextView) GetTotalPaddingTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"getTotalPaddingTop",
 	)
 }
 
-func (obj TextView) HasOverlappingRendering() {
-	android.CallViewMethod(
+func (obj TextView) HasOverlappingRendering() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"hasOverlappingRendering",
 	)
 }
 
-func (obj TextView) HasSelection() {
-	android.CallViewMethod(
+func (obj TextView) HasSelection() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"hasSelection",
 	)
 }
 
-func (obj TextView) IsCursorVisible() {
-	android.CallViewMethod(
+func (obj TextView) IsCursorVisible() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"isCursorVisible",
 	)
 }
 
-func (obj TextView) IsInputMethodTarget() {
-	android.CallViewMethod(
+func (obj TextView) IsInputMethodTarget() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"isInputMethodTarget",
 	)
 }
 
-func (obj TextView) IsSuggestionsEnabled() {
-	android.CallViewMethod(
+func (obj TextView) IsSuggestionsEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"isSuggestionsEnabled",
 	)
 }
 
-func (obj TextView) IsTextSelectable() {
-	android.CallViewMethod(
+func (obj TextView) IsTextSelectable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"isTextSelectable",
 	)
 }
 
-func (obj TextView) JumpDrawablesToCurrentState() {
-	android.CallViewMethod(
+func (obj TextView) JumpDrawablesToCurrentState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"jumpDrawablesToCurrentState",
 	)
 }
 
-func (obj TextView) Length() {
-	android.CallViewMethod(
+func (obj TextView) Length() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"length",
 	)
 }
 
-func (obj TextView) MoveCursorToVisibleOffset() {
-	android.CallViewMethod(
+func (obj TextView) MoveCursorToVisibleOffset() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"moveCursorToVisibleOffset",
 	)
 }
 
-func (obj TextView) OnBeginBatchEdit() {
-	android.CallViewMethod(
+func (obj TextView) OnBeginBatchEdit() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onBeginBatchEdit",
 	)
 }
 
-func (obj TextView) OnCheckIsTextEditor() {
-	android.CallViewMethod(
+func (obj TextView) OnCheckIsTextEditor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onCheckIsTextEditor",
 	)
 }
 
-func (obj TextView) OnEditorAction(actionCode_ int) {
-	android.CallViewMethod(
+func (obj TextView) OnEditorAction(actionCode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onEditorAction",
@@ -645,32 +645,32 @@ func (obj TextView) OnEditorAction(actionCode_ int) {
 	)
 }
 
-func (obj TextView) OnEndBatchEdit() {
-	android.CallViewMethod(
+func (obj TextView) OnEndBatchEdit() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onEndBatchEdit",
 	)
 }
 
-func (obj TextView) OnFinishTemporaryDetach() {
-	android.CallViewMethod(
+func (obj TextView) OnFinishTemporaryDetach() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onFinishTemporaryDetach",
 	)
 }
 
-func (obj TextView) OnPreDraw() {
-	android.CallViewMethod(
+func (obj TextView) OnPreDraw() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onPreDraw",
 	)
 }
 
-func (obj TextView) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj TextView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onRtlPropertiesChanged",
@@ -678,8 +678,8 @@ func (obj TextView) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj TextView) OnScreenStateChanged(screenState_ int) {
-	android.CallViewMethod(
+func (obj TextView) OnScreenStateChanged(screenState_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onScreenStateChanged",
@@ -687,16 +687,16 @@ func (obj TextView) OnScreenStateChanged(screenState_ int) {
 	)
 }
 
-func (obj TextView) OnStartTemporaryDetach() {
-	android.CallViewMethod(
+func (obj TextView) OnStartTemporaryDetach() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onStartTemporaryDetach",
 	)
 }
 
-func (obj TextView) OnTextContextMenuItem(id_ int) {
-	android.CallViewMethod(
+func (obj TextView) OnTextContextMenuItem(id_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onTextContextMenuItem",
@@ -704,8 +704,8 @@ func (obj TextView) OnTextContextMenuItem(id_ int) {
 	)
 }
 
-func (obj TextView) OnWindowFocusChanged(hasWindowFocus_ bool) {
-	android.CallViewMethod(
+func (obj TextView) OnWindowFocusChanged(hasWindowFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"onWindowFocusChanged",
@@ -713,16 +713,16 @@ func (obj TextView) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	)
 }
 
-func (obj TextView) PerformLongClick() {
-	android.CallViewMethod(
+func (obj TextView) PerformLongClick() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"performLongClick",
 	)
 }
 
-func (obj TextView) SendAccessibilityEvent(eventType_ int) {
-	android.CallViewMethod(
+func (obj TextView) SendAccessibilityEvent(eventType_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"sendAccessibilityEvent",
@@ -730,8 +730,8 @@ func (obj TextView) SendAccessibilityEvent(eventType_ int) {
 	)
 }
 
-func (obj TextView) SetAllCaps(allCaps_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetAllCaps(allCaps_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setAllCaps",
@@ -739,8 +739,8 @@ func (obj TextView) SetAllCaps(allCaps_ bool) {
 	)
 }
 
-func (obj TextView) SetAutoLinkMask(mask_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetAutoLinkMask(mask_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setAutoLinkMask",
@@ -748,8 +748,8 @@ func (obj TextView) SetAutoLinkMask(mask_ int) {
 	)
 }
 
-func (obj TextView) SetCompoundDrawablePadding(pad_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetCompoundDrawablePadding(pad_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setCompoundDrawablePadding",
@@ -757,8 +757,8 @@ func (obj TextView) SetCompoundDrawablePadding(pad_ int) {
 	)
 }
 
-func (obj TextView) SetCompoundDrawablesRelativeWithIntrinsicBounds(start_ int, top_ int, end_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetCompoundDrawablesRelativeWithIntrinsicBounds(start_ int, top_ int, end_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setCompoundDrawablesRelativeWithIntrinsicBounds",
@@ -766,8 +766,8 @@ func (obj TextView) SetCompoundDrawablesRelativeWithIntrinsicBounds(start_ int, 
 	)
 }
 
-func (obj TextView) SetCompoundDrawablesWithIntrinsicBounds(left_ int, top_ int, right_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetCompoundDrawablesWithIntrinsicBounds(left_ int, top_ int, right_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setCompoundDrawablesWithIntrinsicBounds",
@@ -775,8 +775,8 @@ func (obj TextView) SetCompoundDrawablesWithIntrinsicBounds(left_ int, top_ int,
 	)
 }
 
-func (obj TextView) SetCursorVisible(visible_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetCursorVisible(visible_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setCursorVisible",
@@ -784,8 +784,8 @@ func (obj TextView) SetCursorVisible(visible_ bool) {
 	)
 }
 
-func (obj TextView) SetEms(ems_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetEms(ems_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setEms",
@@ -793,8 +793,8 @@ func (obj TextView) SetEms(ems_ int) {
 	)
 }
 
-func (obj TextView) SetEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setEnabled",
@@ -802,8 +802,8 @@ func (obj TextView) SetEnabled(enabled_ bool) {
 	)
 }
 
-func (obj TextView) SetError(error_ string) {
-	android.CallViewMethod(
+func (obj TextView) SetError(error_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setError",
@@ -811,16 +811,16 @@ func (obj TextView) SetError(error_ string) {
 	)
 }
 
-func (obj TextView) SetFilters() {
-	android.CallViewMethod(
+func (obj TextView) SetFilters() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setFilters",
 	)
 }
 
-func (obj TextView) SetFreezesText(freezesText_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetFreezesText(freezesText_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setFreezesText",
@@ -828,8 +828,8 @@ func (obj TextView) SetFreezesText(freezesText_ bool) {
 	)
 }
 
-func (obj TextView) SetGravity(gravity_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetGravity(gravity_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setGravity",
@@ -837,8 +837,8 @@ func (obj TextView) SetGravity(gravity_ int) {
 	)
 }
 
-func (obj TextView) SetHeight(pixels_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetHeight(pixels_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHeight",
@@ -846,8 +846,8 @@ func (obj TextView) SetHeight(pixels_ int) {
 	)
 }
 
-func (obj TextView) SetHighlightColor(color_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetHighlightColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHighlightColor",
@@ -855,8 +855,8 @@ func (obj TextView) SetHighlightColor(color_ int) {
 	)
 }
 
-func (obj TextView) SetHint(hint_ string) {
-	android.CallViewMethod(
+func (obj TextView) SetHint(hint_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHint",
@@ -864,8 +864,8 @@ func (obj TextView) SetHint(hint_ string) {
 	)
 }
 
-func (obj TextView) SetHint1i(resid_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetHint1i(resid_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHint",
@@ -873,8 +873,8 @@ func (obj TextView) SetHint1i(resid_ int) {
 	)
 }
 
-func (obj TextView) SetHintTextColor(color_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetHintTextColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHintTextColor",
@@ -882,8 +882,8 @@ func (obj TextView) SetHintTextColor(color_ int) {
 	)
 }
 
-func (obj TextView) SetHorizontallyScrolling(whether_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetHorizontallyScrolling(whether_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setHorizontallyScrolling",
@@ -891,8 +891,8 @@ func (obj TextView) SetHorizontallyScrolling(whether_ bool) {
 	)
 }
 
-func (obj TextView) SetImeActionLabel(label_ string, actionId_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetImeActionLabel(label_ string, actionId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setImeActionLabel",
@@ -900,8 +900,8 @@ func (obj TextView) SetImeActionLabel(label_ string, actionId_ int) {
 	)
 }
 
-func (obj TextView) SetImeOptions(imeOptions_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetImeOptions(imeOptions_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setImeOptions",
@@ -909,8 +909,8 @@ func (obj TextView) SetImeOptions(imeOptions_ int) {
 	)
 }
 
-func (obj TextView) SetIncludeFontPadding(includepad_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetIncludeFontPadding(includepad_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setIncludeFontPadding",
@@ -918,8 +918,8 @@ func (obj TextView) SetIncludeFontPadding(includepad_ bool) {
 	)
 }
 
-func (obj TextView) SetInputExtras(xmlResId_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetInputExtras(xmlResId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setInputExtras",
@@ -927,8 +927,8 @@ func (obj TextView) SetInputExtras(xmlResId_ int) {
 	)
 }
 
-func (obj TextView) SetInputType(type_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetInputType(type_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setInputType",
@@ -936,8 +936,8 @@ func (obj TextView) SetInputType(type_ int) {
 	)
 }
 
-func (obj TextView) SetLineSpacing(add_ float64, mult_ float64) {
-	android.CallViewMethod(
+func (obj TextView) SetLineSpacing(add_ float64, mult_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setLineSpacing",
@@ -945,8 +945,8 @@ func (obj TextView) SetLineSpacing(add_ float64, mult_ float64) {
 	)
 }
 
-func (obj TextView) SetLines(lines_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetLines(lines_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setLines",
@@ -954,8 +954,8 @@ func (obj TextView) SetLines(lines_ int) {
 	)
 }
 
-func (obj TextView) SetLinkTextColor(color_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetLinkTextColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setLinkTextColor",
@@ -963,8 +963,8 @@ func (obj TextView) SetLinkTextColor(color_ int) {
 	)
 }
 
-func (obj TextView) SetLinksClickable(whether_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetLinksClickable(whether_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setLinksClickable",
@@ -972,8 +972,8 @@ func (obj TextView) SetLinksClickable(whether_ bool) {
 	)
 }
 
-func (obj TextView) SetMarqueeRepeatLimit(marqueeLimit_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMarqueeRepeatLimit(marqueeLimit_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMarqueeRepeatLimit",
@@ -981,8 +981,8 @@ func (obj TextView) SetMarqueeRepeatLimit(marqueeLimit_ int) {
 	)
 }
 
-func (obj TextView) SetMaxEms(maxems_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMaxEms(maxems_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMaxEms",
@@ -990,8 +990,8 @@ func (obj TextView) SetMaxEms(maxems_ int) {
 	)
 }
 
-func (obj TextView) SetMaxHeight(maxHeight_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMaxHeight(maxHeight_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMaxHeight",
@@ -999,8 +999,8 @@ func (obj TextView) SetMaxHeight(maxHeight_ int) {
 	)
 }
 
-func (obj TextView) SetMaxLines(maxlines_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMaxLines(maxlines_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMaxLines",
@@ -1008,8 +1008,8 @@ func (obj TextView) SetMaxLines(maxlines_ int) {
 	)
 }
 
-func (obj TextView) SetMaxWidth(maxpixels_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMaxWidth(maxpixels_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMaxWidth",
@@ -1017,8 +1017,8 @@ func (obj TextView) SetMaxWidth(maxpixels_ int) {
 	)
 }
 
-func (obj TextView) SetMinEms(minems_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMinEms(minems_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMinEms",
@@ -1026,8 +1026,8 @@ func (obj TextView) SetMinEms(minems_ int) {
 	)
 }
 
-func (obj TextView) SetMinHeight(minHeight_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMinHeight(minHeight_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMinHeight",
@@ -1035,8 +1035,8 @@ func (obj TextView) SetMinHeight(minHeight_ int) {
 	)
 }
 
-func (obj TextView) SetMinLines(minlines_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMinLines(minlines_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMinLines",
@@ -1044,8 +1044,8 @@ func (obj TextView) SetMinLines(minlines_ int) {
 	)
 }
 
-func (obj TextView) SetMinWidth(minpixels_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetMinWidth(minpixels_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setMinWidth",
@@ -1053,8 +1053,8 @@ func (obj TextView) SetMinWidth(minpixels_ int) {
 	)
 }
 
-func (obj TextView) SetPadding(left_ int, top_ int, right_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetPadding(left_ int, top_ int, right_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setPadding",
@@ -1062,8 +1062,8 @@ func (obj TextView) SetPadding(left_ int, top_ int, right_ int, bottom_ int) {
 	)
 }
 
-func (obj TextView) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setPaddingRelative",
@@ -1071,8 +1071,8 @@ func (obj TextView) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ i
 	)
 }
 
-func (obj TextView) SetPaintFlags(flags_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetPaintFlags(flags_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setPaintFlags",
@@ -1080,8 +1080,8 @@ func (obj TextView) SetPaintFlags(flags_ int) {
 	)
 }
 
-func (obj TextView) SetPrivateImeOptions(type_ string) {
-	android.CallViewMethod(
+func (obj TextView) SetPrivateImeOptions(type_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setPrivateImeOptions",
@@ -1089,8 +1089,8 @@ func (obj TextView) SetPrivateImeOptions(type_ string) {
 	)
 }
 
-func (obj TextView) SetRawInputType(type_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetRawInputType(type_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setRawInputType",
@@ -1098,8 +1098,8 @@ func (obj TextView) SetRawInputType(type_ int) {
 	)
 }
 
-func (obj TextView) SetSelectAllOnFocus(selectAllOnFocus_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetSelectAllOnFocus(selectAllOnFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setSelectAllOnFocus",
@@ -1107,8 +1107,8 @@ func (obj TextView) SetSelectAllOnFocus(selectAllOnFocus_ bool) {
 	)
 }
 
-func (obj TextView) SetSelected(selected_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetSelected(selected_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setSelected",
@@ -1116,8 +1116,8 @@ func (obj TextView) SetSelected(selected_ bool) {
 	)
 }
 
-func (obj TextView) SetShadowLayer(radius_ float64, dx_ float64, dy_ float64, color_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetShadowLayer(radius_ float64, dx_ float64, dy_ float64, color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setShadowLayer",
@@ -1125,16 +1125,16 @@ func (obj TextView) SetShadowLayer(radius_ float64, dx_ float64, dy_ float64, co
 	)
 }
 
-func (obj TextView) SetSingleLine() {
-	android.CallViewMethod(
+func (obj TextView) SetSingleLine() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setSingleLine",
 	)
 }
 
-func (obj TextView) SetSingleLine1b(singleLine_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetSingleLine1b(singleLine_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setSingleLine",
@@ -1142,8 +1142,8 @@ func (obj TextView) SetSingleLine1b(singleLine_ bool) {
 	)
 }
 
-func (obj TextView) SetText(resid_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetText(resid_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setText",
@@ -1151,8 +1151,8 @@ func (obj TextView) SetText(resid_ int) {
 	)
 }
 
-func (obj TextView) SetText2ii(start_ int, len_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetText2ii(start_ int, len_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setText",
@@ -1160,8 +1160,8 @@ func (obj TextView) SetText2ii(start_ int, len_ int) {
 	)
 }
 
-func (obj TextView) SetText1s(text_ string) {
-	android.CallViewMethod(
+func (obj TextView) SetText1s(text_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setText",
@@ -1169,8 +1169,8 @@ func (obj TextView) SetText1s(text_ string) {
 	)
 }
 
-func (obj TextView) SetTextColor(color_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetTextColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextColor",
@@ -1178,8 +1178,8 @@ func (obj TextView) SetTextColor(color_ int) {
 	)
 }
 
-func (obj TextView) SetTextIsSelectable(selectable_ bool) {
-	android.CallViewMethod(
+func (obj TextView) SetTextIsSelectable(selectable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextIsSelectable",
@@ -1187,8 +1187,8 @@ func (obj TextView) SetTextIsSelectable(selectable_ bool) {
 	)
 }
 
-func (obj TextView) SetTextKeepState(text_ string) {
-	android.CallViewMethod(
+func (obj TextView) SetTextKeepState(text_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextKeepState",
@@ -1196,8 +1196,8 @@ func (obj TextView) SetTextKeepState(text_ string) {
 	)
 }
 
-func (obj TextView) SetTextScaleX(size_ float64) {
-	android.CallViewMethod(
+func (obj TextView) SetTextScaleX(size_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextScaleX",
@@ -1205,8 +1205,8 @@ func (obj TextView) SetTextScaleX(size_ float64) {
 	)
 }
 
-func (obj TextView) SetTextSize(size_ float64) {
-	android.CallViewMethod(
+func (obj TextView) SetTextSize(size_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextSize",
@@ -1214,8 +1214,8 @@ func (obj TextView) SetTextSize(size_ float64) {
 	)
 }
 
-func (obj TextView) SetTextSize2if(unit_ int, size_ float64) {
-	android.CallViewMethod(
+func (obj TextView) SetTextSize2if(unit_ int, size_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setTextSize",
@@ -1223,11 +1223,12 @@ func (obj TextView) SetTextSize2if(unit_ int, size_ float64) {
 	)
 }
 
-func (obj TextView) SetWidth(pixels_ int) {
-	android.CallViewMethod(
+func (obj TextView) SetWidth(pixels_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.TextView",
 		"setWidth",
 		pixels_,
 	)
 }
+

@@ -28,8 +28,8 @@ func init() {
 	android.ViewTypeConstructors["android.view.View"] = NewView
 }
 
-func (obj View) AnnounceForAccessibility(text_ string) {
-	android.CallViewMethod(
+func (obj View) AnnounceForAccessibility(text_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"announceForAccessibility",
@@ -37,24 +37,24 @@ func (obj View) AnnounceForAccessibility(text_ string) {
 	)
 }
 
-func (obj View) BringToFront() {
-	android.CallViewMethod(
+func (obj View) BringToFront() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"bringToFront",
 	)
 }
 
-func (obj View) BuildDrawingCache() {
-	android.CallViewMethod(
+func (obj View) BuildDrawingCache() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"buildDrawingCache",
 	)
 }
 
-func (obj View) BuildDrawingCache1b(autoScale_ bool) {
-	android.CallViewMethod(
+func (obj View) BuildDrawingCache1b(autoScale_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"buildDrawingCache",
@@ -62,48 +62,48 @@ func (obj View) BuildDrawingCache1b(autoScale_ bool) {
 	)
 }
 
-func (obj View) BuildLayer() {
-	android.CallViewMethod(
+func (obj View) BuildLayer() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"buildLayer",
 	)
 }
 
-func (obj View) CallOnClick() {
-	android.CallViewMethod(
+func (obj View) CallOnClick() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"callOnClick",
 	)
 }
 
-func (obj View) CanResolveLayoutDirection() {
-	android.CallViewMethod(
+func (obj View) CanResolveLayoutDirection() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"canResolveLayoutDirection",
 	)
 }
 
-func (obj View) CanResolveTextAlignment() {
-	android.CallViewMethod(
+func (obj View) CanResolveTextAlignment() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"canResolveTextAlignment",
 	)
 }
 
-func (obj View) CanResolveTextDirection() {
-	android.CallViewMethod(
+func (obj View) CanResolveTextDirection() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"canResolveTextDirection",
 	)
 }
 
-func (obj View) CanScrollHorizontally(direction_ int) {
-	android.CallViewMethod(
+func (obj View) CanScrollHorizontally(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"canScrollHorizontally",
@@ -111,8 +111,8 @@ func (obj View) CanScrollHorizontally(direction_ int) {
 	)
 }
 
-func (obj View) CanScrollVertically(direction_ int) {
-	android.CallViewMethod(
+func (obj View) CanScrollVertically(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"canScrollVertically",
@@ -120,56 +120,56 @@ func (obj View) CanScrollVertically(direction_ int) {
 	)
 }
 
-func (obj View) CancelLongPress() {
-	android.CallViewMethod(
+func (obj View) CancelLongPress() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"cancelLongPress",
 	)
 }
 
-func (obj View) CancelPendingInputEvents() {
-	android.CallViewMethod(
+func (obj View) CancelPendingInputEvents() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"cancelPendingInputEvents",
 	)
 }
 
-func (obj View) ClearAnimation() {
-	android.CallViewMethod(
+func (obj View) ClearAnimation() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"clearAnimation",
 	)
 }
 
-func (obj View) ClearFocus() {
-	android.CallViewMethod(
+func (obj View) ClearFocus() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"clearFocus",
 	)
 }
 
-func (obj View) ComputeScroll() {
-	android.CallViewMethod(
+func (obj View) ComputeScroll() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"computeScroll",
 	)
 }
 
-func (obj View) DestroyDrawingCache() {
-	android.CallViewMethod(
+func (obj View) DestroyDrawingCache() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"destroyDrawingCache",
 	)
 }
 
-func (obj View) DispatchDisplayHint(hint_ int) {
-	android.CallViewMethod(
+func (obj View) DispatchDisplayHint(hint_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"dispatchDisplayHint",
@@ -177,8 +177,8 @@ func (obj View) DispatchDisplayHint(hint_ int) {
 	)
 }
 
-func (obj View) DispatchSystemUiVisibilityChanged(visibility_ int) {
-	android.CallViewMethod(
+func (obj View) DispatchSystemUiVisibilityChanged(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"dispatchSystemUiVisibilityChanged",
@@ -186,8 +186,8 @@ func (obj View) DispatchSystemUiVisibilityChanged(visibility_ int) {
 	)
 }
 
-func (obj View) DispatchWindowFocusChanged(hasFocus_ bool) {
-	android.CallViewMethod(
+func (obj View) DispatchWindowFocusChanged(hasFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"dispatchWindowFocusChanged",
@@ -195,8 +195,8 @@ func (obj View) DispatchWindowFocusChanged(hasFocus_ bool) {
 	)
 }
 
-func (obj View) DispatchWindowSystemUiVisiblityChanged(visible_ int) {
-	android.CallViewMethod(
+func (obj View) DispatchWindowSystemUiVisiblityChanged(visible_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"dispatchWindowSystemUiVisiblityChanged",
@@ -204,8 +204,8 @@ func (obj View) DispatchWindowSystemUiVisiblityChanged(visible_ int) {
 	)
 }
 
-func (obj View) DispatchWindowVisibilityChanged(visibility_ int) {
-	android.CallViewMethod(
+func (obj View) DispatchWindowVisibilityChanged(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"dispatchWindowVisibilityChanged",
@@ -213,616 +213,616 @@ func (obj View) DispatchWindowVisibilityChanged(visibility_ int) {
 	)
 }
 
-func (obj View) ForceLayout() {
-	android.CallViewMethod(
+func (obj View) ForceLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"forceLayout",
 	)
 }
 
-func (obj View) GetAccessibilityLiveRegion() {
-	android.CallViewMethod(
+func (obj View) GetAccessibilityLiveRegion() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getAccessibilityLiveRegion",
 	)
 }
 
-func (obj View) GetAlpha() {
-	android.CallViewMethod(
+func (obj View) GetAlpha() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getAlpha",
 	)
 }
 
-func (obj View) GetBaseline() {
-	android.CallViewMethod(
+func (obj View) GetBaseline() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getBaseline",
 	)
 }
 
-func (obj View) GetBottom() {
-	android.CallViewMethod(
+func (obj View) GetBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getBottom",
 	)
 }
 
-func (obj View) GetCameraDistance() {
-	android.CallViewMethod(
+func (obj View) GetCameraDistance() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getCameraDistance",
 	)
 }
 
-func (obj View) GetContentDescription() {
-	android.CallViewMethod(
+func (obj View) GetContentDescription() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getContentDescription",
 	)
 }
 
-func (obj View) GetDrawingCacheBackgroundColor() {
-	android.CallViewMethod(
+func (obj View) GetDrawingCacheBackgroundColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getDrawingCacheBackgroundColor",
 	)
 }
 
-func (obj View) GetDrawingCacheQuality() {
-	android.CallViewMethod(
+func (obj View) GetDrawingCacheQuality() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getDrawingCacheQuality",
 	)
 }
 
-func (obj View) GetFilterTouchesWhenObscured() {
-	android.CallViewMethod(
+func (obj View) GetFilterTouchesWhenObscured() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getFilterTouchesWhenObscured",
 	)
 }
 
-func (obj View) GetFitsSystemWindows() {
-	android.CallViewMethod(
+func (obj View) GetFitsSystemWindows() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getFitsSystemWindows",
 	)
 }
 
-func (obj View) GetHeight() {
-	android.CallViewMethod(
+func (obj View) GetHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getHeight",
 	)
 }
 
-func (obj View) GetHorizontalFadingEdgeLength() {
-	android.CallViewMethod(
+func (obj View) GetHorizontalFadingEdgeLength() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getHorizontalFadingEdgeLength",
 	)
 }
 
-func (obj View) GetImportantForAccessibility() {
-	android.CallViewMethod(
+func (obj View) GetImportantForAccessibility() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getImportantForAccessibility",
 	)
 }
 
-func (obj View) GetKeepScreenOn() {
-	android.CallViewMethod(
+func (obj View) GetKeepScreenOn() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getKeepScreenOn",
 	)
 }
 
-func (obj View) GetLabelFor() {
-	android.CallViewMethod(
+func (obj View) GetLabelFor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLabelFor",
 	)
 }
 
-func (obj View) GetLayerType() {
-	android.CallViewMethod(
+func (obj View) GetLayerType() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLayerType",
 	)
 }
 
-func (obj View) GetLayoutDirection() {
-	android.CallViewMethod(
+func (obj View) GetLayoutDirection() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLayoutDirection",
 	)
 }
 
-func (obj View) GetLeft() {
-	android.CallViewMethod(
+func (obj View) GetLeft() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLeft",
 	)
 }
 
-func (obj View) GetLocationInWindow() {
-	android.CallViewMethod(
+func (obj View) GetLocationInWindow() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLocationInWindow",
 	)
 }
 
-func (obj View) GetLocationOnScreen() {
-	android.CallViewMethod(
+func (obj View) GetLocationOnScreen() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getLocationOnScreen",
 	)
 }
 
-func (obj View) GetMeasuredHeight() {
-	android.CallViewMethod(
+func (obj View) GetMeasuredHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMeasuredHeight",
 	)
 }
 
-func (obj View) GetMeasuredHeightAndState() {
-	android.CallViewMethod(
+func (obj View) GetMeasuredHeightAndState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMeasuredHeightAndState",
 	)
 }
 
-func (obj View) GetMeasuredState() {
-	android.CallViewMethod(
+func (obj View) GetMeasuredState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMeasuredState",
 	)
 }
 
-func (obj View) GetMeasuredWidth() {
-	android.CallViewMethod(
+func (obj View) GetMeasuredWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMeasuredWidth",
 	)
 }
 
-func (obj View) GetMeasuredWidthAndState() {
-	android.CallViewMethod(
+func (obj View) GetMeasuredWidthAndState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMeasuredWidthAndState",
 	)
 }
 
-func (obj View) GetMinimumHeight() {
-	android.CallViewMethod(
+func (obj View) GetMinimumHeight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMinimumHeight",
 	)
 }
 
-func (obj View) GetMinimumWidth() {
-	android.CallViewMethod(
+func (obj View) GetMinimumWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getMinimumWidth",
 	)
 }
 
-func (obj View) GetNextFocusDownId() {
-	android.CallViewMethod(
+func (obj View) GetNextFocusDownId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getNextFocusDownId",
 	)
 }
 
-func (obj View) GetNextFocusForwardId() {
-	android.CallViewMethod(
+func (obj View) GetNextFocusForwardId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getNextFocusForwardId",
 	)
 }
 
-func (obj View) GetNextFocusLeftId() {
-	android.CallViewMethod(
+func (obj View) GetNextFocusLeftId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getNextFocusLeftId",
 	)
 }
 
-func (obj View) GetNextFocusRightId() {
-	android.CallViewMethod(
+func (obj View) GetNextFocusRightId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getNextFocusRightId",
 	)
 }
 
-func (obj View) GetNextFocusUpId() {
-	android.CallViewMethod(
+func (obj View) GetNextFocusUpId() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getNextFocusUpId",
 	)
 }
 
-func (obj View) GetOverScrollMode() {
-	android.CallViewMethod(
+func (obj View) GetOverScrollMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getOverScrollMode",
 	)
 }
 
-func (obj View) GetPaddingBottom() {
-	android.CallViewMethod(
+func (obj View) GetPaddingBottom() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingBottom",
 	)
 }
 
-func (obj View) GetPaddingEnd() {
-	android.CallViewMethod(
+func (obj View) GetPaddingEnd() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingEnd",
 	)
 }
 
-func (obj View) GetPaddingLeft() {
-	android.CallViewMethod(
+func (obj View) GetPaddingLeft() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingLeft",
 	)
 }
 
-func (obj View) GetPaddingRight() {
-	android.CallViewMethod(
+func (obj View) GetPaddingRight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingRight",
 	)
 }
 
-func (obj View) GetPaddingStart() {
-	android.CallViewMethod(
+func (obj View) GetPaddingStart() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingStart",
 	)
 }
 
-func (obj View) GetPaddingTop() {
-	android.CallViewMethod(
+func (obj View) GetPaddingTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPaddingTop",
 	)
 }
 
-func (obj View) GetPivotX() {
-	android.CallViewMethod(
+func (obj View) GetPivotX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPivotX",
 	)
 }
 
-func (obj View) GetPivotY() {
-	android.CallViewMethod(
+func (obj View) GetPivotY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getPivotY",
 	)
 }
 
-func (obj View) GetRight() {
-	android.CallViewMethod(
+func (obj View) GetRight() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getRight",
 	)
 }
 
-func (obj View) GetRotation() {
-	android.CallViewMethod(
+func (obj View) GetRotation() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getRotation",
 	)
 }
 
-func (obj View) GetRotationX() {
-	android.CallViewMethod(
+func (obj View) GetRotationX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getRotationX",
 	)
 }
 
-func (obj View) GetRotationY() {
-	android.CallViewMethod(
+func (obj View) GetRotationY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getRotationY",
 	)
 }
 
-func (obj View) GetScaleX() {
-	android.CallViewMethod(
+func (obj View) GetScaleX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScaleX",
 	)
 }
 
-func (obj View) GetScaleY() {
-	android.CallViewMethod(
+func (obj View) GetScaleY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScaleY",
 	)
 }
 
-func (obj View) GetScrollBarDefaultDelayBeforeFade() {
-	android.CallViewMethod(
+func (obj View) GetScrollBarDefaultDelayBeforeFade() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollBarDefaultDelayBeforeFade",
 	)
 }
 
-func (obj View) GetScrollBarFadeDuration() {
-	android.CallViewMethod(
+func (obj View) GetScrollBarFadeDuration() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollBarFadeDuration",
 	)
 }
 
-func (obj View) GetScrollBarSize() {
-	android.CallViewMethod(
+func (obj View) GetScrollBarSize() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollBarSize",
 	)
 }
 
-func (obj View) GetScrollBarStyle() {
-	android.CallViewMethod(
+func (obj View) GetScrollBarStyle() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollBarStyle",
 	)
 }
 
-func (obj View) GetScrollX() {
-	android.CallViewMethod(
+func (obj View) GetScrollX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollX",
 	)
 }
 
-func (obj View) GetScrollY() {
-	android.CallViewMethod(
+func (obj View) GetScrollY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getScrollY",
 	)
 }
 
-func (obj View) GetSolidColor() {
-	android.CallViewMethod(
+func (obj View) GetSolidColor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getSolidColor",
 	)
 }
 
-func (obj View) GetSystemUiVisibility() {
-	android.CallViewMethod(
+func (obj View) GetSystemUiVisibility() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getSystemUiVisibility",
 	)
 }
 
-func (obj View) GetTextAlignment() {
-	android.CallViewMethod(
+func (obj View) GetTextAlignment() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getTextAlignment",
 	)
 }
 
-func (obj View) GetTextDirection() {
-	android.CallViewMethod(
+func (obj View) GetTextDirection() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getTextDirection",
 	)
 }
 
-func (obj View) GetTop() {
-	android.CallViewMethod(
+func (obj View) GetTop() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getTop",
 	)
 }
 
-func (obj View) GetTranslationX() {
-	android.CallViewMethod(
+func (obj View) GetTranslationX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getTranslationX",
 	)
 }
 
-func (obj View) GetTranslationY() {
-	android.CallViewMethod(
+func (obj View) GetTranslationY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getTranslationY",
 	)
 }
 
-func (obj View) GetVerticalFadingEdgeLength() {
-	android.CallViewMethod(
+func (obj View) GetVerticalFadingEdgeLength() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getVerticalFadingEdgeLength",
 	)
 }
 
-func (obj View) GetVerticalScrollbarPosition() {
-	android.CallViewMethod(
+func (obj View) GetVerticalScrollbarPosition() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getVerticalScrollbarPosition",
 	)
 }
 
-func (obj View) GetVerticalScrollbarWidth() {
-	android.CallViewMethod(
+func (obj View) GetVerticalScrollbarWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getVerticalScrollbarWidth",
 	)
 }
 
-func (obj View) GetVisibility() {
-	android.CallViewMethod(
+func (obj View) GetVisibility() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getVisibility",
 	)
 }
 
-func (obj View) GetWidth() {
-	android.CallViewMethod(
+func (obj View) GetWidth() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getWidth",
 	)
 }
 
-func (obj View) GetWindowSystemUiVisibility() {
-	android.CallViewMethod(
+func (obj View) GetWindowSystemUiVisibility() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getWindowSystemUiVisibility",
 	)
 }
 
-func (obj View) GetWindowVisibility() {
-	android.CallViewMethod(
+func (obj View) GetWindowVisibility() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getWindowVisibility",
 	)
 }
 
-func (obj View) GetX() {
-	android.CallViewMethod(
+func (obj View) GetX() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getX",
 	)
 }
 
-func (obj View) GetY() {
-	android.CallViewMethod(
+func (obj View) GetY() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"getY",
 	)
 }
 
-func (obj View) HasFocus() {
-	android.CallViewMethod(
+func (obj View) HasFocus() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasFocus",
 	)
 }
 
-func (obj View) HasFocusable() {
-	android.CallViewMethod(
+func (obj View) HasFocusable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasFocusable",
 	)
 }
 
-func (obj View) HasOnClickListeners() {
-	android.CallViewMethod(
+func (obj View) HasOnClickListeners() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasOnClickListeners",
 	)
 }
 
-func (obj View) HasOverlappingRendering() {
-	android.CallViewMethod(
+func (obj View) HasOverlappingRendering() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasOverlappingRendering",
 	)
 }
 
-func (obj View) HasTransientState() {
-	android.CallViewMethod(
+func (obj View) HasTransientState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasTransientState",
 	)
 }
 
-func (obj View) HasWindowFocus() {
-	android.CallViewMethod(
+func (obj View) HasWindowFocus() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"hasWindowFocus",
 	)
 }
 
-func (obj View) Invalidate(l_ int, t_ int, r_ int, b_ int) {
-	android.CallViewMethod(
+func (obj View) Invalidate(l_ int, t_ int, r_ int, b_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"invalidate",
@@ -830,312 +830,312 @@ func (obj View) Invalidate(l_ int, t_ int, r_ int, b_ int) {
 	)
 }
 
-func (obj View) Invalidate0() {
-	android.CallViewMethod(
+func (obj View) Invalidate0() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"invalidate",
 	)
 }
 
-func (obj View) IsActivated() {
-	android.CallViewMethod(
+func (obj View) IsActivated() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isActivated",
 	)
 }
 
-func (obj View) IsAttachedToWindow() {
-	android.CallViewMethod(
+func (obj View) IsAttachedToWindow() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isAttachedToWindow",
 	)
 }
 
-func (obj View) IsClickable() {
-	android.CallViewMethod(
+func (obj View) IsClickable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isClickable",
 	)
 }
 
-func (obj View) IsDirty() {
-	android.CallViewMethod(
+func (obj View) IsDirty() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isDirty",
 	)
 }
 
-func (obj View) IsDrawingCacheEnabled() {
-	android.CallViewMethod(
+func (obj View) IsDrawingCacheEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isDrawingCacheEnabled",
 	)
 }
 
-func (obj View) IsDuplicateParentStateEnabled() {
-	android.CallViewMethod(
+func (obj View) IsDuplicateParentStateEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isDuplicateParentStateEnabled",
 	)
 }
 
-func (obj View) IsEnabled() {
-	android.CallViewMethod(
+func (obj View) IsEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isEnabled",
 	)
 }
 
-func (obj View) IsFocusable() {
-	android.CallViewMethod(
+func (obj View) IsFocusable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isFocusable",
 	)
 }
 
-func (obj View) IsFocusableInTouchMode() {
-	android.CallViewMethod(
+func (obj View) IsFocusableInTouchMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isFocusableInTouchMode",
 	)
 }
 
-func (obj View) IsFocused() {
-	android.CallViewMethod(
+func (obj View) IsFocused() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isFocused",
 	)
 }
 
-func (obj View) IsHapticFeedbackEnabled() {
-	android.CallViewMethod(
+func (obj View) IsHapticFeedbackEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isHapticFeedbackEnabled",
 	)
 }
 
-func (obj View) IsHardwareAccelerated() {
-	android.CallViewMethod(
+func (obj View) IsHardwareAccelerated() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isHardwareAccelerated",
 	)
 }
 
-func (obj View) IsHorizontalFadingEdgeEnabled() {
-	android.CallViewMethod(
+func (obj View) IsHorizontalFadingEdgeEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isHorizontalFadingEdgeEnabled",
 	)
 }
 
-func (obj View) IsHorizontalScrollBarEnabled() {
-	android.CallViewMethod(
+func (obj View) IsHorizontalScrollBarEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isHorizontalScrollBarEnabled",
 	)
 }
 
-func (obj View) IsHovered() {
-	android.CallViewMethod(
+func (obj View) IsHovered() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isHovered",
 	)
 }
 
-func (obj View) IsInEditMode() {
-	android.CallViewMethod(
+func (obj View) IsInEditMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isInEditMode",
 	)
 }
 
-func (obj View) IsInLayout() {
-	android.CallViewMethod(
+func (obj View) IsInLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isInLayout",
 	)
 }
 
-func (obj View) IsInTouchMode() {
-	android.CallViewMethod(
+func (obj View) IsInTouchMode() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isInTouchMode",
 	)
 }
 
-func (obj View) IsLaidOut() {
-	android.CallViewMethod(
+func (obj View) IsLaidOut() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isLaidOut",
 	)
 }
 
-func (obj View) IsLayoutDirectionResolved() {
-	android.CallViewMethod(
+func (obj View) IsLayoutDirectionResolved() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isLayoutDirectionResolved",
 	)
 }
 
-func (obj View) IsLayoutRequested() {
-	android.CallViewMethod(
+func (obj View) IsLayoutRequested() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isLayoutRequested",
 	)
 }
 
-func (obj View) IsLongClickable() {
-	android.CallViewMethod(
+func (obj View) IsLongClickable() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isLongClickable",
 	)
 }
 
-func (obj View) IsOpaque() {
-	android.CallViewMethod(
+func (obj View) IsOpaque() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isOpaque",
 	)
 }
 
-func (obj View) IsPaddingRelative() {
-	android.CallViewMethod(
+func (obj View) IsPaddingRelative() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isPaddingRelative",
 	)
 }
 
-func (obj View) IsPressed() {
-	android.CallViewMethod(
+func (obj View) IsPressed() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isPressed",
 	)
 }
 
-func (obj View) IsSaveEnabled() {
-	android.CallViewMethod(
+func (obj View) IsSaveEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isSaveEnabled",
 	)
 }
 
-func (obj View) IsSaveFromParentEnabled() {
-	android.CallViewMethod(
+func (obj View) IsSaveFromParentEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isSaveFromParentEnabled",
 	)
 }
 
-func (obj View) IsScrollContainer() {
-	android.CallViewMethod(
+func (obj View) IsScrollContainer() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isScrollContainer",
 	)
 }
 
-func (obj View) IsScrollbarFadingEnabled() {
-	android.CallViewMethod(
+func (obj View) IsScrollbarFadingEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isScrollbarFadingEnabled",
 	)
 }
 
-func (obj View) IsSelected() {
-	android.CallViewMethod(
+func (obj View) IsSelected() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isSelected",
 	)
 }
 
-func (obj View) IsShown() {
-	android.CallViewMethod(
+func (obj View) IsShown() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isShown",
 	)
 }
 
-func (obj View) IsSoundEffectsEnabled() {
-	android.CallViewMethod(
+func (obj View) IsSoundEffectsEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isSoundEffectsEnabled",
 	)
 }
 
-func (obj View) IsTextAlignmentResolved() {
-	android.CallViewMethod(
+func (obj View) IsTextAlignmentResolved() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isTextAlignmentResolved",
 	)
 }
 
-func (obj View) IsTextDirectionResolved() {
-	android.CallViewMethod(
+func (obj View) IsTextDirectionResolved() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isTextDirectionResolved",
 	)
 }
 
-func (obj View) IsVerticalFadingEdgeEnabled() {
-	android.CallViewMethod(
+func (obj View) IsVerticalFadingEdgeEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isVerticalFadingEdgeEnabled",
 	)
 }
 
-func (obj View) IsVerticalScrollBarEnabled() {
-	android.CallViewMethod(
+func (obj View) IsVerticalScrollBarEnabled() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"isVerticalScrollBarEnabled",
 	)
 }
 
-func (obj View) JumpDrawablesToCurrentState() {
-	android.CallViewMethod(
+func (obj View) JumpDrawablesToCurrentState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"jumpDrawablesToCurrentState",
 	)
 }
 
-func (obj View) Layout(l_ int, t_ int, r_ int, b_ int) {
-	android.CallViewMethod(
+func (obj View) Layout(l_ int, t_ int, r_ int, b_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"layout",
@@ -1143,8 +1143,8 @@ func (obj View) Layout(l_ int, t_ int, r_ int, b_ int) {
 	)
 }
 
-func (obj View) Measure(widthMeasureSpec_ int, heightMeasureSpec_ int) {
-	android.CallViewMethod(
+func (obj View) Measure(widthMeasureSpec_ int, heightMeasureSpec_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"measure",
@@ -1152,8 +1152,8 @@ func (obj View) Measure(widthMeasureSpec_ int, heightMeasureSpec_ int) {
 	)
 }
 
-func (obj View) OffsetLeftAndRight(offset_ int) {
-	android.CallViewMethod(
+func (obj View) OffsetLeftAndRight(offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"offsetLeftAndRight",
@@ -1161,8 +1161,8 @@ func (obj View) OffsetLeftAndRight(offset_ int) {
 	)
 }
 
-func (obj View) OffsetTopAndBottom(offset_ int) {
-	android.CallViewMethod(
+func (obj View) OffsetTopAndBottom(offset_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"offsetTopAndBottom",
@@ -1170,32 +1170,32 @@ func (obj View) OffsetTopAndBottom(offset_ int) {
 	)
 }
 
-func (obj View) OnCancelPendingInputEvents() {
-	android.CallViewMethod(
+func (obj View) OnCancelPendingInputEvents() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onCancelPendingInputEvents",
 	)
 }
 
-func (obj View) OnCheckIsTextEditor() {
-	android.CallViewMethod(
+func (obj View) OnCheckIsTextEditor() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onCheckIsTextEditor",
 	)
 }
 
-func (obj View) OnFinishTemporaryDetach() {
-	android.CallViewMethod(
+func (obj View) OnFinishTemporaryDetach() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onFinishTemporaryDetach",
 	)
 }
 
-func (obj View) OnHoverChanged(hovered_ bool) {
-	android.CallViewMethod(
+func (obj View) OnHoverChanged(hovered_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onHoverChanged",
@@ -1203,8 +1203,8 @@ func (obj View) OnHoverChanged(hovered_ bool) {
 	)
 }
 
-func (obj View) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj View) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onRtlPropertiesChanged",
@@ -1212,8 +1212,8 @@ func (obj View) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj View) OnScreenStateChanged(screenState_ int) {
-	android.CallViewMethod(
+func (obj View) OnScreenStateChanged(screenState_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onScreenStateChanged",
@@ -1221,16 +1221,16 @@ func (obj View) OnScreenStateChanged(screenState_ int) {
 	)
 }
 
-func (obj View) OnStartTemporaryDetach() {
-	android.CallViewMethod(
+func (obj View) OnStartTemporaryDetach() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onStartTemporaryDetach",
 	)
 }
 
-func (obj View) OnWindowFocusChanged(hasWindowFocus_ bool) {
-	android.CallViewMethod(
+func (obj View) OnWindowFocusChanged(hasWindowFocus_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onWindowFocusChanged",
@@ -1238,8 +1238,8 @@ func (obj View) OnWindowFocusChanged(hasWindowFocus_ bool) {
 	)
 }
 
-func (obj View) OnWindowSystemUiVisibilityChanged(visible_ int) {
-	android.CallViewMethod(
+func (obj View) OnWindowSystemUiVisibilityChanged(visible_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"onWindowSystemUiVisibilityChanged",
@@ -1247,16 +1247,16 @@ func (obj View) OnWindowSystemUiVisibilityChanged(visible_ int) {
 	)
 }
 
-func (obj View) PerformClick() {
-	android.CallViewMethod(
+func (obj View) PerformClick() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"performClick",
 	)
 }
 
-func (obj View) PerformHapticFeedback(feedbackConstant_ int) {
-	android.CallViewMethod(
+func (obj View) PerformHapticFeedback(feedbackConstant_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"performHapticFeedback",
@@ -1264,8 +1264,8 @@ func (obj View) PerformHapticFeedback(feedbackConstant_ int) {
 	)
 }
 
-func (obj View) PerformHapticFeedback2ii(feedbackConstant_ int, flags_ int) {
-	android.CallViewMethod(
+func (obj View) PerformHapticFeedback2ii(feedbackConstant_ int, flags_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"performHapticFeedback",
@@ -1273,16 +1273,16 @@ func (obj View) PerformHapticFeedback2ii(feedbackConstant_ int, flags_ int) {
 	)
 }
 
-func (obj View) PerformLongClick() {
-	android.CallViewMethod(
+func (obj View) PerformLongClick() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"performLongClick",
 	)
 }
 
-func (obj View) PlaySoundEffect(soundConstant_ int) {
-	android.CallViewMethod(
+func (obj View) PlaySoundEffect(soundConstant_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"playSoundEffect",
@@ -1290,8 +1290,8 @@ func (obj View) PlaySoundEffect(soundConstant_ int) {
 	)
 }
 
-func (obj View) PostInvalidate(left_ int, top_ int, right_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj View) PostInvalidate(left_ int, top_ int, right_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"postInvalidate",
@@ -1299,16 +1299,16 @@ func (obj View) PostInvalidate(left_ int, top_ int, right_ int, bottom_ int) {
 	)
 }
 
-func (obj View) PostInvalidate0() {
-	android.CallViewMethod(
+func (obj View) PostInvalidate0() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"postInvalidate",
 	)
 }
 
-func (obj View) PostInvalidateOnAnimation(left_ int, top_ int, right_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj View) PostInvalidateOnAnimation(left_ int, top_ int, right_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"postInvalidateOnAnimation",
@@ -1316,32 +1316,32 @@ func (obj View) PostInvalidateOnAnimation(left_ int, top_ int, right_ int, botto
 	)
 }
 
-func (obj View) PostInvalidateOnAnimation0() {
-	android.CallViewMethod(
+func (obj View) PostInvalidateOnAnimation0() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"postInvalidateOnAnimation",
 	)
 }
 
-func (obj View) RefreshDrawableState() {
-	android.CallViewMethod(
+func (obj View) RefreshDrawableState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"refreshDrawableState",
 	)
 }
 
-func (obj View) RequestFitSystemWindows() {
-	android.CallViewMethod(
+func (obj View) RequestFitSystemWindows() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"requestFitSystemWindows",
 	)
 }
 
-func (obj View) RequestFocus(direction_ int) {
-	android.CallViewMethod(
+func (obj View) RequestFocus(direction_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"requestFocus",
@@ -1349,32 +1349,32 @@ func (obj View) RequestFocus(direction_ int) {
 	)
 }
 
-func (obj View) RequestFocus0() {
-	android.CallViewMethod(
+func (obj View) RequestFocus0() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"requestFocus",
 	)
 }
 
-func (obj View) RequestFocusFromTouch() {
-	android.CallViewMethod(
+func (obj View) RequestFocusFromTouch() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"requestFocusFromTouch",
 	)
 }
 
-func (obj View) RequestLayout() {
-	android.CallViewMethod(
+func (obj View) RequestLayout() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"requestLayout",
 	)
 }
 
-func (obj View) ScrollBy(x_ int, y_ int) {
-	android.CallViewMethod(
+func (obj View) ScrollBy(x_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"scrollBy",
@@ -1382,8 +1382,8 @@ func (obj View) ScrollBy(x_ int, y_ int) {
 	)
 }
 
-func (obj View) ScrollTo(x_ int, y_ int) {
-	android.CallViewMethod(
+func (obj View) ScrollTo(x_ int, y_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"scrollTo",
@@ -1391,8 +1391,8 @@ func (obj View) ScrollTo(x_ int, y_ int) {
 	)
 }
 
-func (obj View) SendAccessibilityEvent(eventType_ int) {
-	android.CallViewMethod(
+func (obj View) SendAccessibilityEvent(eventType_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"sendAccessibilityEvent",
@@ -1400,8 +1400,8 @@ func (obj View) SendAccessibilityEvent(eventType_ int) {
 	)
 }
 
-func (obj View) SetAccessibilityLiveRegion(mode_ int) {
-	android.CallViewMethod(
+func (obj View) SetAccessibilityLiveRegion(mode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setAccessibilityLiveRegion",
@@ -1409,8 +1409,8 @@ func (obj View) SetAccessibilityLiveRegion(mode_ int) {
 	)
 }
 
-func (obj View) SetActivated(activated_ bool) {
-	android.CallViewMethod(
+func (obj View) SetActivated(activated_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setActivated",
@@ -1418,8 +1418,8 @@ func (obj View) SetActivated(activated_ bool) {
 	)
 }
 
-func (obj View) SetAlpha(alpha_ float64) {
-	android.CallViewMethod(
+func (obj View) SetAlpha(alpha_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setAlpha",
@@ -1427,8 +1427,8 @@ func (obj View) SetAlpha(alpha_ float64) {
 	)
 }
 
-func (obj View) SetBackgroundColor(color_ int) {
-	android.CallViewMethod(
+func (obj View) SetBackgroundColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setBackgroundColor",
@@ -1436,8 +1436,8 @@ func (obj View) SetBackgroundColor(color_ int) {
 	)
 }
 
-func (obj View) SetBackgroundResource(resid_ int) {
-	android.CallViewMethod(
+func (obj View) SetBackgroundResource(resid_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setBackgroundResource",
@@ -1445,8 +1445,8 @@ func (obj View) SetBackgroundResource(resid_ int) {
 	)
 }
 
-func (obj View) SetBottom(bottom_ int) {
-	android.CallViewMethod(
+func (obj View) SetBottom(bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setBottom",
@@ -1454,8 +1454,8 @@ func (obj View) SetBottom(bottom_ int) {
 	)
 }
 
-func (obj View) SetCameraDistance(distance_ float64) {
-	android.CallViewMethod(
+func (obj View) SetCameraDistance(distance_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setCameraDistance",
@@ -1463,8 +1463,8 @@ func (obj View) SetCameraDistance(distance_ float64) {
 	)
 }
 
-func (obj View) SetClickable(clickable_ bool) {
-	android.CallViewMethod(
+func (obj View) SetClickable(clickable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setClickable",
@@ -1472,8 +1472,8 @@ func (obj View) SetClickable(clickable_ bool) {
 	)
 }
 
-func (obj View) SetContentDescription(contentDescription_ string) {
-	android.CallViewMethod(
+func (obj View) SetContentDescription(contentDescription_ string) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setContentDescription",
@@ -1481,8 +1481,8 @@ func (obj View) SetContentDescription(contentDescription_ string) {
 	)
 }
 
-func (obj View) SetDrawingCacheBackgroundColor(color_ int) {
-	android.CallViewMethod(
+func (obj View) SetDrawingCacheBackgroundColor(color_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setDrawingCacheBackgroundColor",
@@ -1490,8 +1490,8 @@ func (obj View) SetDrawingCacheBackgroundColor(color_ int) {
 	)
 }
 
-func (obj View) SetDrawingCacheEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetDrawingCacheEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setDrawingCacheEnabled",
@@ -1499,8 +1499,8 @@ func (obj View) SetDrawingCacheEnabled(enabled_ bool) {
 	)
 }
 
-func (obj View) SetDrawingCacheQuality(quality_ int) {
-	android.CallViewMethod(
+func (obj View) SetDrawingCacheQuality(quality_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setDrawingCacheQuality",
@@ -1508,8 +1508,8 @@ func (obj View) SetDrawingCacheQuality(quality_ int) {
 	)
 }
 
-func (obj View) SetDuplicateParentStateEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetDuplicateParentStateEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setDuplicateParentStateEnabled",
@@ -1517,8 +1517,8 @@ func (obj View) SetDuplicateParentStateEnabled(enabled_ bool) {
 	)
 }
 
-func (obj View) SetEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setEnabled",
@@ -1526,8 +1526,8 @@ func (obj View) SetEnabled(enabled_ bool) {
 	)
 }
 
-func (obj View) SetFadingEdgeLength(length_ int) {
-	android.CallViewMethod(
+func (obj View) SetFadingEdgeLength(length_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setFadingEdgeLength",
@@ -1535,8 +1535,8 @@ func (obj View) SetFadingEdgeLength(length_ int) {
 	)
 }
 
-func (obj View) SetFilterTouchesWhenObscured(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetFilterTouchesWhenObscured(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setFilterTouchesWhenObscured",
@@ -1544,8 +1544,8 @@ func (obj View) SetFilterTouchesWhenObscured(enabled_ bool) {
 	)
 }
 
-func (obj View) SetFitsSystemWindows(fitSystemWindows_ bool) {
-	android.CallViewMethod(
+func (obj View) SetFitsSystemWindows(fitSystemWindows_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setFitsSystemWindows",
@@ -1553,8 +1553,8 @@ func (obj View) SetFitsSystemWindows(fitSystemWindows_ bool) {
 	)
 }
 
-func (obj View) SetFocusable(focusable_ bool) {
-	android.CallViewMethod(
+func (obj View) SetFocusable(focusable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setFocusable",
@@ -1562,8 +1562,8 @@ func (obj View) SetFocusable(focusable_ bool) {
 	)
 }
 
-func (obj View) SetFocusableInTouchMode(focusableInTouchMode_ bool) {
-	android.CallViewMethod(
+func (obj View) SetFocusableInTouchMode(focusableInTouchMode_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setFocusableInTouchMode",
@@ -1571,8 +1571,8 @@ func (obj View) SetFocusableInTouchMode(focusableInTouchMode_ bool) {
 	)
 }
 
-func (obj View) SetHapticFeedbackEnabled(hapticFeedbackEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetHapticFeedbackEnabled(hapticFeedbackEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setHapticFeedbackEnabled",
@@ -1580,8 +1580,8 @@ func (obj View) SetHapticFeedbackEnabled(hapticFeedbackEnabled_ bool) {
 	)
 }
 
-func (obj View) SetHasTransientState(hasTransientState_ bool) {
-	android.CallViewMethod(
+func (obj View) SetHasTransientState(hasTransientState_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setHasTransientState",
@@ -1589,8 +1589,8 @@ func (obj View) SetHasTransientState(hasTransientState_ bool) {
 	)
 }
 
-func (obj View) SetHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setHorizontalFadingEdgeEnabled",
@@ -1598,8 +1598,8 @@ func (obj View) SetHorizontalFadingEdgeEnabled(horizontalFadingEdgeEnabled_ bool
 	)
 }
 
-func (obj View) SetHorizontalScrollBarEnabled(horizontalScrollBarEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetHorizontalScrollBarEnabled(horizontalScrollBarEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setHorizontalScrollBarEnabled",
@@ -1607,8 +1607,8 @@ func (obj View) SetHorizontalScrollBarEnabled(horizontalScrollBarEnabled_ bool) 
 	)
 }
 
-func (obj View) SetHovered(hovered_ bool) {
-	android.CallViewMethod(
+func (obj View) SetHovered(hovered_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setHovered",
@@ -1616,8 +1616,8 @@ func (obj View) SetHovered(hovered_ bool) {
 	)
 }
 
-func (obj View) SetId(id_ int) {
-	android.CallViewMethod(
+func (obj View) SetId(id_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setId",
@@ -1625,8 +1625,8 @@ func (obj View) SetId(id_ int) {
 	)
 }
 
-func (obj View) SetImportantForAccessibility(mode_ int) {
-	android.CallViewMethod(
+func (obj View) SetImportantForAccessibility(mode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setImportantForAccessibility",
@@ -1634,8 +1634,8 @@ func (obj View) SetImportantForAccessibility(mode_ int) {
 	)
 }
 
-func (obj View) SetKeepScreenOn(keepScreenOn_ bool) {
-	android.CallViewMethod(
+func (obj View) SetKeepScreenOn(keepScreenOn_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setKeepScreenOn",
@@ -1643,8 +1643,8 @@ func (obj View) SetKeepScreenOn(keepScreenOn_ bool) {
 	)
 }
 
-func (obj View) SetLabelFor(id_ int) {
-	android.CallViewMethod(
+func (obj View) SetLabelFor(id_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setLabelFor",
@@ -1652,8 +1652,8 @@ func (obj View) SetLabelFor(id_ int) {
 	)
 }
 
-func (obj View) SetLayoutDirection(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj View) SetLayoutDirection(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setLayoutDirection",
@@ -1661,8 +1661,8 @@ func (obj View) SetLayoutDirection(layoutDirection_ int) {
 	)
 }
 
-func (obj View) SetLeft(left_ int) {
-	android.CallViewMethod(
+func (obj View) SetLeft(left_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setLeft",
@@ -1670,8 +1670,8 @@ func (obj View) SetLeft(left_ int) {
 	)
 }
 
-func (obj View) SetLongClickable(longClickable_ bool) {
-	android.CallViewMethod(
+func (obj View) SetLongClickable(longClickable_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setLongClickable",
@@ -1679,8 +1679,8 @@ func (obj View) SetLongClickable(longClickable_ bool) {
 	)
 }
 
-func (obj View) SetMinimumHeight(minHeight_ int) {
-	android.CallViewMethod(
+func (obj View) SetMinimumHeight(minHeight_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setMinimumHeight",
@@ -1688,8 +1688,8 @@ func (obj View) SetMinimumHeight(minHeight_ int) {
 	)
 }
 
-func (obj View) SetMinimumWidth(minWidth_ int) {
-	android.CallViewMethod(
+func (obj View) SetMinimumWidth(minWidth_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setMinimumWidth",
@@ -1697,8 +1697,8 @@ func (obj View) SetMinimumWidth(minWidth_ int) {
 	)
 }
 
-func (obj View) SetNextFocusDownId(nextFocusDownId_ int) {
-	android.CallViewMethod(
+func (obj View) SetNextFocusDownId(nextFocusDownId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setNextFocusDownId",
@@ -1706,8 +1706,8 @@ func (obj View) SetNextFocusDownId(nextFocusDownId_ int) {
 	)
 }
 
-func (obj View) SetNextFocusForwardId(nextFocusForwardId_ int) {
-	android.CallViewMethod(
+func (obj View) SetNextFocusForwardId(nextFocusForwardId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setNextFocusForwardId",
@@ -1715,8 +1715,8 @@ func (obj View) SetNextFocusForwardId(nextFocusForwardId_ int) {
 	)
 }
 
-func (obj View) SetNextFocusLeftId(nextFocusLeftId_ int) {
-	android.CallViewMethod(
+func (obj View) SetNextFocusLeftId(nextFocusLeftId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setNextFocusLeftId",
@@ -1724,8 +1724,8 @@ func (obj View) SetNextFocusLeftId(nextFocusLeftId_ int) {
 	)
 }
 
-func (obj View) SetNextFocusRightId(nextFocusRightId_ int) {
-	android.CallViewMethod(
+func (obj View) SetNextFocusRightId(nextFocusRightId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setNextFocusRightId",
@@ -1733,8 +1733,8 @@ func (obj View) SetNextFocusRightId(nextFocusRightId_ int) {
 	)
 }
 
-func (obj View) SetNextFocusUpId(nextFocusUpId_ int) {
-	android.CallViewMethod(
+func (obj View) SetNextFocusUpId(nextFocusUpId_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setNextFocusUpId",
@@ -1742,8 +1742,8 @@ func (obj View) SetNextFocusUpId(nextFocusUpId_ int) {
 	)
 }
 
-func (obj View) SetOverScrollMode(overScrollMode_ int) {
-	android.CallViewMethod(
+func (obj View) SetOverScrollMode(overScrollMode_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setOverScrollMode",
@@ -1751,8 +1751,8 @@ func (obj View) SetOverScrollMode(overScrollMode_ int) {
 	)
 }
 
-func (obj View) SetPadding(left_ int, top_ int, right_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj View) SetPadding(left_ int, top_ int, right_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setPadding",
@@ -1760,8 +1760,8 @@ func (obj View) SetPadding(left_ int, top_ int, right_ int, bottom_ int) {
 	)
 }
 
-func (obj View) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ int) {
-	android.CallViewMethod(
+func (obj View) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setPaddingRelative",
@@ -1769,8 +1769,8 @@ func (obj View) SetPaddingRelative(start_ int, top_ int, end_ int, bottom_ int) 
 	)
 }
 
-func (obj View) SetPivotX(pivotX_ float64) {
-	android.CallViewMethod(
+func (obj View) SetPivotX(pivotX_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setPivotX",
@@ -1778,8 +1778,8 @@ func (obj View) SetPivotX(pivotX_ float64) {
 	)
 }
 
-func (obj View) SetPivotY(pivotY_ float64) {
-	android.CallViewMethod(
+func (obj View) SetPivotY(pivotY_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setPivotY",
@@ -1787,8 +1787,8 @@ func (obj View) SetPivotY(pivotY_ float64) {
 	)
 }
 
-func (obj View) SetPressed(pressed_ bool) {
-	android.CallViewMethod(
+func (obj View) SetPressed(pressed_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setPressed",
@@ -1796,8 +1796,8 @@ func (obj View) SetPressed(pressed_ bool) {
 	)
 }
 
-func (obj View) SetRight(right_ int) {
-	android.CallViewMethod(
+func (obj View) SetRight(right_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setRight",
@@ -1805,8 +1805,8 @@ func (obj View) SetRight(right_ int) {
 	)
 }
 
-func (obj View) SetRotation(rotation_ float64) {
-	android.CallViewMethod(
+func (obj View) SetRotation(rotation_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setRotation",
@@ -1814,8 +1814,8 @@ func (obj View) SetRotation(rotation_ float64) {
 	)
 }
 
-func (obj View) SetRotationX(rotationX_ float64) {
-	android.CallViewMethod(
+func (obj View) SetRotationX(rotationX_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setRotationX",
@@ -1823,8 +1823,8 @@ func (obj View) SetRotationX(rotationX_ float64) {
 	)
 }
 
-func (obj View) SetRotationY(rotationY_ float64) {
-	android.CallViewMethod(
+func (obj View) SetRotationY(rotationY_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setRotationY",
@@ -1832,8 +1832,8 @@ func (obj View) SetRotationY(rotationY_ float64) {
 	)
 }
 
-func (obj View) SetSaveEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetSaveEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setSaveEnabled",
@@ -1841,8 +1841,8 @@ func (obj View) SetSaveEnabled(enabled_ bool) {
 	)
 }
 
-func (obj View) SetSaveFromParentEnabled(enabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetSaveFromParentEnabled(enabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setSaveFromParentEnabled",
@@ -1850,8 +1850,8 @@ func (obj View) SetSaveFromParentEnabled(enabled_ bool) {
 	)
 }
 
-func (obj View) SetScaleX(scaleX_ float64) {
-	android.CallViewMethod(
+func (obj View) SetScaleX(scaleX_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScaleX",
@@ -1859,8 +1859,8 @@ func (obj View) SetScaleX(scaleX_ float64) {
 	)
 }
 
-func (obj View) SetScaleY(scaleY_ float64) {
-	android.CallViewMethod(
+func (obj View) SetScaleY(scaleY_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScaleY",
@@ -1868,8 +1868,8 @@ func (obj View) SetScaleY(scaleY_ float64) {
 	)
 }
 
-func (obj View) SetScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFade_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFade_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollBarDefaultDelayBeforeFade",
@@ -1877,8 +1877,8 @@ func (obj View) SetScrollBarDefaultDelayBeforeFade(scrollBarDefaultDelayBeforeFa
 	)
 }
 
-func (obj View) SetScrollBarFadeDuration(scrollBarFadeDuration_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollBarFadeDuration(scrollBarFadeDuration_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollBarFadeDuration",
@@ -1886,8 +1886,8 @@ func (obj View) SetScrollBarFadeDuration(scrollBarFadeDuration_ int) {
 	)
 }
 
-func (obj View) SetScrollBarSize(scrollBarSize_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollBarSize(scrollBarSize_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollBarSize",
@@ -1895,8 +1895,8 @@ func (obj View) SetScrollBarSize(scrollBarSize_ int) {
 	)
 }
 
-func (obj View) SetScrollBarStyle(style_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollBarStyle(style_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollBarStyle",
@@ -1904,8 +1904,8 @@ func (obj View) SetScrollBarStyle(style_ int) {
 	)
 }
 
-func (obj View) SetScrollContainer(isScrollContainer_ bool) {
-	android.CallViewMethod(
+func (obj View) SetScrollContainer(isScrollContainer_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollContainer",
@@ -1913,8 +1913,8 @@ func (obj View) SetScrollContainer(isScrollContainer_ bool) {
 	)
 }
 
-func (obj View) SetScrollX(value_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollX(value_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollX",
@@ -1922,8 +1922,8 @@ func (obj View) SetScrollX(value_ int) {
 	)
 }
 
-func (obj View) SetScrollY(value_ int) {
-	android.CallViewMethod(
+func (obj View) SetScrollY(value_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollY",
@@ -1931,8 +1931,8 @@ func (obj View) SetScrollY(value_ int) {
 	)
 }
 
-func (obj View) SetScrollbarFadingEnabled(fadeScrollbars_ bool) {
-	android.CallViewMethod(
+func (obj View) SetScrollbarFadingEnabled(fadeScrollbars_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setScrollbarFadingEnabled",
@@ -1940,8 +1940,8 @@ func (obj View) SetScrollbarFadingEnabled(fadeScrollbars_ bool) {
 	)
 }
 
-func (obj View) SetSelected(selected_ bool) {
-	android.CallViewMethod(
+func (obj View) SetSelected(selected_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setSelected",
@@ -1949,8 +1949,8 @@ func (obj View) SetSelected(selected_ bool) {
 	)
 }
 
-func (obj View) SetSoundEffectsEnabled(soundEffectsEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetSoundEffectsEnabled(soundEffectsEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setSoundEffectsEnabled",
@@ -1958,8 +1958,8 @@ func (obj View) SetSoundEffectsEnabled(soundEffectsEnabled_ bool) {
 	)
 }
 
-func (obj View) SetSystemUiVisibility(visibility_ int) {
-	android.CallViewMethod(
+func (obj View) SetSystemUiVisibility(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setSystemUiVisibility",
@@ -1967,8 +1967,8 @@ func (obj View) SetSystemUiVisibility(visibility_ int) {
 	)
 }
 
-func (obj View) SetTextAlignment(textAlignment_ int) {
-	android.CallViewMethod(
+func (obj View) SetTextAlignment(textAlignment_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setTextAlignment",
@@ -1976,8 +1976,8 @@ func (obj View) SetTextAlignment(textAlignment_ int) {
 	)
 }
 
-func (obj View) SetTextDirection(textDirection_ int) {
-	android.CallViewMethod(
+func (obj View) SetTextDirection(textDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setTextDirection",
@@ -1985,8 +1985,8 @@ func (obj View) SetTextDirection(textDirection_ int) {
 	)
 }
 
-func (obj View) SetTop(top_ int) {
-	android.CallViewMethod(
+func (obj View) SetTop(top_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setTop",
@@ -1994,8 +1994,8 @@ func (obj View) SetTop(top_ int) {
 	)
 }
 
-func (obj View) SetTranslationX(translationX_ float64) {
-	android.CallViewMethod(
+func (obj View) SetTranslationX(translationX_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setTranslationX",
@@ -2003,8 +2003,8 @@ func (obj View) SetTranslationX(translationX_ float64) {
 	)
 }
 
-func (obj View) SetTranslationY(translationY_ float64) {
-	android.CallViewMethod(
+func (obj View) SetTranslationY(translationY_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setTranslationY",
@@ -2012,8 +2012,8 @@ func (obj View) SetTranslationY(translationY_ float64) {
 	)
 }
 
-func (obj View) SetVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setVerticalFadingEdgeEnabled",
@@ -2021,8 +2021,8 @@ func (obj View) SetVerticalFadingEdgeEnabled(verticalFadingEdgeEnabled_ bool) {
 	)
 }
 
-func (obj View) SetVerticalScrollBarEnabled(verticalScrollBarEnabled_ bool) {
-	android.CallViewMethod(
+func (obj View) SetVerticalScrollBarEnabled(verticalScrollBarEnabled_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setVerticalScrollBarEnabled",
@@ -2030,8 +2030,8 @@ func (obj View) SetVerticalScrollBarEnabled(verticalScrollBarEnabled_ bool) {
 	)
 }
 
-func (obj View) SetVerticalScrollbarPosition(position_ int) {
-	android.CallViewMethod(
+func (obj View) SetVerticalScrollbarPosition(position_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setVerticalScrollbarPosition",
@@ -2039,8 +2039,8 @@ func (obj View) SetVerticalScrollbarPosition(position_ int) {
 	)
 }
 
-func (obj View) SetVisibility(visibility_ int) {
-	android.CallViewMethod(
+func (obj View) SetVisibility(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setVisibility",
@@ -2048,8 +2048,8 @@ func (obj View) SetVisibility(visibility_ int) {
 	)
 }
 
-func (obj View) SetWillNotCacheDrawing(willNotCacheDrawing_ bool) {
-	android.CallViewMethod(
+func (obj View) SetWillNotCacheDrawing(willNotCacheDrawing_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setWillNotCacheDrawing",
@@ -2057,8 +2057,8 @@ func (obj View) SetWillNotCacheDrawing(willNotCacheDrawing_ bool) {
 	)
 }
 
-func (obj View) SetWillNotDraw(willNotDraw_ bool) {
-	android.CallViewMethod(
+func (obj View) SetWillNotDraw(willNotDraw_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setWillNotDraw",
@@ -2066,8 +2066,8 @@ func (obj View) SetWillNotDraw(willNotDraw_ bool) {
 	)
 }
 
-func (obj View) SetX(x_ float64) {
-	android.CallViewMethod(
+func (obj View) SetX(x_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setX",
@@ -2075,8 +2075,8 @@ func (obj View) SetX(x_ float64) {
 	)
 }
 
-func (obj View) SetY(y_ float64) {
-	android.CallViewMethod(
+func (obj View) SetY(y_ float64) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"setY",
@@ -2084,32 +2084,32 @@ func (obj View) SetY(y_ float64) {
 	)
 }
 
-func (obj View) ShowContextMenu() {
-	android.CallViewMethod(
+func (obj View) ShowContextMenu() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"showContextMenu",
 	)
 }
 
-func (obj View) ToString() {
-	android.CallViewMethod(
+func (obj View) ToString() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"toString",
 	)
 }
 
-func (obj View) WillNotCacheDrawing() {
-	android.CallViewMethod(
+func (obj View) WillNotCacheDrawing() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"willNotCacheDrawing",
 	)
 }
 
-func (obj View) WillNotDraw() {
-	android.CallViewMethod(
+func (obj View) WillNotDraw() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.view.View",
 		"willNotDraw",

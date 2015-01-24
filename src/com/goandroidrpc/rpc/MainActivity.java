@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Go.init(getApplicationContext());
-        setContentView(R.layout.useless_layout);
+        setContentView(R.layout.main_layout);
 
         rpcFrontend = new RpcFrontend(this);
         Rpc.StartBackend(rpcFrontend);
@@ -54,8 +54,6 @@ public class MainActivity extends Activity {
         public String CallFrontend(final String payload) {
             try {
                 JSONObject json = new JSONObject(payload);
-
-                Log.v("!!!", String.format("%s", payload));
 
                 String handlerName = String.format(
                     "%s.RpcHandler%s",

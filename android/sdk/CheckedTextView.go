@@ -23,24 +23,24 @@ func init() {
 	android.ViewTypeConstructors["android.widget.CheckedTextView"] = NewCheckedTextView
 }
 
-func (obj CheckedTextView) IsChecked() {
-	android.CallViewMethod(
+func (obj CheckedTextView) IsChecked() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"isChecked",
 	)
 }
 
-func (obj CheckedTextView) JumpDrawablesToCurrentState() {
-	android.CallViewMethod(
+func (obj CheckedTextView) JumpDrawablesToCurrentState() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"jumpDrawablesToCurrentState",
 	)
 }
 
-func (obj CheckedTextView) OnRtlPropertiesChanged(layoutDirection_ int) {
-	android.CallViewMethod(
+func (obj CheckedTextView) OnRtlPropertiesChanged(layoutDirection_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"onRtlPropertiesChanged",
@@ -48,8 +48,8 @@ func (obj CheckedTextView) OnRtlPropertiesChanged(layoutDirection_ int) {
 	)
 }
 
-func (obj CheckedTextView) SetCheckMarkDrawable(resid_ int) {
-	android.CallViewMethod(
+func (obj CheckedTextView) SetCheckMarkDrawable(resid_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setCheckMarkDrawable",
@@ -57,8 +57,8 @@ func (obj CheckedTextView) SetCheckMarkDrawable(resid_ int) {
 	)
 }
 
-func (obj CheckedTextView) SetChecked(checked_ bool) {
-	android.CallViewMethod(
+func (obj CheckedTextView) SetChecked(checked_ bool) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setChecked",
@@ -66,8 +66,8 @@ func (obj CheckedTextView) SetChecked(checked_ bool) {
 	)
 }
 
-func (obj CheckedTextView) SetVisibility(visibility_ int) {
-	android.CallViewMethod(
+func (obj CheckedTextView) SetVisibility(visibility_ int) map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"setVisibility",
@@ -75,8 +75,8 @@ func (obj CheckedTextView) SetVisibility(visibility_ int) {
 	)
 }
 
-func (obj CheckedTextView) Toggle() {
-	android.CallViewMethod(
+func (obj CheckedTextView) Toggle() map[string]interface{} {
+	return android.CallViewMethod(
 		obj.GetId(),
 		"android.widget.CheckedTextView",
 		"toggle",
