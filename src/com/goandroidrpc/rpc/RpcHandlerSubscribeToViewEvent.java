@@ -138,7 +138,17 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
 
                     Object result = mActivity.rpcBackend.call(json.toString());
 
-                    return (Boolean)result;
+                    try {
+                        if (result instanceof JSONObject) {
+                            Object returnValue = ((JSONObject) result).get("result");
+
+                            return (Boolean)returnValue;
+                        }
+                    } catch(JSONException e) {
+                        // @TODO
+                    }
+
+                    return false;
                 }
             };
         }

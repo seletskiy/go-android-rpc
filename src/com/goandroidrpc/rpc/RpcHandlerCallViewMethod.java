@@ -139,6 +139,7 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                 new Callable<Object> () {
                     @Override
                     public Object call() throws Exception {
+                        Log.v("!!!", String.format("in real call %s", Thread.currentThread()));
                         Object result = methodToCall.invoke(
                             viewObject,
                             requestedParams.toArray()

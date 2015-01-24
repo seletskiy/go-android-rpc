@@ -231,8 +231,6 @@ func (server *backend) Run() {
 	for {
 		event := <-server.input
 
-		log.Printf("%#v", event)
-
 		dataHash := zhash.HashFromMap(event.Data.(map[string]interface{}))
 		data, err := dataHash.GetMap("data")
 		if err != nil {
@@ -246,9 +244,7 @@ func (server *backend) Run() {
 
 		switch eventName {
 		case "sensorChange":
-			log.Printf("%#v", "before")
 			event.ReplyTo <- server.onSensorChange(zhash.HashFromMap(data))
-			log.Printf("%#v", "replied")
 		case "click":
 			event.ReplyTo <- server.onClick(zhash.HashFromMap(data))
 		case "touch":

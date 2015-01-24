@@ -1,116 +1,143 @@
 package com.goandroidrpc.rpc;
 
-import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 import android.app.Activity;
-import android.os.Looper;
-import android.util.Log;
 
 public class UIThreadRunner {
-    protected Activity mActivity;
-    protected ReentrantLock mExecutionLock;
+    final protected Activity mActivity;
+
+    protected ExecutorService mThreadPool;
+    protected LinkedBlockingQueue<Task> mTasksQueue;
 
     public volatile OutsourceExecutor outsourceExecutor;
 
     UIThreadRunner(Activity activity) {
+        mThreadPool = Executors.newFixedThreadPool(2);
         mActivity = activity;
-        mExecutionLock = new ReentrantLock();
+        mTasksQueue = new LinkedBlockingQueue<Task>();
+
+        mThreadPool.submit(new Runnable() {
+            public void run() {
+                while (true) {
+                    Task task;
+                    try {
+                        task = mTasksQueue.take();
+                        try {
+                            mTasksQueue.put(task);
+                            if (task.future != null) {
+                                mActivity.runOnUiThread(task.future);
+                                // task.future.isDone() can be false there
+                                task.future.get();
+                                mTasksQueue.remove(task);
+                            } else {
+                            }
+                        } catch (Exception e) {
+                            mTasksQueue.remove(task);
+                        }
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+        });
     }
 
     public Object run(
         Callable<Object> callable
     ) throws Exception {
-        mExecutionLock.lock();
-        Log.v("!!!", String.format("%s", Thread.currentThread()));
-
-        Object result;
-        try {
-            if (outsourceExecutor != null) {
-                Log.v("!!!", String.format("%s", "outsource executor"));
-                result = outsourceExecutor.submit(callable).get();
-            } else {
-                Log.v("!!!", String.format("%s", "current executor"));
-                FutureTask<Object> task = new FutureTask<Object>(callable);
-                mActivity.runOnUiThread(task);
-                result = task.get();
-            }
-        } finally {
-            mExecutionLock.unlock();
-        }
-
+        Task task = new Task(new FutureTask<Object>(callable));
+        mTasksQueue.put(task);
+        Object result = task.future.get();
         return result;
     }
 
-    public OutsourceExecutor outsourceExecutor() {
-        mExecutionLock.lock();
-        outsourceExecutor = new OutsourceExecutor();
-        mExecutionLock.unlock();
-        return outsourceExecutor;
-    }
+    public Object runAndDispatchUI(final Callable<Object> callable) {
+        final OutsourceExecutor executor = new OutsourceExecutor();
 
-    public void leaveOutsourcing() {
-        mExecutionLock.lock();
-        outsourceExecutor.stop();
-        outsourceExecutor = null;
-        mExecutionLock.unlock();
+        FutureTask<Object> task = new FutureTask<Object>(
+            new Callable<Object>() {
+                @Override
+                public Object call() {
+                    Object result;
+                    try {
+                        result = callable.call();
+                    } catch (Exception e) {
+                        return null;
+                    }
+
+                    executor.stop();
+
+                    return result;
+                }
+            }
+        );
+
+        mThreadPool.execute(task);
+
+
+        executor.runTasks();
+
+        try {
+            return task.get();
+        } catch (ExecutionException e) {
+            // pass
+        } catch (InterruptedException e) {
+            // pass
+        }
+
+        return null;
     }
 
     public class OutsourceExecutor {
         protected ReentrantLock mLock;
         protected CyclicBarrier mBarrier;
 
-        protected FutureTask<Object> mTask;
-
         OutsourceExecutor() {
-            mTask = null;
             mLock = new ReentrantLock();
             mBarrier = new CyclicBarrier(2);
         }
 
-        public FutureTask<Object> submit(
-            Callable<Object> callback
-        ) throws InterruptedException, BrokenBarrierException {
-            if (callback == null) {
-                mTask = null;
-            } else {
-                mTask = new FutureTask<Object>(callback);
-            }
-            mBarrier.await();
-            return mTask;
-        }
-
         public boolean runTask() {
             try {
-                mBarrier.await();
-                if (mTask == null) {
+                Task task = mTasksQueue.take();
+                if (task.future == null) {
                     return false;
                 }
-                mTask.run();
+                task.future.run();
                 return true;
             } catch (InterruptedException e) {
                 return false;
-            } catch (BrokenBarrierException e) {
-                return false;
             }
         }
 
-        protected void stop() {
+        public void stop() {
             try {
-                submit(null);
+                mTasksQueue.put(new Task(null));
             } catch (InterruptedException e) {
-            } catch (BrokenBarrierException e) {
             }
         }
 
-        public void outsource() {
+        public void runTasks() {
             while (runTask()) {
                 // just run tasks
             };
+        }
+    }
+
+    public class Task {
+        public FutureTask<Object> future;
+
+        Task(FutureTask<Object> task) {
+            future = task;
         }
     }
 }
