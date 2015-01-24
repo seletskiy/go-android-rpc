@@ -15,8 +15,11 @@ public class RpcHandlerControlMusicPlayback implements RpcHandlerInterface {
         try {
             Integer resourceId = request.getInt("resource_id");
             String action = request.getString("action");
+            Boolean loop = request.getBoolean("loop");
 
             MediaPlayer mediaPlayer = MediaPlayer.create(context, resourceId);
+
+            mediaPlayer.setLooping(loop);
 
             if (action.equals("start")) {
                 mediaPlayer.start();

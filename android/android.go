@@ -156,14 +156,16 @@ func CallViewMethod(
 }
 
 func CallControlMusicPlayback(
-	action string,
 	id string,
+	action string,
+	loop bool,
 	args ...interface{},
 ) map[string]interface{} {
 	return goBackend.call(map[string]interface{}{
 		"method":      "ControlMusicPlayback",
 		"resource_id": id,
 		"action":      action,
+		"loop":        loop,
 	})
 }
 
