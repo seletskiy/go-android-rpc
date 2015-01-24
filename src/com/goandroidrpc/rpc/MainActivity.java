@@ -46,13 +46,14 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         rpcBackend.destroy();
-        rpcFrontend.destroy();
+        // no need for now
+        //rpcFrontend.destroy();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.v("!!! src/com/goandroidrpc/rpc/MainActivity.java:54", String.format("%s", "stopped"));
+        rpcBackend.stop();
     }
 
     public class RpcFrontend extends Rpc.Frontend.Stub {

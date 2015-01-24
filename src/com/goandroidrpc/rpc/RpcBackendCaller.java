@@ -37,4 +37,8 @@ public class RpcBackendCaller {
     public void destroy() {
         mUiThreadRunner.destroy();
     }
+
+    public void stop() {
+        mUiThreadRunner.destroy();
+    }
 }
