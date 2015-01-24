@@ -199,11 +199,11 @@ func CreateView(
 	return ViewTypeConstructors[viewType](id).(ViewObject)
 }
 
-func GetLayoutId(
+func GetLayoutById(
 	layout string,
 ) map[string]interface{} {
 	return goBackend.call(map[string]interface{}{
-		"method": "GetLayoutId",
+		"method": "GetLayoutById",
 		"layout": layout,
 	})
 }

@@ -65,7 +65,7 @@ func start() {
 	accelDisplay := android.GetViewById("main_layout", "useless_accel").(sdk.TextView)
 	accelDisplay.SetTextSize(40.0)
 
-	layout := zhash.HashFromMap(android.GetLayoutId("main_layout"))
+	layout := zhash.HashFromMap(android.GetLayoutById("main_layout"))
 	layout_id, err := layout.GetString(
 		"layout_id",
 	)

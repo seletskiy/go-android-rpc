@@ -7,7 +7,7 @@ import android.util.Log;
 import android.app.Activity;
 import android.content.Context;
 
-public class RpcHandlerGetLayoutId implements RpcHandlerInterface {
+public class RpcHandlerGetLayoutById implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
         JSONObject json = new JSONObject();
         try {
