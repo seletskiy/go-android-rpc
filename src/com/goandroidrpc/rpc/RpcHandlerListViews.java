@@ -1,11 +1,13 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
-import org.json.*;
-import android.view.*;
-import android.util.Log;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class RpcHandlerListViews implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
@@ -24,19 +26,27 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
             for(int i = 0; i < rootView.getChildCount(); i++) {
                 View childView = rootView.getChildAt(i);
                 int resId = childView.getId();
+                Log.v("!!!", String.format("%s", resId));
                 JSONObject jsonChild = new JSONObject();
                 jsonChild.put("id", String.format("%d", resId));
                 jsonChild.put("type", childView.getClass().getName());
-                String resName = childView.getResources().getResourceEntryName(
-                    childView.getId()
-                );
-                //jsonChild.put("name", resName);
+
+                String resName;
+                try {
+                    resName = childView.getResources().getResourceEntryName(
+                        childView.getId()
+                    );
+                } catch(NotFoundException e) {
+                    resName = String.format("%s", resId);
+                }
+
                 jsonViews.put(resName, jsonChild);
             }
+
             json.put("resources", jsonViews);
         } catch (Exception e) {
             // @TODO: proper exception handling
-            System.out.println(e);
+            Log.v("!!!", String.format("%s", e));
         }
 
         return json;
