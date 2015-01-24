@@ -199,6 +199,15 @@ func CreateView(
 	return ViewTypeConstructors[viewType](id).(ViewObject)
 }
 
+func GetLayoutId(
+	layout string,
+) map[string]interface{} {
+	return goBackend.call(map[string]interface{}{
+		"method": "GetLayoutId",
+		"layout": layout,
+	})
+}
+
 func AttachView(
 	view ViewObject,
 	viewGroupId string,

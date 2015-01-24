@@ -65,6 +65,14 @@ func start() {
 	accelDisplay := android.GetViewById("main_layout", "useless_accel").(sdk.TextView)
 	accelDisplay.SetTextSize(40.0)
 
+	layout := zhash.HashFromMap(android.GetLayoutId("main_layout"))
+	layout_id, err := layout.GetString(
+		"layout_id",
+	)
+	if err != nil {
+		panic(err)
+	}
+
 	touchButton := android.GetViewById("main_layout", "useless_touch_button").(sdk.Button)
 	android.OnTouch(touchButton, ButtonHandler{touchButton})
 
@@ -86,10 +94,10 @@ func start() {
 	newView.SetText1s("I'm generated!")
 
 	android.OnClick(newView, ButtonHandler{newView})
-	android.AttachView(newView, "2130903040")
+	android.AttachView(newView, layout_id)
 
 	newTextEdit := android.CreateView("124", "android.widget.EditText").(sdk.EditText)
-	android.AttachView(newTextEdit, "2130903040")
+	android.AttachView(newTextEdit, layout_id)
 	newTextEdit.SetText1s("123123")
 }
 
