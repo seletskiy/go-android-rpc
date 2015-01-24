@@ -90,6 +90,7 @@ func start() {
 
 	newTextEdit := android.CreateView("124", "android.widget.EditText").(sdk.EditText)
 	android.AttachView(newTextEdit, "2130903040")
+	newTextEdit.SetText1s("123123")
 }
 
 func main() {

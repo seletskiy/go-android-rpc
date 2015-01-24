@@ -1,12 +1,14 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
+import java.util.concurrent.Callable;
 
-import org.json.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import android.view.*;
-import android.util.Log;
 import android.content.Context;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class RpcHandlerAttachView implements RpcHandlerInterface {
     public JSONObject Handle(
@@ -57,16 +59,25 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
 
         activity.orphanViews.remove(id);
 
-        activity.runOnUiThread(new Runnable(){
-            public void run() {
-                try {
-                    targetView.addView(orphanView);
-                } catch(Exception e) {
-                    // @TODO
-                    Log.v("!!!", e.toString());
+        try {
+            activity.uiThreadRunner.run(
+                new Callable<Object> () {
+                    @Override
+                    public Object call() throws Exception {
+                        try {
+                            targetView.addView(orphanView);
+                        } catch(Exception e) {
+                            // @TODO
+                            Log.v("!!!", e.toString());
+                        }
+
+                        return null;
+                    }
                 }
-            }
-        });
+            );
+        } catch (Exception e) {
+            result.put("error", e.toString());
+        }
 
         return result;
     }
