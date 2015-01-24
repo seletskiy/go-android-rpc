@@ -12,16 +12,13 @@ public class RpcHandlerGetLayoutById implements RpcHandlerInterface {
         JSONObject json = new JSONObject();
         try {
             String layoutName = payload.getString("layout");
-
-            Activity activity = (Activity) context;
-            ViewGroup rootView = (ViewGroup) activity.findViewById(
-                R.id.class.getField(layoutName).getInt(null)
+            json.put("layout_id",
+                Integer.toString(
+                    R.id.class.getField(layoutName).getInt(null)
+                )
             );
-
-            json.put("layout_id", Integer.toString(rootView.getId()));
         } catch (Exception e) {
-            // @TODO: proper exception handling
-            System.out.println(e);
+            Log.v("!!! src/com/goandroidrpc/rpc/RpcHandlerGetLayoutById.java:21", String.format("%s", e));
         }
 
         return json;
