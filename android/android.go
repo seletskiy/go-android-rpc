@@ -155,6 +155,18 @@ func CallViewMethod(
 	})
 }
 
+func CallControlMusicPlayback(
+	action string,
+	id string,
+	args ...interface{},
+) map[string]interface{} {
+	return goBackend.call(map[string]interface{}{
+		"method":      "ControlMusicPlayback",
+		"resource_id": id,
+		"action":      action,
+	})
+}
+
 func SubscribeToViewEvent(
 	id string,
 	viewType string,
@@ -216,6 +228,16 @@ func GetLayoutById(
 		"method": "GetLayoutById",
 		"layout": layout,
 	})
+}
+
+func GetResourceById(
+	resource string,
+) string {
+	response := goBackend.call(map[string]interface{}{
+		"method":   "GetResourceById",
+		"resource": resource,
+	})
+	return response["resource_id"].(string)
 }
 
 func AttachView(
