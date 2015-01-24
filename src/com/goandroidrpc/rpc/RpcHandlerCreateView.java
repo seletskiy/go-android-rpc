@@ -1,13 +1,13 @@
 package com.goandroidrpc.rpc;
 
-import go.rpc.Rpc;
-
-import org.json.*;
-
-import android.view.*;
-import android.content.Context;
-
 import java.lang.reflect.Constructor;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
 
 public class RpcHandlerCreateView implements RpcHandlerInterface {
     public JSONObject Handle(

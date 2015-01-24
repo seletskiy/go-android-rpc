@@ -105,18 +105,18 @@ func GetViewsList(
 }
 
 // @TODO: create interface for Views
-func GetViewById(layout, id string) interface{} {
-	views := zhash.HashFromMap(GetViewsList(layout))
+func GetViewById(id string) interface{} {
+	result := goBackend.call(map[string]interface{}{
+		"method": "GetViewById",
+		"id":     id,
+	})
 
-	viewType, err := views.GetString("resources", id, "type")
-	if err != nil {
+	if _, ok := result["error"]; ok {
 		return nil
 	}
 
-	internalId, err := views.GetString("resources", id, "id")
-	if err != nil {
-		return nil
-	}
+	viewType := result["type"].(string)
+	internalId := result["id"].(string)
 
 	// @TODO: validation via init functions in every generated code file
 	return ViewTypeConstructors[viewType](internalId)

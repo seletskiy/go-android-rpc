@@ -34,8 +34,8 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
     }
 
     protected JSONObject attachView(
-        MainActivity activity,
-        Integer id,
+        final MainActivity activity,
+        final Integer id,
         Integer targetViewId
     ) throws JSONException {
         JSONObject result = new JSONObject();
@@ -57,8 +57,6 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
             return result;
         }
 
-        activity.orphanViews.remove(id);
-
         try {
             activity.uiThreadRunner.run(
                 new Callable<Object> () {
@@ -66,6 +64,7 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
                     public Object call() throws Exception {
                         try {
                             targetView.addView(orphanView);
+                            activity.orphanViews.remove(id);
                         } catch(Exception e) {
                             // @TODO
                             Log.v("!!!", e.toString());
