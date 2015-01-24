@@ -43,6 +43,8 @@ func (handler ButtonHandler) OnClick() {
 
 	result := handler.button.GetText()
 	log.Printf("!!! current text: %s", result)
+
+	android.ChangeLayout("another_layout")
 }
 
 func (handler ButtonHandler) OnTouch() android.PayloadType {

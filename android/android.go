@@ -229,6 +229,15 @@ func AttachView(
 	})
 }
 
+func ChangeLayout(
+	layoutName string,
+) {
+	goBackend.call(map[string]interface{}{
+		"method": "ChangeLayout",
+		"layout": layoutName,
+	})
+}
+
 func (server *backend) Run() {
 	defer func() {
 		err := recover()
@@ -245,8 +254,6 @@ func (server *backend) Run() {
 
 	for {
 		event := <-server.input
-
-		//log.Printf("%#v", event)
 
 		dataHash := zhash.HashFromMap(event.Data.(map[string]interface{}))
 		data, err := dataHash.GetMap("data")
