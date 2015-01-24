@@ -133,10 +133,12 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         final Method methodToCall = targetMethod;
 
         try {
+            Log.v("!!!", String.format("%s", 123));
             Object callerResult = activity.uiThreadRunner.run(
                 new Callable<Object> () {
                     @Override
                     public Object call() throws Exception {
+                        Log.v("!!!", String.format("%s", "call"));
                         Object result = methodToCall.invoke(
                             viewObject,
                             requestedParams.toArray()
@@ -153,5 +155,9 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
         }
 
         return result;
+    }
+
+    public void destroy() {
+        // pass
     }
 }

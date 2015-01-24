@@ -81,4 +81,8 @@ public class RpcHandlerAttachView implements RpcHandlerInterface {
 
         return result;
     }
+
+    public void destroy() {
+        // pass
+    }
 }

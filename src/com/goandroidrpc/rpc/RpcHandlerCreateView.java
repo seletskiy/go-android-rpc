@@ -71,4 +71,8 @@ public class RpcHandlerCreateView implements RpcHandlerInterface {
 
         return result;
     }
+
+    public void destroy() {
+        // pass
+    }
 }

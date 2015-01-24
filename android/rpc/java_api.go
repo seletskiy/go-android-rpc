@@ -8,11 +8,14 @@ import (
 	"github.com/seletskiy/go-android-rpc/android"
 )
 
+var started = false
+
 type Frontend interface {
 	CallFrontend(payload string) (reply string)
 }
 
 func StartBackend(javaFrontend Frontend) {
+	log.Printf("%#v", "StartBackend")
 	go android.Start()
 
 	go func() {

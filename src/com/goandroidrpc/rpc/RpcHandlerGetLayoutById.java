@@ -26,4 +26,8 @@ public class RpcHandlerGetLayoutById implements RpcHandlerInterface {
 
         return json;
     }
+
+    public void destroy() {
+        // pass
+    }
 }

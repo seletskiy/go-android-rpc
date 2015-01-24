@@ -44,6 +44,11 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
     }
 
 
+    public void destroy() {
+        // pass
+    }
+
+
     public class Listener implements SensorEventListener {
         protected int mSensorId;
         protected MainActivity mActivity;

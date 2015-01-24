@@ -60,6 +60,7 @@ func (handler ButtonHandler) OnTouch() android.PayloadType {
 }
 
 func start() {
+	log.Printf("%#v", "onStart")
 	sensors := zhash.HashFromMap(android.GetSensorsList())
 
 	accelDisplay := android.GetViewById("main_layout", "useless_accel").(sdk.TextView)
@@ -99,6 +100,8 @@ func start() {
 	newTextEdit := android.CreateView("124", "android.widget.EditText").(sdk.EditText)
 	android.AttachView(newTextEdit, layout_id)
 	newTextEdit.SetText1s("123123")
+
+	log.Printf("%#v", "onStart END")
 }
 
 func main() {

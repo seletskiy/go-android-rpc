@@ -38,4 +38,8 @@ public class RpcHandlerGetSensorsList implements RpcHandlerInterface {
         }
         return json;
     }
+
+    public void destroy() {
+        // pass
+    }
 }

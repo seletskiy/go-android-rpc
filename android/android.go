@@ -51,8 +51,10 @@ type backend struct {
 	input   inputChan
 	output  outputChan
 	running bool
-	onStart func()
 }
+
+var onStart func()
+var onDestroy func()
 
 var goBackend = backend{
 	input:  make(inputChan, 0),
@@ -60,7 +62,12 @@ var goBackend = backend{
 }
 
 func OnStart(callback func()) {
-	goBackend.onStart = callback
+	onStart = callback
+}
+
+// not implemented yet
+func OnDestroy(callback func()) {
+	onDestroy = callback
 }
 
 func GetRequest() payloadWithReply {
@@ -75,9 +82,12 @@ func SendEvent(payload PayloadType, replyTo chan PayloadType) {
 }
 
 func Start() {
-	if !goBackend.running {
-		goBackend.Run()
+	goBackend = backend{
+		input:  make(inputChan, 0),
+		output: make(outputChan, 0),
 	}
+	go onStart()
+	goBackend.Run()
 }
 
 func Enter() {
@@ -231,14 +241,12 @@ func (server *backend) Run() {
 
 	server.running = true
 
-	if server.onStart != nil {
-		go server.onStart()
-	}
-
 	log.Printf("Backend started")
 
 	for {
 		event := <-server.input
+
+		//log.Printf("%#v", event)
 
 		dataHash := zhash.HashFromMap(event.Data.(map[string]interface{}))
 		data, err := dataHash.GetMap("data")

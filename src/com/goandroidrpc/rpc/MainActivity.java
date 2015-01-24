@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     public UIThreadRunner uiThreadRunner;
 
     public MainActivity() {
+        Log.v("!!!", String.format("%s", "started"));
         orphanViews = new HashMap<Integer, View>();
         uiThreadRunner = new UIThreadRunner(this);
         rpcBackend = new RpcBackendCaller(uiThreadRunner);
@@ -42,6 +43,13 @@ public class MainActivity extends Activity {
         Rpc.StartBackend(rpcFrontend);
     }
 
+    @Override
+    protected void onDestroy() {
+        rpcBackend.destroy();
+        rpcFrontend.destroy();
+        super.onDestroy();
+    }
+
     public class RpcFrontend extends Rpc.Frontend.Stub {
         protected Context mContext;
         protected Map<String, RpcHandlerInterface> mHandlers;
@@ -54,6 +62,7 @@ public class MainActivity extends Activity {
         public String CallFrontend(final String payload) {
             try {
                 JSONObject json = new JSONObject(payload);
+                Log.v("!!!", String.format("%s", json.toString()));
 
                 String handlerName = String.format(
                     "%s.RpcHandler%s",
@@ -80,6 +89,12 @@ public class MainActivity extends Activity {
 
             // @TODO: properly return json error
             return "error";
+        }
+
+        public void destroy() {
+            for (Map.Entry<String, RpcHandlerInterface> handler : mHandlers.entrySet()) {
+                handler.getValue().destroy();
+            }
         }
     }
 }

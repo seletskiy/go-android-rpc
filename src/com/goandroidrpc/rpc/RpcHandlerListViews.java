@@ -51,4 +51,8 @@ public class RpcHandlerListViews implements RpcHandlerInterface {
 
         return json;
     }
+
+    public void destroy() {
+        // pass
+    }
 }

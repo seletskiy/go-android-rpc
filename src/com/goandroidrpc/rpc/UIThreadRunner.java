@@ -7,11 +7,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 import android.app.Activity;
+import android.util.Log;
 
 public class UIThreadRunner {
     final protected Activity mActivity;
@@ -22,6 +21,7 @@ public class UIThreadRunner {
     public volatile OutsourceExecutor outsourceExecutor;
 
     UIThreadRunner(Activity activity) {
+        Log.v("!!!", String.format("%s", "constructor"));
         mThreadPool = Executors.newFixedThreadPool(2);
         mActivity = activity;
         mTasksQueue = new LinkedBlockingQueue<Task>();
@@ -34,6 +34,7 @@ public class UIThreadRunner {
                         task = mTasksQueue.take();
                         try {
                             mTasksQueue.put(task);
+                            Log.v("!!!", String.format("%s", task));
                             if (task.future != null) {
                                 mActivity.runOnUiThread(task.future);
                                 // task.future.isDone() can be false there
@@ -95,6 +96,10 @@ public class UIThreadRunner {
         }
 
         return null;
+    }
+
+    public void destroy() {
+        mThreadPool.shutdown();
     }
 
     public class OutsourceExecutor {

@@ -96,6 +96,10 @@ public class RpcHandlerSubscribeToViewEvent implements RpcHandlerInterface {
         return result;
     }
 
+    public void destroy() {
+        // pass
+    }
+
     public class ListenerFactory {
         protected MainActivity mActivity;
 
