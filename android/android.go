@@ -252,6 +252,16 @@ func AttachView(
 		"viewGroupId": viewGroupId,
 	})
 }
+func RemoveView(
+	view ViewObject,
+	viewGroupId string,
+) {
+	goBackend.call(map[string]interface{}{
+		"method":      "RemoveView",
+		"id":          view.GetId(),
+		"viewGroupId": viewGroupId,
+	})
+}
 
 func ChangeLayout(
 	layoutName string,
@@ -264,12 +274,6 @@ func ChangeLayout(
 
 func (server *backend) Run() {
 	defer func() {
-		err := recover()
-		log.Printf("PANIC %s", err)
-
-		log.Print(string(debug.Stack()))
-
-		panic(err)
 	}()
 
 	server.running = true
@@ -298,6 +302,14 @@ func (server *backend) Run() {
 		case "touch":
 			event.ReplyTo <- server.onTouch(zhash.HashFromMap(data))
 		}
+	}
+}
+
+func PanicHandler() {
+	if err := recover(); err != nil {
+		log.Printf("PANIC %s", err)
+		log.Print(string(debug.Stack()))
+		panic(err)
 	}
 }
 

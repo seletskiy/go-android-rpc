@@ -20,9 +20,7 @@ public class RpcHandlerChangeLayout implements RpcHandlerInterface {
             mainActivity.uiThreadRunner.run(new Callable<Object>() {
                 public Object call() {
                     try {
-                        mainActivity.setContentView(
-                            R.layout.class.getField(layoutName).getInt(null)
-                        );
+                        mainActivity.setContentView(R.layout.class.getField(layoutName).getInt(null));
                     } catch(NoSuchFieldException e) {
                     } catch(IllegalAccessException e) {
                         // @TODO
@@ -32,7 +30,7 @@ public class RpcHandlerChangeLayout implements RpcHandlerInterface {
             });
         } catch (Exception e) {
             // @TODO: proper exception handling
-            Log.v("!!!", String.format("%s", e));
+            Log.v("!!! EXCEPT", String.format("%s", e));
         }
 
         return result;
