@@ -1,5 +1,7 @@
 package com.goandroidrpc.rpc;
 
+import java.util.concurrent.Callable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,7 +31,24 @@ public class RpcHandlerSetTextFromHtml implements RpcHandlerInterface {
                 view = (TextView) ((Activity) context).findViewById(Integer.parseInt(id));
             }
 
-            view.setText(Html.fromHtml(html));
+
+            final TextView viewToCall = view;
+            final String htmlToSet = html;
+            try {
+                activity.uiThreadRunner.run(
+                    new Callable<Object> () {
+                        @Override
+                        public Object call() throws Exception {
+                            viewToCall.setText(Html.fromHtml(htmlToSet));
+                            return null;
+                        }
+                    }
+                );
+            } catch(Exception e) {
+                result.put("error",
+                    String.format("error in request: %s", e.getMessage())
+                );
+            }
         } catch (JSONException e) {
             result.put("error",
                 String.format("error in request: %s", e.getMessage())

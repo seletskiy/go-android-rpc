@@ -69,6 +69,8 @@ public class MainActivity extends Activity {
             try {
                 JSONObject json = new JSONObject(payload);
 
+                Log.v("!!! src/com/goandroidrpc/rpc/MainActivity.java:72", String.format("%s", json));
+
                 String handlerName = String.format(
                     "%s.RpcHandler%s",
                     this.getClass().getPackage().getName(),
