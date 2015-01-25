@@ -18,3 +18,7 @@ mkdir -p android/sdk
 (
     api-doc-parser/api-doc-parser -g '^ToggleButton$' widget ;
 ) | api-code-generation/api-code-generation android/sdk -b Button -r ViewTypeConstructors
+
+(
+    api-doc-parser/api-doc-parser -g '^Switch$' widget ;
+) | api-code-generation/api-code-generation android/sdk -b Button -r ViewTypeConstructors
