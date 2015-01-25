@@ -87,6 +87,10 @@ public class RpcHandlerCallViewMethod implements RpcHandlerInterface {
                     // downcast to float
                     requestedParamTypes.add(float.class);
                     requestedParams.add((float) methodArgs.getDouble(i));
+                } else if (methodArgs.get(i) instanceof Boolean) {
+                    // downcast to boolean
+                    requestedParamTypes.add(boolean.class);
+                    requestedParams.add((boolean) methodArgs.getBoolean(i));
                 } else {
                     requestedParams.add(methodArgs.get(i));
                     requestedParamTypes.add(methodArgs.get(i).getClass());
