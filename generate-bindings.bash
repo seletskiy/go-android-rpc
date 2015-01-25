@@ -15,3 +15,6 @@ mkdir -p android/sdk
     api-doc-parser/api-doc-parser -g '^EditText$' widget
 ) | api-code-generation/api-code-generation android/sdk -b TextView -r ViewTypeConstructors
 
+(
+    api-doc-parser/api-doc-parser -g '^ToggleButton$' widget ;
+) | api-code-generation/api-code-generation android/sdk -b Button -r ViewTypeConstructors
