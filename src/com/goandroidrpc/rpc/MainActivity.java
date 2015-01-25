@@ -2,14 +2,21 @@ package com.goandroidrpc.rpc;
 
 import go.Go;
 import go.rpc.Rpc;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONObject;
+
 import android.app.Activity;
-import android.os.Bundle;
 import android.content.Context;
-import java.util.*;
-import org.json.*;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.*;
-import com.goandroidrpc.rpc.UIThreadRunner;
+import android.view.View;
+
 
 /*
  * MainActivity is the entry point for RPC endpoint of go-android-rpc.
@@ -29,6 +36,38 @@ public class MainActivity extends Activity {
         orphanViews = new HashMap<Integer, View>();
         uiThreadRunner = new UIThreadRunner(this);
         rpcBackend = new RpcBackendCaller(uiThreadRunner);
+        playSound();
+    }
+
+    private void playSound() {
+        Log.v("!!!", "Sound started");
+        int mBufferSize = AudioTrack.getMinBufferSize(44100,
+                AudioFormat.CHANNEL_OUT_MONO,    
+                AudioFormat.ENCODING_PCM_8BIT);
+
+        AudioTrack mAudioTrack = new
+            AudioTrack(AudioManager.STREAM_MUSIC, 44100,
+                    AudioFormat.CHANNEL_OUT_MONO,    
+                    AudioFormat.ENCODING_PCM_8BIT,
+                    mBufferSize,
+                    AudioTrack.MODE_STREAM);
+
+        double[] mSound = new double[5*44100];
+
+        short[] mBuffer = new short[5*44100];
+
+        for (int i = 0; i < mSound.length; i++) {
+                mSound[i] = Math.sin((2.0*Math.PI * 440.0/44100.0*(double)i));
+                mBuffer[i] = (short) (mSound[i]*Short.MAX_VALUE);
+            }
+
+        mAudioTrack.setStereoVolume(1.0f, 1.0f);
+        mAudioTrack.play();
+
+        mAudioTrack.write(mBuffer, 0, mSound.length);
+        mAudioTrack.stop();
+        mAudioTrack.release();
+        Log.v("!!!", "Sound stopped");
     }
 
     @Override
