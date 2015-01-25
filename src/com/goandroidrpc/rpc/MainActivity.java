@@ -51,6 +51,19 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    protected void onPause() {
+        super.onResume();
+        rpcBackend.destroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        uiThreadRunner = new UIThreadRunner(this);
+        rpcBackend = new RpcBackendCaller(uiThreadRunner);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         rpcBackend.stop();

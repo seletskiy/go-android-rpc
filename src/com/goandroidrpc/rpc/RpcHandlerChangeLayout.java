@@ -22,15 +22,16 @@ public class RpcHandlerChangeLayout implements RpcHandlerInterface {
                     try {
                         mainActivity.setContentView(R.layout.class.getField(layoutName).getInt(null));
                     } catch(NoSuchFieldException e) {
+                        Log.v("!!! src/com/goandroidrpc/rpc/RpcHandlerChangeLayout.java:25", String.format("%s", e));
                     } catch(IllegalAccessException e) {
-                        // @TODO
+                        Log.v("!!! src/com/goandroidrpc/rpc/RpcHandlerChangeLayout.java:27", String.format("%s", e));
                     }
                     return null;
                 }
             });
         } catch (Exception e) {
             // @TODO: proper exception handling
-            Log.v("!!! EXCEPT", String.format("%s", e));
+            Log.v("!!! src/com/goandroidrpc/rpc/RpcHandlerChangeLayout.java:33", String.format("%s", e));
         }
 
         return result;

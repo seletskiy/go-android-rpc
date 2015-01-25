@@ -19,7 +19,6 @@ public class RpcBackendCaller {
             return Rpc.CallBackend(payload);
         }
 
-
         Object result;
         try {
             result = mUiThreadRunner.runAndDispatchUI(new Callable<Object>() {
