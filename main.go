@@ -28,7 +28,8 @@ func (handler AccelerometerHandler) OnChange(values []float64) {
 func (handler AccelerometerHandler) OnAccuracyChange() {}
 
 type ButtonHandler struct {
-	button sdk.Button
+	button          sdk.Button
+	accelerometerId string
 }
 
 func (handler ButtonHandler) OnClick() {
@@ -45,6 +46,10 @@ func (handler ButtonHandler) OnClick() {
 	result, err := handler.button.IsShown()
 	log.Printf("%#v", result)
 	log.Printf("%#v", err)
+
+	android.UnsubscribeToSensorValues(
+		handler.accelerometerId,
+	)
 
 	//android.ChangeLayout("another_layout")
 }
@@ -77,12 +82,12 @@ func start() {
 		panic(err)
 	}
 
-	touchButton := android.GetViewById("useless_touch_button").(sdk.Button)
-	android.OnTouch(touchButton, ButtonHandler{touchButton})
-
 	accelerometerId, err := sensors.GetString(
 		"sensors", "TYPE_ACCELEROMETER",
 	)
+
+	touchButton := android.GetViewById("useless_touch_button").(sdk.Button)
+	android.OnTouch(touchButton, ButtonHandler{touchButton, accelerometerId})
 
 	if err != nil {
 		panic(err)
@@ -96,7 +101,7 @@ func start() {
 	newView := android.CreateView("123", "android.widget.Button").(sdk.Button)
 	newView.SetText1s("I'm generated!")
 
-	android.OnClick(newView, ButtonHandler{newView})
+	android.OnClick(newView, ButtonHandler{newView, accelerometerId})
 	android.AttachView(newView, layout_id)
 	a := android.GetViewById("123")
 	log.Printf("main.go:102 %#v", a)

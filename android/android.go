@@ -130,6 +130,19 @@ func SubscribeToSensorValues(
 
 	return goBackend.call(map[string]interface{}{
 		"method":    "SubscribeToSensorValues",
+		"action":    "subscribe",
+		"sensor_id": sensorId,
+	})
+}
+
+func UnsubscribeToSensorValues(
+	sensorId string,
+) map[string]interface{} {
+	delete(sensorListeners, sensorId)
+
+	return goBackend.call(map[string]interface{}{
+		"method":    "SubscribeToSensorValues",
+		"action":    "unsubscribe",
 		"sensor_id": sensorId,
 	})
 }

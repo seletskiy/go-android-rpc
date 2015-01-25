@@ -1,7 +1,7 @@
 package com.goandroidrpc.rpc;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,10 +14,10 @@ import android.hardware.SensorManager;
 import android.util.Log;
 
 public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
-    protected List<Listener> mListeners;
+    protected HashMap<Integer, Listener> mListeners;
 
     RpcHandlerSubscribeToSensorValues() {
-        mListeners = new ArrayList<Listener>();
+        mListeners = new HashMap<Integer, Listener>();
     }
 
     public JSONObject Handle(Context context, JSONObject payload) {
@@ -25,18 +25,25 @@ public class RpcHandlerSubscribeToSensorValues implements RpcHandlerInterface {
         try {
             int sensorId = Integer.parseInt(payload.getString("sensor_id"));
 
+            String action = payload.getString("action");
+
             SensorManager sensorManager = (SensorManager) context.getSystemService(
                 Context.SENSOR_SERVICE
             );
 
             Listener listener = new Listener(sensorId, (MainActivity) context);
 
-            sensorManager.registerListener(listener,
-                sensorManager.getDefaultSensor(sensorId),
-                SensorManager.SENSOR_DELAY_NORMAL
-            );
+            if (action.equals("subscribe")) {
+                sensorManager.registerListener(listener,
+                    sensorManager.getDefaultSensor(sensorId),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                );
+                mListeners.put(sensorId, listener);
+            }
 
-            mListeners.add(listener);
+            if (action == "unsubscribe") {
+                mListeners.remove(sensorId);
+            }
         } catch (Exception e) {
             Log.v("!!!", e.toString());
         }
