@@ -272,6 +272,17 @@ func ChangeLayout(
 	})
 }
 
+func SetTextFromHtml(
+	view ViewObject,
+	html string,
+) {
+	goBackend.call(map[string]interface{}{
+		"method": "SetTextFromHtml",
+		"id":     view.GetId(),
+		"html":   html,
+	})
+}
+
 func (server *backend) Run() {
 	defer func() {
 	}()
