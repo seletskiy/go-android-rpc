@@ -47,6 +47,8 @@ func (handler ButtonHandler) OnClick() {
 	log.Printf("%#v", result)
 	log.Printf("%#v", err)
 
+	android.OpenWebPage("http://github.com/seletskiy/go-android-rpc/")
+
 	android.UnsubscribeToSensorValues(
 		handler.accelerometerId,
 	)

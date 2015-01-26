@@ -296,6 +296,15 @@ func SetTextFromHtml(
 	})
 }
 
+func OpenWebPage(
+	url string,
+) {
+	goBackend.call(map[string]interface{}{
+		"method": "OpenWebPage",
+		"url":    url,
+	})
+}
+
 func (server *backend) Run() {
 	defer func() {
 	}()
