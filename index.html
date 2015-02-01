@@ -3,14 +3,43 @@
         <title>Go-android-rpc — Go for Android</title>
         <meta charset="utf-8" />
         <meta name="description" content="Write Go applications for android using SDK." />
-        <link rel="stylesheet" href="/css/normalize.css" />
-        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
         <h1>Go-android-rpc</h1>
-        <h2>What it is and what it is not</h2>
+
+        <h2>What it is</h2>
         <p>
-            Content here.
+            Go-android-rpc is a framework written in Go and Java. It is a bridge between the device running Android and the application, which code written entirely in Go. Using go-android-rpc it is possible to interact with Android UI from Go code.
+        </p>
+        <p>
+            Framework features:
+        </p>
+        <ul>
+            <li>dynamic creation of UI elements</li>
+            <li>interaction with existing UI elements (set text, size, position etc)</li>
+            <li>listening for UI events (button clicks, touch etc)</li>
+            <li>retrieving a list of elements from layouts described as xml</li>
+            <li>subscribing to sensors (accelerometer, light etc)</li>
+        </ul>
+        <p>
+            Inside the application, all the power of Go can be utilized. Application may use channels, goroutines and the rest of Go magic.
+        </p>
+
+        <h2>What it is not</h2>
+        <p>
+            Go-android-rpc is not Java replacement. Application built with go-android-rpc works as shared library. Java can not be rejected at the time.
+        </p>
+
+        <h2>Installation</h2>
+        <p>
+            TODO: Detailed installation process at least for arch.
+        </p>
+
+        <h2>Usage</h2>
+        <p>
+            <a href="https://github.com/seletskiy/go-android-rpc/blob/master/main.go">Code sample</a> is better than nutella with banana.
         </p>
     </body>
 </html>
