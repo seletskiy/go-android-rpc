@@ -1,2 +1,7 @@
 body{padding:0 5em;font-family:sans-serif;}
 h1,h2,h3{font-family:serif;}
+.icolink{background-repeat:no-repeat;}
+.icolink-left{background-position:left center;padding-left:20px;}
+.icolink-github{background-image:url('../img/github.png');color:#000;opacity:0.75;}
+.icolink-github:hover{opacity:1;}
+.todo{color:#999;font-style:italic;}
