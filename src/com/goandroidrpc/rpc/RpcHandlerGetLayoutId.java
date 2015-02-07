@@ -7,14 +7,14 @@ import android.util.Log;
 import android.app.Activity;
 import android.content.Context;
 
-public class RpcHandlerGetLayoutById implements RpcHandlerInterface {
+public class RpcHandlerGetLayoutId implements RpcHandlerInterface {
     public JSONObject Handle(Context context, JSONObject payload) {
         JSONObject json = new JSONObject();
         try {
             String layoutName = payload.getString("layout");
             json.put("layout_id",
                 Integer.toString(
-                    R.id.class.getField(layoutName).getInt(null)
+                    R.layout.class.getField(layoutName).getInt(null)
                 )
             );
         } catch (Exception e) {
