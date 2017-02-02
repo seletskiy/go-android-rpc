@@ -57,7 +57,7 @@ There's a chance that no simple way to install all the needed software exists,
 but you can start from here: https://github.com/golang/mobile.
 
 Happy Arch Linux users can follow detailed instruction:
-https://github.com/seletskiy/kb/blob/master/howto/go-for-android-setup.md.
+https://github.com/seletskiy/kb/blob/master/40-howto/go-for-android-setup.md.
 
 After preparation, clone project and start cute little all.bash:
 ```
